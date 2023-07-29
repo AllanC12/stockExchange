@@ -1,16 +1,15 @@
 import './App.css'
+import { Outlet } from 'react-router-dom'
+
+import NavBar from "./components/NavBar"
+import Footer from "./components/Footer"
 
 function App() {
-  // const urlApi = `https://brapi.dev/api/quote/list`
-  
-  // const getTickets = async () => {
-  //   const res = await fetch(urlApi).then(res => res.json()).catch(err => err)
-  //   console.log(res.stocks)
-  // }
-  // getTickets()
- 
   return (
     <>
+     <NavBar/>
+      <Outlet/>
+     <Footer/>
     </>
   )
 }
