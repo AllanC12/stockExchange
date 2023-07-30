@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 
-import logo from "../../public/img/logo.png"
+// import logo from "../../public/img/logo.png"
 
 const NavBar = () => {
 
@@ -10,7 +10,7 @@ const NavBar = () => {
   return (
       <nav className="navbar">
         <div className="logo">
-          <img src={logo} alt="logotipo" />
+          {/* <img src={logo} alt="logotipo" /> */}
         </div>
         {
           statusUser ? (
