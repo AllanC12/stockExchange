@@ -8,13 +8,21 @@ const NavBar = () => {
   const [statusUser, setStatusUser] = useState(false);
 
   return (
-    <nav className="navbar">
-      <div className="logo">
-        <img src={logo} alt="logotipo" />
-      </div>
-      {statusUser ? <p>Logado</p> : <p></p>}
-    </nav>
-  );
-};
+ 
+       <nav className="navbar">
+        <div className="logo">
+          <img src={logo} alt="logotipo" />
+        </div>
+        {
+          statusUser ? (
+            <p>Logado</p>
+          ) : (
+            <p>Não logado</p>
+          )
+        }
+      </nav>
+  )
+}
+ 
 
-export default NavBar;
+ export default NavBar;
