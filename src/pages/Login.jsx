@@ -1,8 +1,10 @@
-import React from 'react'
+import "./sass_pages/Login.scss"
 
 const Login = () => {
   return (
-    <div>Login</div>
+    <div className="login">
+      Login
+    </div>
   )
 }
 
