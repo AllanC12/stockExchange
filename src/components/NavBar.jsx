@@ -18,7 +18,7 @@ const NavBar = () => {
           statusUser ? (
             <p>Logado</p>
           ) : (
-            <p>Não logado</p>
+            <h2>StockExchange</h2>
           )
         }
       </nav>

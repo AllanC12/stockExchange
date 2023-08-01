@@ -2,5 +2,19 @@
 
 .navbar{
   padding: 10px 2%;
-  background-color: #11152b;
+  background-color: #363f72;
+  @include define_flex(flex-start,center);
+  gap: 42%;
+
+  .logo{
+    width: 30px;
+    height: 30px;
+      img{
+        @include max_dimensions;
+      }
+  }
+
+  h2{
+    color: #fff;
+  }
 }
