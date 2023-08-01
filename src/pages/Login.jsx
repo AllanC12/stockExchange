@@ -1,9 +1,13 @@
-import React from 'react'
+import "./sass_pages/Login.scss"
 
+import Form from "../components/Form"
+ 
 const Login = () => {
   return (
-    <div>Login</div>
+    <div className="login">
+      <Form/>
+    </div>
   )
 }
 
-export default Login
+export default Login;

@@ -1,26 +1,28 @@
-import React from 'react'
-import { useState } from 'react'
+import "./sass_components/NavBar.scss";
 
-// import logo from "../../public/img/logo.png"
+import { useState } from "react";
+
+import logo from "../assets/logo.png"
 
 const NavBar = () => {
-
-  const [statusUser,setStatusUser] = useState(false)
+  const [statusUser, setStatusUser] = useState(false);
 
   return (
-      <nav className="navbar">
+ 
+       <nav className="navbar">
         <div className="logo">
-          {/* <img src={logo} alt="logotipo" /> */}
+          <img src={logo} alt="logotipo" />
         </div>
         {
           statusUser ? (
             <p>Logado</p>
           ) : (
-            <p>Não logado</p>
+            <h2>StockExchange</h2>
           )
         }
       </nav>
   )
 }
+ 
 
-export default NavBar
+ export default NavBar;

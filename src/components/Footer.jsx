@@ -1,9 +1,11 @@
-import React from 'react'
+import "./sass_components/Footer.scss"
 
 const Footer = () => {
   return (
-    <div>Footer</div>
-  )
+     <footer>
+      <p>Todos os direitos reservados</p>
+    </footer>
+   )
 }
 
 export default Footer
