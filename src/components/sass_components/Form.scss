@@ -1,0 +1,45 @@
+@import "../../sass_mixins/mixin.scss";
+
+.forms{
+    width: 100%;
+    max-width: 300px;
+    background-color: rgba(0,0,0,0.8);
+    padding: 20px 1%;
+    border-radius: 10px;
+
+    .form-login{
+        input{
+          width: 100%;
+          max-width: 220px;
+          display: block;
+          margin: 30px auto;
+          height: 28px;
+          padding-left: 5px;
+          outline: 0;
+          border:none;
+          background-color: #192452;
+          color: white;
+          transition: .5s;
+          border-radius: 5px;
+ 
+         }
+
+         input[type="submit"]{
+            background-color: #192452;
+            width: 200px;
+            height: 30px;
+            cursor: pointer;
+            transition: .5s;
+         }
+    }
+
+    input:not([type="submit"]):focus{
+        max-width: 240px;
+    }
+
+    input[type="submit"]:hover{
+        background-color: #131b36;
+     }
+ }
+
+

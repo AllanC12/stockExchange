@@ -9,6 +9,7 @@
 }
 
 @mixin define_flex($justifyContent,$allignItems) {
+    @include flex;
     justify-content: $justifyContent;
     align-items: $allignItems;
 }
