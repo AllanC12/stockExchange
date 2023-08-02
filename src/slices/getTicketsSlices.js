@@ -14,6 +14,11 @@ export const getTickets = createAsyncThunk("tickets/getTickets", async (url)=>{
   return data
 })
 
+export const sendDataUser = createAsyncThunk("data/sendDataUser",async (url,data) => {
+  const dataUser = getData.sendDataUser(url,data)
+  return dataUser
+})
+
 export const ticketsSlice = createSlice({
     name: "tickets",
     initialState,
@@ -32,6 +37,20 @@ export const ticketsSlice = createSlice({
          state.error = false,
          state.message = "Tickets carregados"
         }).addCase(getTickets.rejected,(state) => {
+            state.loading = false,
+            state.error = true,
+            state.message = "Ocorreu um erro..."
+        })
+        .addCase(sendDataUser.pending, (state) => {
+         state.loading = true,
+         state.success = false
+         state.message = "Cadastrando usuário..."
+        }).addCase(sendDataUser.fulfilled,(state,action) => {
+         state.tickets = action.payload
+         state.success = true,
+         state.error = false,
+         state.message = "Usuário cadastrado!"
+        }).addCase(sendDataUser.rejected,(state) => {
             state.loading = false,
             state.error = true,
             state.message = "Ocorreu um erro..."
