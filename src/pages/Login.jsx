@@ -1,13 +1,18 @@
-import "./sass_pages/Login.scss"
+import "./sass_pages/Login.scss";
 
-import Form from "../components/Form"
- 
+import { useState } from "react";
+
+import FormRegister from "../components/FormRegister";
+import FormLogin from "../components/FormLogin";
+
 const Login = () => {
+  const [statusLogin, setStatusLogin] = useState(true);
+  
   return (
     <div className="login">
-      <Form/>
+      {statusLogin ? <FormLogin /> : <FormRegister />}
     </div>
-  )
-}
+  );
+};
 
 export default Login;
