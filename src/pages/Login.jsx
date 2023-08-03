@@ -6,7 +6,7 @@ import FormRegister from "../components/FormRegister";
 import FormLogin from "../components/FormLogin";
 
 const Login = () => {
-  const [statusLogin, setStatusLogin] = useState(true);
+  const [statusLogin] = useState(false);
   
   return (
     <div className="login">
