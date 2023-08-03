@@ -18,8 +18,6 @@ const sendDataUser = async (url, data) => {
       },
       body: JSON.stringify(data),
     });
-    const response = resp.json();
-    return response;
   } catch (error) {
     console.log(error);
   }
