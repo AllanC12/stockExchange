@@ -14,10 +14,11 @@ const sendDataUser = async (url, data) => {
     const resp = await fetch(url, {
       method: "POST",
       headers: {
-        "content-type": "application/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    });
+    })
+
   } catch (error) {
     console.log(error);
   }

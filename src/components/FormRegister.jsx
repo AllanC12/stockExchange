@@ -23,18 +23,17 @@ const FormRegister = () => {
     password
   }
 
-
   const resetInputs = () => {
     setName("")
     setEmail("")
     setPassword("")
     setConfirmPassword("")
   }
-
- const handleSubmit = (e) => {
-  e.preventDefault()
-  dispatch(sendDataUser(urlServer,dataRegister))
-  resetInputs()
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    dispatch(sendDataUser(urlServer,dataRegister))
+    resetInputs()
  }
 
   return (
