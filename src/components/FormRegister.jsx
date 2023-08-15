@@ -2,7 +2,9 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { useDispatch,useSelector } from "react-redux";
-import { sendDataUser } from "../slices/getTicketsSlices";
+// import { sendDataUser } from "../slices/getTicketsSlices";
+
+import {sendDataUser} from '../slices/getTicketsSlices';
 
 import "./sass_components/Form.scss";
 
@@ -17,24 +19,23 @@ const FormRegister = () => {
   const [confirmPassword, setConfirmPassword] = useState("")
   
   const dataRegister = {
-    id: Math.floor(Math.random() * 1000000),
     name,
     email,
-    password
-  }
+    password,
+  };
 
   const resetInputs = () => {
-    setName("")
-    setEmail("")
-    setPassword("")
-    setConfirmPassword("")
-  }
-  
+    setName("");
+    setEmail("");
+    setPassword("");
+    setConfirmPassword("");
+  };
+
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    dispatch(sendDataUser(urlServer,dataRegister))
-    resetInputs()
- }
+    e.preventDefault();
+    await dispatch(sendDataUser(urlServer, dataRegister))
+    resetInputs();
+  };
 
   return (
     <div className="form">

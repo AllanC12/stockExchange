@@ -14,8 +14,14 @@ export const getTickets = createAsyncThunk("tickets/getTickets", async (url)=>{
   return data
 })
 
-export const sendDataUser = createAsyncThunk("data/sendDataUser",async (url,data) => {
- await getData.sendDataUser(url,data)
+export const sendDataUser = createAsyncThunk("tickets/sendDataUser",async (url,data,thunkAPI) => {
+    await getData.sendDataUser(url,data)
+
+    if(response.errors){
+      console.log('erro')
+      return thunkAPI.rejectWithValue(response.errors[0])
+    }
+    
 })
 
 export const ticketsSlice = createSlice({
@@ -27,28 +33,28 @@ export const ticketsSlice = createSlice({
         }
     },
     extraReducers: (builder) => {
-        builder.addCase(getTickets.pending, (state) => {
-         state.loading = true,
-         state.success = false
+            builder.addCase(getTickets.pending, (state) => {
+            state.loading = true,
+            state.success = false
         }).addCase(getTickets.fulfilled,(state,action) => {
-         state.tickets = action.payload
-         state.success = true,
-         state.error = false,
-         state.message = "Tickets carregados"
+            state.tickets = action.payload
+            state.success = true,
+            state.error = false,
+            state.message = "Tickets carregados"
         }).addCase(getTickets.rejected,(state) => {
             state.loading = false,
             state.error = true,
             state.message = "Ocorreu um erro..."
         })
         .addCase(sendDataUser.pending, (state) => {
-         state.loading = true,
-         state.success = false
-         state.message = "Cadastrando usuário..."
+            state.loading = true,
+            state.success = false
+            state.message = "Cadastrando usuário..."
         }).addCase(sendDataUser.fulfilled,(state,action) => {
-         state.tickets = action.payload
-         state.success = true,
-         state.error = false,
-         state.message = "Usuário cadastrado!"
+            state.tickets = action.payload
+            state.success = true,
+            state.error = false,
+            state.message = "Usuário cadastrado!"
         }).addCase(sendDataUser.rejected,(state) => {
             state.loading = false,
             state.error = true,
