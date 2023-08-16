@@ -9,16 +9,16 @@ const getTickets = async (url) => {
   }
 };
 
-const sendDataUser = async (url, data) => {
+export const sendDataUser = async (url, data) => {
     const response = await fetch(url, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
         "content-type": "application/json",
       },
-    }).then((res) => res.json());
+    })
 
-    return response; 
+    return response.json(); 
 
 };
 

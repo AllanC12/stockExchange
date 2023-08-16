@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { useDispatch,useSelector } from "react-redux";
-// import { sendDataUser } from "../slices/getTicketsSlices";
 
 import {sendDataUser} from '../slices/getTicketsSlices';
 
@@ -17,12 +16,18 @@ const FormRegister = () => {
   const [email,setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
+
   
   const dataRegister = {
     name,
     email,
     password,
   };
+  
+  const dataRequest = {
+    url: urlServer,
+    dataUser: dataRegister
+  }
 
   const resetInputs = () => {
     setName("");
@@ -33,7 +38,7 @@ const FormRegister = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await dispatch(sendDataUser(urlServer, dataRegister))
+    await dispatch(sendDataUser(dataRequest))
     resetInputs();
   };
 
