@@ -9,18 +9,17 @@ const getTickets = async (url) => {
   }
 };
 
-const sendDataUser = async (url, data) => {
-  try {
-    const resp = await fetch(url, {
+export const sendDataUser = async (url, data) => {
+    const response = await fetch(url, {
       method: "POST",
+      body: JSON.stringify(data),
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(data),
-    });
-  } catch (error) {
-    console.log(error);
-  }
+    })
+
+    return response.json(); 
+
 };
 
 const getData = {
