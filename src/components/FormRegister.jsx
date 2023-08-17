@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
 
+import { validate } from "./validate/Validate";
+
 import { sendDataUser } from "../slices/getTicketsSlices";
 
 import "./sass_components/Form.scss";
@@ -37,6 +39,8 @@ const FormRegister = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    await validate(dataRegister);
     await dispatch(sendDataUser(dataRequest));
     resetInputs();
   };
