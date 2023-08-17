@@ -45,4 +45,8 @@
   input[type="submit"]:hover {
     background-color: #131b36;
   }
+
+  input[type="submit"]:disabled {
+    cursor: wait;
+  }
 }
