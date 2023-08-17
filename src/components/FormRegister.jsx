@@ -18,6 +18,7 @@ const FormRegister = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [userRegistered,setUserRegistered] = useState(false)
 
   const dataRegister = {
     name,
@@ -39,8 +40,8 @@ const FormRegister = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    await validate(dataRegister);
+    if(userRegistered) return
+    await validate(dataRegister,setUserRegistered);
     await dispatch(sendDataUser(dataRequest));
     resetInputs();
   };

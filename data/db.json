@@ -7,9 +7,9 @@
       "id": 1
     },
     {
-      "name": "jose",
-      "email": "jose@gmail.com",
-      "password": "jose",
+      "name": "allan",
+      "email": "allan12@gmail.com",
+      "password": "allan",
       "id": 2
     },
     {
@@ -17,66 +17,6 @@
       "email": "allan12@gmail.com",
       "password": "allan",
       "id": 3
-    },
-    {
-      "name": "allan",
-      "email": "allan12@gmail.com",
-      "password": "allan",
-      "id": 4
-    },
-    {
-      "name": "allan",
-      "email": "allan12@gmail.com",
-      "password": "allan",
-      "id": 5
-    },
-    {
-      "name": "allan",
-      "email": "allan12@gmail.com",
-      "password": "allan",
-      "id": 6
-    },
-    {
-      "name": "alan",
-      "email": "alan12@gmail.com",
-      "password": "allan",
-      "id": 7
-    },
-    {
-      "name": "mariano",
-      "email": "mariano12@gmail.com",
-      "password": "allan",
-      "id": 8
-    },
-    {
-      "name": "vilmar",
-      "email": "vilmar12@gmail.com",
-      "password": "vilmar",
-      "id": 9
-    },
-    {
-      "name": "vilmar",
-      "email": "vilmar12@gmail.com",
-      "password": "vilmar",
-      "id": 10
-    },
-    {
-      "name": "allan",
-      "email": "allan12@gmail.com",
-      "password": "allan",
-      "id": 11
-    },
-    {
-      "name": "allan",
-      "email": "vilmar12@gmail.com",
-      "password": "allan",
-      "id": 12
-    },
-    {
-      "name": "vilmar",
-      "email": "vilmar12@gmail.com",
-      "password": "vilmar",
-      "id": 13
     }
   ]
 }
