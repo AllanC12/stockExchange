@@ -2,7 +2,8 @@
   "clients": [
     {
       "name": "allan",
-      "password": "password",
+      "email": "allan12@gmail.com",
+      "password": "allan",
       "id": 1
     },
     {
@@ -12,9 +13,9 @@
       "id": 2
     },
     {
-      "name": "jose",
-      "email": "jose@gmail.com",
-      "password": "jose121",
+      "name": "allan",
+      "email": "allan12@gmail.com",
+      "password": "allan",
       "id": 3
     }
   ]

@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import getData from "../services/getTicketsService";
 
+
 const initialState = {
   tickets: [],
   error: null,
@@ -17,9 +18,12 @@ export const getTickets = createAsyncThunk(
   }
 );
 
-export const sendDataUser = createAsyncThunk("tickets/sendDataUser",async ({url ,dataUser}) => { 
-    await getData.sendDataUser(url,dataUser)
-})
+export const sendDataUser = createAsyncThunk(
+  "tickets/sendDataUser",
+  async ({ url, dataUser }) => {
+    await getData.sendDataUser(url, dataUser);
+  }
+);
 
 export const ticketsSlice = createSlice({
   name: "tickets",
@@ -36,29 +40,32 @@ export const ticketsSlice = createSlice({
       })
       .addCase(getTickets.fulfilled, (state, action) => {
         state.tickets = action.payload;
-        (state.success = true),
-          (state.error = false),
-          (state.message = "Tickets carregados");
+        state.success = true,
+        state.error = false,
+        state.message = "Tickets carregados";
       })
       .addCase(getTickets.rejected, (state) => {
-        (state.loading = false),
-          (state.error = true),
-          (state.message = "Ocorreu um erro...");
+        state.loading = false,
+        state.error = true,
+        state.message = "Ocorreu um erro...";
       })
       .addCase(sendDataUser.pending, (state) => {
-        (state.loading = true), (state.success = false);
+        state.loading = true,
+        state.success = false;
         state.message = "Cadastrando usuário...";
       })
       .addCase(sendDataUser.fulfilled, (state, action) => {
         state.tickets = action.payload;
-        (state.success = true),
-          (state.error = false),
-          (state.message = "Usuário cadastrado!");
+          state.success = true,
+          state.error = false,
+          state.loading = false
+          state.message = "Usuário cadastrado!";
+          
       })
       .addCase(sendDataUser.rejected, (state) => {
-        (state.loading = false),
-          (state.error = true),
-          (state.message = "Ocorreu um erro...");
+        state.loading = false,
+          state.error = true,
+          state.message = "Ocorreu um erro...";
       });
   },
 });
