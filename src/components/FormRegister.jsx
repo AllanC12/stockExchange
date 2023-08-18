@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import { validate } from "./validate/Validate";
+import { validate, verifyUser } from "./validate/Validate";
 
 import { sendDataUser } from "../slices/getTicketsSlices";
 
@@ -18,7 +18,6 @@ const FormRegister = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [userRegistered,setUserRegistered] = useState(false)
 
   const dataRegister = {
     name,
@@ -40,10 +39,21 @@ const FormRegister = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if(userRegistered) return
-    await validate(dataRegister,setUserRegistered);
+
+    const userRegistered = await verifyUser(dataRegister)
+    const validatedUser = await validate(dataRegister);
+
+    if(userRegistered){
+      return
+    }
+
+    if(!validatedUser){
+      return 
+    }
+
     await dispatch(sendDataUser(dataRequest));
     resetInputs();
+
   };
 
   return (

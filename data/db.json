@@ -17,6 +17,24 @@
       "email": "allan12@gmail.com",
       "password": "allan",
       "id": 3
+    },
+    {
+      "name": "allan",
+      "email": "allan12@gmail.com",
+      "password": "allan",
+      "id": 4
+    },
+    {
+      "name": "allan",
+      "email": "allan12@gmail.com",
+      "password": "allan",
+      "id": 5
+    },
+    {
+      "name": "allan",
+      "email": "mariana12@gmail.com",
+      "password": "allan",
+      "id": 6
     }
   ]
 }
