@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import { validate, verifyUser } from "./validate/Validate";
+import { validateUserRegister, verifyUserRegister } from "./validate/Validate";
 
 import { sendDataUser } from "../slices/getTicketsSlices";
 
@@ -23,6 +23,7 @@ const FormRegister = () => {
     name,
     email,
     password,
+    confirmPassword
   };
 
   const dataRequest = {
@@ -40,8 +41,8 @@ const FormRegister = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const userRegistered = await verifyUser(dataRegister)
-    const validatedUser = await validate(dataRegister);
+    const userRegistered = await verifyUserRegister(dataRegister)
+    const validatedUser = await validateUserRegister(dataRegister);
 
     if(userRegistered){
       return
@@ -93,7 +94,7 @@ const FormRegister = () => {
         ) : (
           <input type="submit" value="Cadastrar-se" />
         )}
-        <Link>Ja tenho cadastro</Link>
+        <Link to="/">Ja tenho cadastro</Link>
       </form>
     </div>
   );

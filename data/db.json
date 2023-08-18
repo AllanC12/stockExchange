@@ -4,37 +4,28 @@
       "name": "allan",
       "email": "allan12@gmail.com",
       "password": "allan",
+      "confirmPassword": "allan",
       "id": 1
     },
     {
       "name": "allan",
-      "email": "allan12@gmail.com",
-      "password": "allan",
+      "email": "joao12@gmail.com",
+      "password": "dasdasd",
       "id": 2
     },
     {
       "name": "allan",
-      "email": "allan12@gmail.com",
+      "email": "allancandido12@gmail.com",
       "password": "allan",
+      "confirmPassword": "alçasdãçlsdad",
       "id": 3
     },
     {
-      "name": "allan",
-      "email": "allan12@gmail.com",
+      "name": "joao",
+      "email": "joaomario@gmail.com",
       "password": "allan",
+      "confirmPassword": "allan",
       "id": 4
-    },
-    {
-      "name": "allan",
-      "email": "allan12@gmail.com",
-      "password": "allan",
-      "id": 5
-    },
-    {
-      "name": "allan",
-      "email": "mariana12@gmail.com",
-      "password": "allan",
-      "id": 6
     }
   ]
 }
