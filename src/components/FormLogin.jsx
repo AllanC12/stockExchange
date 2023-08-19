@@ -32,7 +32,7 @@ const FormLogin = () => {
           required
         />
         <input type="submit" value="Entrar" />
-        <Link>Quero me cadastrar</Link>
+        <Link to="/register">Quero me cadastrar</Link>
       </form>
     </div>
   );
