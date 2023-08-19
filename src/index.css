@@ -8,4 +8,38 @@
 html,
 body {
   height: 100%;
+  background-image: url("https://www.modalmais.com.br/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2022/03/bull_market_mercado_touro.jpg.webp");
+  background-size: cover;
+  background-position: center;
 }
+
+.message{
+  cursor: pointer;
+  width: 100%;
+  max-width: 300px;
+  padding: 10px 15px;
+  background-color: #fff;
+  color: #000;
+  margin: 10px auto;
+  border: 1px solid #ccc;
+  text-align: center;
+  border-radius: 10px;
+  transition: .5s;
+}
+
+.message:hover{
+  background-color: #b8b3b3;
+  color: #000;
+}
+
+body {
+  min-height: 510px;
+  width: 100%;
+  background-image: url("https://www.modalmais.com.br/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2022/03/bull_market_mercado_touro.jpg.webp");
+  background-size: cover;
+  background-position: center;
+  /* @include define_flex(center,center); */
+}
+
+
+

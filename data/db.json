@@ -6,26 +6,6 @@
       "password": "allan",
       "confirmPassword": "allan",
       "id": 1
-    },
-    {
-      "name": "allan",
-      "email": "joao12@gmail.com",
-      "password": "dasdasd",
-      "id": 2
-    },
-    {
-      "name": "allan",
-      "email": "allancandido12@gmail.com",
-      "password": "allan",
-      "confirmPassword": "alçasdãçlsdad",
-      "id": 3
-    },
-    {
-      "name": "joao",
-      "email": "joaomario@gmail.com",
-      "password": "allan",
-      "confirmPassword": "allan",
-      "id": 4
     }
   ]
 }

@@ -11,8 +11,9 @@ import "./sass_components/Form.scss";
 
 const FormRegister = () => {
   const dispatch = useDispatch();
-  const { loading, message } = useSelector((state) => state.tickets);
+  const { loading } = useSelector((state) => state.tickets);
   const urlServer = import.meta.env.VITE_URL_SERVER;
+  const [message,setMessage] = useState()
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -23,7 +24,7 @@ const FormRegister = () => {
     name,
     email,
     password,
-    confirmPassword
+    confirmPassword,
   };
 
   const dataRequest = {
@@ -41,20 +42,21 @@ const FormRegister = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const userRegistered = await verifyUserRegister(dataRegister)
+    const userRegistered = await verifyUserRegister(dataRegister);
     const validatedUser = await validateUserRegister(dataRegister);
 
-    if(userRegistered){
-      return
+    if (userRegistered) {
+      setMessage('Email ja em uso')
+      return;
     }
 
-    if(!validatedUser){
-      return 
+    if (!validatedUser) {
+      setMessage('Insira dados válidos')
+      return;
     }
 
     await dispatch(sendDataUser(dataRequest));
     resetInputs();
-
   };
 
   return (
@@ -94,6 +96,7 @@ const FormRegister = () => {
         ) : (
           <input type="submit" value="Cadastrar-se" />
         )}
+         {message && <p className="message" >{message}</p>}
         <Link to="/">Ja tenho cadastro</Link>
       </form>
     </div>
