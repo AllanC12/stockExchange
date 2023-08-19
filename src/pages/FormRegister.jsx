@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import { validateUserRegister, verifyUserRegister } from "./validate/Validate";
+import { validateUserRegister, verifyUserRegister } from "../components/validate/Validate";
 
 import { sendDataUser } from "../slices/getTicketsSlices";
 
-import "./sass_components/Form.scss";
+import "./sass_pages/Form.scss";
 
 const FormRegister = () => {
   const dispatch = useDispatch();

@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { Link } from "react-router-dom";
 
-import "./sass_components/Form.scss";
+import "./sass_pages/Form.scss";
 
 const FormLogin = () => {
   const [email, setEmail] = useState("");
