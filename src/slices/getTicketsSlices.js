@@ -7,8 +7,7 @@ const initialState = {
   error: null,
   success: false,
   loading: false,
-  message: null,
-};
+ };
 
 export const getTickets = createAsyncThunk(
   "tickets/getTickets",
@@ -41,32 +40,26 @@ export const ticketsSlice = createSlice({
       .addCase(getTickets.fulfilled, (state, action) => {
         state.tickets = action.payload;
         state.success = true,
-        state.error = false,
-        state.message = "Tickets carregados";
-      })
+        state.error = false
+       })
       .addCase(getTickets.rejected, (state) => {
         state.loading = false,
-        state.error = true,
-        state.message = "Ocorreu um erro...";
-      })
+        state.error = true
+       })
       .addCase(sendDataUser.pending, (state) => {
         state.loading = true,
         state.success = false;
-        state.message = "Cadastrando usuário...";
-      })
+       })
       .addCase(sendDataUser.fulfilled, (state, action) => {
         state.tickets = action.payload;
           state.success = true,
           state.error = false,
-          state.loading = false
-          state.message = "Usuário cadastrado!";
-          
+          state.loading = false          
       })
       .addCase(sendDataUser.rejected, (state) => {
         state.loading = false,
-          state.error = true,
-          state.message = "Ocorreu um erro...";
-      });
+          state.error = true
+      })
   },
 });
 

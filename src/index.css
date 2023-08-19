@@ -9,3 +9,24 @@ html,
 body {
   height: 100%;
 }
+
+.message{
+  cursor: pointer;
+  width: 100%;
+  max-width: 300px;
+  padding: 10px 15px;
+  background-color: #fff;
+  color: #000;
+  margin: 10px auto;
+  border: 1px solid #ccc;
+  text-align: center;
+  border-radius: 10px;
+  transition: .5s;
+}
+
+.message:hover{
+  background-color: #b8b3b3;
+  color: #000;
+}
+
+
