@@ -15,7 +15,7 @@ export const verifyUserRegister = async (dataUser, setMessage) => {
   //usuário sem cadastro ou informações de login incorretas
   if (location.href === pageLogin) {
     if (respRegister.length === 0) {
-      setMessage("Verifique seu login");
+      setMessage("Verifique seu email");
       return true;
     }
   }
@@ -23,6 +23,9 @@ export const verifyUserRegister = async (dataUser, setMessage) => {
   //verificando senha caso tenha cadastro
   if (respRegister[0].password === dataUser.password) {
     setMessage(`Olá ${respRegister[0].name}`);
+  }else{
+    setMessage('Verifique sua senha')
+    return true
   }
 };
 
