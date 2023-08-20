@@ -1,12 +1,15 @@
 import { useState } from "react";
 
-import { Link } from "react-router-dom";
+import { Link,useNavigate} from "react-router-dom";
 
 import "./sass_pages/Form.scss";
 
 import { verifyUserRegister } from "../validate/Validate";
 
+
 const FormLogin = () => {
+  const navigate = useNavigate()
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message,setMessage] = useState('')
@@ -16,10 +19,17 @@ const FormLogin = () => {
     password,
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    verifyUserRegister(dataUser,setMessage)
-
+    let userLogin = await verifyUserRegister(dataUser,setMessage)
+    
+    if(userLogin){
+       return
+    }
+    
+    setTimeout(() => {
+      navigate('/home_broker')
+    },2000)
   };
 
   return (
