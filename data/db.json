@@ -34,6 +34,20 @@
       "password": "mario",
       "confirmPassword": "mario",
       "id": 5
+    },
+    {
+      "name": "marvin",
+      "email": "marvin12@gmail.com",
+      "password": "marvin",
+      "confirmPassword": "marvin",
+      "id": 6
+    },
+    {
+      "name": "john",
+      "email": "john12@gmail.com",
+      "password": "JOHN",
+      "confirmPassword": "JOHN",
+      "id": 7
     }
   ]
 }

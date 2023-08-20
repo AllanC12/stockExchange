@@ -57,6 +57,7 @@ const FormRegister = () => {
     }else{
       setMessage(`Seja bem vindo(a) ${dataRegister.name}`)
     }
+    
     await dispatch(sendDataUser(dataRequest));
 
     resetInputs();
