@@ -9,7 +9,7 @@ export const verifyUserRegister = async (dataUser) => {
 
 }
 
-export const validateUserRegister = async (dataUser) => {
+export const validateUserRegister = (dataUser) => {
   const keys = Object.keys(dataUser);
 
   for (let i = 0; i < keys.length; i++) {
@@ -23,4 +23,6 @@ export const validateUserRegister = async (dataUser) => {
   }
 
 };
+
+
 

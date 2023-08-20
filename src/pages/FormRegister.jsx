@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import { validateUserRegister, verifyUserRegister } from "../components/validate/Validate";
+import { validateUserRegister, verifyUserRegister } from "../validate/Validate";
 
 import { sendDataUser } from "../slices/getTicketsSlices";
 
@@ -13,12 +13,12 @@ const FormRegister = () => {
   const dispatch = useDispatch();
   const { loading } = useSelector((state) => state.tickets);
   const urlServer = import.meta.env.VITE_URL_SERVER;
-  const [message,setMessage] = useState()
+  const [message,setMessage] = useState('')
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState(null);
 
   const dataRegister = {
     name,
@@ -42,21 +42,28 @@ const FormRegister = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const userRegistered = await verifyUserRegister(dataRegister);
-    const validatedUser = await validateUserRegister(dataRegister);
+    let userRegistered = await verifyUserRegister(dataRegister);
+    let validatedUser = validateUserRegister(dataRegister);
 
     if (userRegistered) {
       setMessage('Email ja em uso')
+      userRegistered = false
       return;
     }
 
     if (!validatedUser) {
-      setMessage('Insira dados válidos')
+      setMessage('As senhas precisam ser iguais')
       return;
+    }else{
+      setMessage(`Seja bem vindo(a) ${dataRegister.name}`)
     }
-
     await dispatch(sendDataUser(dataRequest));
+
     resetInputs();
+    
+    setTimeout(() => {
+      setMessage('')
+    },2000)
   };
 
   return (
