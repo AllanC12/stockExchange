@@ -1,19 +1,35 @@
 import { useState } from "react";
 
-import { Link } from "react-router-dom";
+import { Link,useNavigate} from "react-router-dom";
 
-import "./sass_components/Form.scss";
+import "./sass_pages/Form.scss";
+
+import { verifyUserRegister } from "../validate/Validate";
+
 
 const FormLogin = () => {
+  const navigate = useNavigate()
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [message,setMessage] = useState('')
 
-  const handleSubmit = (e) => {
+  const dataUser = {
+    email,
+    password,
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const dataUser = {
-      email,
-      password,
-    };
+    let userLogin = await verifyUserRegister(dataUser,setMessage)
+    
+    if(userLogin){
+       return
+    }
+    
+    setTimeout(() => {
+      navigate('/home_broker')
+    },2000)
   };
 
   return (
@@ -32,6 +48,7 @@ const FormLogin = () => {
           required
         />
         <input type="submit" value="Entrar" />
+        {message && <p className="message">{message}</p>}
         <Link to="/register">Quero me cadastrar</Link>
       </form>
     </div>

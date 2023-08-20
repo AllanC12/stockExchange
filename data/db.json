@@ -6,6 +6,48 @@
       "password": "allan",
       "confirmPassword": "allan",
       "id": 1
+    },
+    {
+      "name": "allan",
+      "email": "allancandido12@gmail.com",
+      "password": "allan",
+      "confirmPassword": "allan",
+      "id": 2
+    },
+    {
+      "name": " jose",
+      "email": "jose@gmail.com",
+      "password": "jose",
+      "confirmPassword": "jose",
+      "id": 3
+    },
+    {
+      "name": "maria",
+      "email": "maria12@gmail.com",
+      "password": "maria",
+      "confirmPassword": "maria",
+      "id": 4
+    },
+    {
+      "name": "mario",
+      "email": "mario12@gmail.com",
+      "password": "mario",
+      "confirmPassword": "mario",
+      "id": 5
+    },
+    {
+      "name": "marvin",
+      "email": "marvin12@gmail.com",
+      "password": "marvin",
+      "confirmPassword": "marvin",
+      "id": 6
+    },
+    {
+      "name": "john",
+      "email": "john12@gmail.com",
+      "password": "JOHN",
+      "confirmPassword": "JOHN",
+      "id": 7
     }
   ]
 }

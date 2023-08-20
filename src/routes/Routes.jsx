@@ -1,6 +1,6 @@
-import Login from "../pages/Login"
+import FormRegister from "../pages/FormRegister"
+import FormLogin from "../pages/FormLogin"
 import HomeBroker from "../pages/HomeBroker"
-import FormRegister from "../components/FormRegister"
 import App from "../App"
 
 import { createBrowserRouter } from "react-router-dom"
@@ -12,7 +12,7 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <Login/>
+                element: <FormLogin/>
             },
             {
                 path: '/register',
