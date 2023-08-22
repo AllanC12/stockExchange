@@ -9,8 +9,16 @@ aside{
 
     .container_link{
       text-align: center;
-    //   background-color: red;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
+
+      a{
+        text-decoration: none;
+        color: #fff;
+        svg{
+          position: relative;
+          top: 2px;
+        }
+      }
     }
 
 }
