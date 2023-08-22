@@ -1,8 +1,10 @@
-import React from 'react'
+import "./sass_components/Aside.scss"
 
 const Aside = () => {
   return (
-    <div>Aside</div>
+    <aside>
+       
+    </aside>
   )
 }
 

@@ -1,4 +1,6 @@
-const getTickets = async (url) => {
+const url = import.meta.env.VITE_URL_API
+
+const getTickets = async () => {
   try {
     const response = await fetch(url)
       .then((resp) => resp.json())
@@ -9,7 +11,7 @@ const getTickets = async (url) => {
   }
 };
 
-export const sendDataUser = async (url, data) => {
+const sendDataUser = async (url, data) => {
     const response = await fetch(url, {
       method: "POST",
       body: JSON.stringify(data),
