@@ -12,15 +12,15 @@ const HomeBroker = () => {
 
   useEffect(() => {
     const searchTickets = async () => {
-      let data = await dispatch(getTickets())
-      setData(data)
+      let response = await dispatch(getTickets())
+      setData(response)
     }
     searchTickets()
   },[])
   
   
   return (
-    <div>
+    <div className="container_home">
       <Aside/>
     </div>
   )
