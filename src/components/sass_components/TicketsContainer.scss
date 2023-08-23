@@ -1,0 +1,63 @@
+@import "../../sass_mixins/mixin.scss";
+
+.tickets_container{
+  width: 100%;
+  max-width: 1100px;
+  max-height: 72vh;
+  margin-top: 5vh;
+  padding: 10px;
+  overflow-y: auto ;
+  @include define_flex(space-evenly,center);
+  flex-wrap: wrap;
+  gap: 20px;
+
+ 
+
+  .ticket{
+    border: 1px solid #fff;
+    border-radius: 8px;
+    background-color: rgba(24, 22, 41, 0.9);
+    padding: 10px;
+    width: 100%;
+    min-height: 30vh;
+    max-width: 240px;
+
+    .header-ticket{
+      @include define_flex(space-between,center);
+
+      img{
+        width: 50px;
+        height: 50px;
+      }
+
+      h2{
+        font-size: 15px;
+        color: #fff;
+      }
+    }
+
+    .content-ticket{
+      margin-top: 20px;
+      color: #fff;
+
+      h4{
+        margin-bottom: 5px;
+      }
+    }
+
+    .footer-ticket{
+      width: 100%;
+      text-align: center;
+      margin-top: 2vw;
+      color: #fff;
+      @include define_flex(center,center);
+      gap: 4vw;
+      font-size: 25px;
+
+      svg{
+        cursor: pointer;
+      }
+    }
+
+  }
+}

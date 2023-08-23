@@ -11,8 +11,8 @@ const initialState = {
 
 export const getTickets = createAsyncThunk(
   "tickets/getTickets",
-  async () => {
-    const data = await getData.getTickets();
+  async (url) => {
+    const data = await getData.getTickets(url);
     return data;
   }
 );

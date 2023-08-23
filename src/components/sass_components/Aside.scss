@@ -2,15 +2,23 @@
 
 aside{
     width: 100%;
-    max-width: 210px;
+    max-width: 190px;
     min-height: 90vh;
     background-color: rgba(24, 22, 41, 0.9);
     padding: 35px;
 
     .container_link{
       text-align: center;
-    //   background-color: red;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
+
+      a{
+        text-decoration: none;
+        color: #fff;
+        svg{
+          position: relative;
+          top: 2px;
+        }
+      }
     }
 
 }
