@@ -1,27 +1,13 @@
-import {useEffect,useState} from 'react'
-
-import { getTickets } from '../slices/getTicketsSlices'
-
+import "./sass_pages/HomeBroker.scss"
 import Aside from '../components/Aside'
-
-import { useDispatch } from 'react-redux'
+import TicketsContainer from "../components/TicketsContainer"
 
 const HomeBroker = () => {
-  const dispatch = useDispatch()
-  const [data,setData] = useState(null)
 
-  useEffect(() => {
-    const searchTickets = async () => {
-      let response = await dispatch(getTickets())
-      setData(response)
-    }
-    searchTickets()
-  },[])
-  
-  
   return (
     <div className="container_home">
       <Aside/>
+      <TicketsContainer />
     </div>
   )
 }

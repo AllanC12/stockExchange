@@ -1,6 +1,5 @@
-const url = import.meta.env.VITE_URL_API
 
-const getTickets = async () => {
+const getTickets = async (url) => {
   try {
     const response = await fetch(url)
       .then((resp) => resp.json())

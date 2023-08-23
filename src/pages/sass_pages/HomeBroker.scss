@@ -1,5 +1,6 @@
 @import "../../sass_mixins/mixin.scss";
 
 .container_home{
-    
-}
+    @include define_flex(flex-start,flex-start);
+    gap:3%; 
+ }
