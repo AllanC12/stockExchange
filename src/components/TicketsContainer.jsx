@@ -4,6 +4,15 @@ import "./sass_components/TicketsContainer.scss";
 
 import { getTickets } from "../slices/getTicketsSlices";
 
+import {
+  FaPlus,
+  FaStar,
+  FaRegStar,
+  FaRegBookmark,
+  FaBookmark,
+  FaCheck
+} from "react-icons/fa";
+
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 
@@ -18,12 +27,12 @@ const TicketsContainer = () => {
       let response = await dispatch(getTickets(url));
       setData(response);
     };
-     searchTickets();
+    searchTickets();
   }, []);
 
   setTimeout(() => {
-    console.log(data)
-  },1000)
+    console.log(data);
+  }, 1000);
 
   return (
     <div className="tickets_container">
@@ -34,7 +43,19 @@ const TicketsContainer = () => {
               <img src={stock.logo} />
               <h2>{stock.name}</h2>
             </div>
-           </div>
+
+            <div className="content-ticket">
+              <h4>Preço: R${stock.close}</h4>
+              <h4>Ticket: {stock.stock}</h4>
+              <h4>Setor: {stock.sector}</h4>
+            </div>
+
+            <div className="footer-ticket">
+                <FaPlus/>
+                <FaRegBookmark/>
+                <FaStar/>
+            </div>
+          </div>
         ))}
     </div>
   );
