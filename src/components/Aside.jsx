@@ -1,6 +1,6 @@
 import "./sass_components/Aside.scss"
 
-import {FaWallet, FaSearch,FaBitcoin, FaHome} from 'react-icons/fa'
+import {FaWallet, FaSearch,FaBitcoin, FaHome, FaStar} from 'react-icons/fa'
 
 import { Link } from "react-router-dom"
 
@@ -14,7 +14,10 @@ const Aside = () => {
         <Link><FaWallet/> <br/> Minha Carteira</Link>
        </div>    
       <div className="container_link">
-        <Link><FaSearch/> <br/> Investimentos à analisar</Link>
+        <Link><FaSearch/> <br/> Investimentos salvos</Link>
+       </div>    
+      <div className="container_link">
+        <Link><FaStar/> <br/> Meus favoritos</Link>
        </div>    
       <div className="container_link">
         <Link><FaBitcoin/> <br/> Criptomoedas</Link>

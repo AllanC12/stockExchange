@@ -4,19 +4,12 @@ import "./sass_components/TicketsContainer.scss";
 
 import { getTickets } from "../slices/getTicketsSlices";
 
-import {
-  FaPlus,
-  FaStar,
-  FaRegStar,
-  FaRegBookmark,
-  FaBookmark,
-  FaCheck
-} from "react-icons/fa";
+import Ticket from "./Ticket";
 
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 
-const TicketsContainer = () => {
+const TicketsContainer = ({ setBag, setSaves, setFavorites }) => {
   const dispatch = useDispatch();
   const [data, setData] = useState(null);
 
@@ -28,34 +21,19 @@ const TicketsContainer = () => {
       setData(response);
     };
     searchTickets();
-  }, []);
-
-  setTimeout(() => {
-    console.log(data);
-  }, 1000);
+  }, [url]);
 
   return (
     <div className="tickets_container">
       {data &&
         data.payload.stocks.map((stock) => (
-          <div key={stock.stock} className="ticket">
-            <div className="header-ticket">
-              <img src={stock.logo} />
-              <h2>{stock.name}</h2>
-            </div>
-
-            <div className="content-ticket">
-              <h4>Preço: R${stock.close}</h4>
-              <h4>Ticket: {stock.stock}</h4>
-              <h4>Setor: {stock.sector}</h4>
-            </div>
-
-            <div className="footer-ticket">
-                <FaPlus/>
-                <FaRegBookmark/>
-                <FaStar/>
-            </div>
-          </div>
+          <Ticket
+            key={stock.stock}
+            setBag={setBag}
+            setSaves={setSaves}
+            setFavorites={setFavorites}
+            stock={stock}
+          />
         ))}
     </div>
   );

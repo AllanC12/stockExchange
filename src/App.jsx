@@ -10,11 +10,9 @@ function App() {
 
   return (
     <div className="App">
-      <ContextUserDataProvider value={{true:'ok'}}>
         <NavBar/>
          <Outlet/>
         <Footer/>
-      </ContextUserDataProvider>
     </div>
   )
 }
