@@ -14,15 +14,15 @@ import {
 const Ticket = ({ setBag, setSaves, setFavorites, stock }) => {
   
   const addBag = (stock) => {
-    setBag((prevBag) => new Set([...prevBag, stock]));
+    setBag((prevBag) => Array.from(new Set([...prevBag, stock])));
   };
 
   const addSaves = (stock) => {
-    setSaves((prevSaves) => new Set([...prevSaves,stock]))
+    setSaves((prevSaves) => Array.from(new Set([...prevSaves,stock])))
   }
 
   const addFavorites = (stock) => {
-    setFavorites((prevFavorites) => new Set([...prevFavorites,stock]))
+    setFavorites((prevFavorites) => Array.from(new Set([...prevFavorites,stock])))
   }
 
   return (

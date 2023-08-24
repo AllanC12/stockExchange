@@ -9,7 +9,7 @@ const HomeBroker = () => {
   const [saves, setSaves] = useState([]);
   const [favorites, setFavorites] = useState([]);
 
-  console.log(saves)
+  console.log(favorites)
 
   return (
     <div className="container_home">
