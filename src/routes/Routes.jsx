@@ -21,6 +21,10 @@ export const router = createBrowserRouter([
             {
                 path: "/home_broker",
                 element: <HomeBroker/>
+            },
+            {
+                path: "home_broker/saves",
+                element: <HomeBroker/>
             }
         ]
     }

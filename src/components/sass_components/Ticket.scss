@@ -8,6 +8,8 @@
     width: 100%;
     min-height: 30vh;
     max-width: 240px;
+    transition: .5s;
+    cursor: pointer;
 
     .header-ticket{
       @include define_flex(space-between,center);
@@ -46,4 +48,8 @@
       }
     }
 
+}
+
+.ticket:hover{
+  scale: 1.05;
 }

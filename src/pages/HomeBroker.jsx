@@ -9,15 +9,16 @@ const HomeBroker = () => {
   const [saves, setSaves] = useState([]);
   const [favorites, setFavorites] = useState([]);
 
-  console.log(favorites)
-
   return (
     <div className="container_home">
       <Aside />
       <TicketsContainer
         setBag={setBag}
+        bag={bag}
         setSaves={setSaves}
+        saves={saves}
         setFavorites={setFavorites}
+        favorites={favorites}
       />
     </div>
   );

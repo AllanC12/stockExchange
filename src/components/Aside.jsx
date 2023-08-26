@@ -14,7 +14,7 @@ const Aside = () => {
         <Link><FaWallet/> <br/> Minha Carteira</Link>
        </div>    
       <div className="container_link">
-        <Link><FaSearch/> <br/> Investimentos salvos</Link>
+        <Link to="saves"><FaSearch/> <br/> Investimentos salvos</Link>
        </div>    
       <div className="container_link">
         <Link><FaStar/> <br/> Meus favoritos</Link>
