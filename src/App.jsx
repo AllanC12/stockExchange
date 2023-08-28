@@ -10,9 +10,11 @@ function App() {
 
   return (
     <div className="App">
+      <ContextUserDataProvider>
         <NavBar/>
          <Outlet/>
         <Footer/>
+      </ContextUserDataProvider>
     </div>
   )
 }

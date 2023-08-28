@@ -1,18 +1,15 @@
 import "./sass_pages/HomeBroker.scss";
 import Aside from "../components/Aside";
 import TicketsContainer from "../components/TicketsContainer";
-
-import { useState } from "react";
+import { UseMyContext } from "../context/Context";
 
 const HomeBroker = () => {
-  const [bag, setBag] = useState([]);
-  const [saves, setSaves] = useState([]);
-  const [favorites, setFavorites] = useState([]);
 
-  console.log(favorites)
+  const {methods} = UseMyContext()
+  const {setBag,setSaves,setFavorites} = methods
 
   return (
-    <div className="container_home">
+    <div className="container_ticket">
       <Aside />
       <TicketsContainer
         setBag={setBag}
