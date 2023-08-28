@@ -11,13 +11,13 @@ const Aside = () => {
         <Link><FaHome/> <br/> Início</Link>
        </div>    
       <div className="container_link">
-        <Link><FaWallet/> <br/> Minha Carteira</Link>
+        <Link to="portfolio"><FaWallet/> <br/> Minha Carteira</Link>
        </div>    
       <div className="container_link">
         <Link to="saves"><FaSearch/> <br/> Investimentos salvos</Link>
        </div>    
       <div className="container_link">
-        <Link><FaStar/> <br/> Meus favoritos</Link>
+        <Link to="favorites"><FaStar/> <br/> Meus favoritos</Link>
        </div>    
       <div className="container_link">
         <Link><FaBitcoin/> <br/> Criptomoedas</Link>

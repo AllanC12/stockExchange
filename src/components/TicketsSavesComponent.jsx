@@ -10,7 +10,7 @@ const TicketsSavesComponent = () => {
 
   return (
     <div className="tickets_container">
-      {saves ? (
+      {saves.length > 0 ? (
         saves.map((save) => <Ticket key={save.stock} stock={save} />)
       ) : (
         <p>Ainda não há itens salvos</p>

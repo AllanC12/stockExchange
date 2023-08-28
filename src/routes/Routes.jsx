@@ -2,6 +2,8 @@ import FormRegister from "../pages/FormRegister"
 import FormLogin from "../pages/FormLogin"
 import HomeBroker from "../pages/HomeBroker"
 import TicketsSaves from "../pages/TicketsSaves";
+import TicketsFavorites from "../pages/TicketsFavorites";
+import TicketsPortfolio from "../pages/TicketsPortfolio";
 import App from "../App";
 
 import { createBrowserRouter } from "react-router-dom";
@@ -26,6 +28,14 @@ export const router = createBrowserRouter([
       {
         path: "home_broker/saves",
         element: <TicketsSaves />,
+      },
+      {
+        path: "home_broker/favorites",
+        element: <TicketsFavorites/>,
+      },
+      {
+        path: "home_broker/portfolio",
+        element: <TicketsPortfolio/>,
       },
     ],
   },
