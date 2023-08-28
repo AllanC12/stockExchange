@@ -11,11 +11,8 @@ import { useEffect, useState } from "react";
 
 const TicketsContainer = ({
   setBag,
-  bag,
   setSaves,
-  saves,
   setFavorites,
-  favorites,
 }) => {
   const dispatch = useDispatch();
   const [data, setData] = useState(null);
@@ -38,21 +35,23 @@ const TicketsContainer = ({
   return (
     <div className="tickets_container">
       {data &&
-        location.href === addressHome &&
-        data.payload.stocks.map((stock) => (
-          <Ticket
-            key={stock.stock}
-            setBag={setBag}
-            setSaves={setSaves}
-            setFavorites={setFavorites}
-            stock={stock}
-          />
-        ))}
-      {location.href === addressSave && saves.length > 0 ? (
-        saves.map((save) => <Ticket key={save.stock} stock={save} />)
-      ) : (
-        <p>Ainda não há itens salvos</p>
-      )}
+        location.href === addressHome ? (
+          data.payload.stocks.map((stock) => (
+            <Ticket
+              key={stock.stock}
+              setBag={setBag}
+              setSaves={setSaves}
+              setFavorites={setFavorites}
+              stock={stock}
+            />
+          ))
+        ) : (
+
+          <p>Carregando...</p>
+        )
+      
+      }
+
     </div>
   );
 };
