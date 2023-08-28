@@ -9,7 +9,7 @@ const HomeBroker = () => {
   const {setBag,setSaves,setFavorites} = methods
 
   return (
-    <div className="container_home">
+    <div className="container_ticket">
       <Aside />
       <TicketsContainer
         setBag={setBag}
