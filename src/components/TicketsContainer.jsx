@@ -19,15 +19,13 @@ const TicketsContainer = ({
 
   const url = import.meta.env.VITE_URL_API;
 
-
-
   useEffect(() => {
     const searchTickets = async () => {
       let response = await dispatch(getTickets(url));
       setData(response);
     };
     searchTickets();
-  }, [url]);
+  }, []);
 
   return (
     <div className="tickets_container">

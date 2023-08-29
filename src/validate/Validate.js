@@ -20,13 +20,21 @@ export const verifyUserRegister = async (dataUser, setMessage) => {
     }
   }
 
+  console.log(respRegister)
+
   //verificando senha caso tenha cadastro
-  if (respRegister[0].password === dataUser.password) {
-    setMessage(`Olá ${respRegister[0].name}`);
+  if(respRegister.length === 0){
+    return
   }else{
-    setMessage('Verifique sua senha')
-    return true
+    if (respRegister[0].password === dataUser.password) {
+      setMessage(`Olá ${respRegister[0].name}`);
+    }else{
+      setMessage('Verifique sua senha')
+      return true
+    }
   }
+
+
 };
 
 //validações adicionais
