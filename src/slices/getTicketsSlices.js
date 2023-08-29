@@ -35,7 +35,8 @@ export const ticketsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getTickets.pending, (state) => {
-        (state.loading = true), (state.success = false);
+        state.loading = true,
+        state.success = false;
       })
       .addCase(getTickets.fulfilled, (state, action) => {
         state.tickets = action.payload;
