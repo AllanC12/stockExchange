@@ -20,6 +20,13 @@
       "password": "joshe",
       "confirmPassword": "joshe",
       "id": 3
+    },
+    {
+      "name": "Allan",
+      "email": "allan12122121212221212@gmail.com",
+      "password": "allan",
+      "confirmPassword": "allan",
+      "id": 4
     }
   ]
 }

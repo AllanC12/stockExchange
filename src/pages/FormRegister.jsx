@@ -13,7 +13,7 @@ const FormRegister = () => {
   const dispatch = useDispatch();
   const { loading } = useSelector((state) => state.tickets);
   const urlServer = import.meta.env.VITE_URL_SERVER;
-  const [message,setMessage] = useState('')
+  const [message, setMessage] = useState("");
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -46,25 +46,25 @@ const FormRegister = () => {
     let validatedUser = validateUserRegister(dataRegister);
 
     if (userRegistered) {
-      setMessage('Email ja em uso')
-      userRegistered = false
+      setMessage("Email ja em uso");
+      userRegistered = false;
       return;
     }
 
     if (!validatedUser) {
-      setMessage('As senhas precisam ser iguais')
+      setMessage("As senhas precisam ser iguais");
       return;
-    }else{
-      setMessage(`Seja bem vindo(a) ${dataRegister.name}`)
+    } else {
+      setMessage(`Seja bem vindo(a) ${dataRegister.name}`);
     }
-    
+
     await dispatch(sendDataUser(dataRequest));
 
     resetInputs();
-    
+
     setTimeout(() => {
-      setMessage('')
-    },2000)
+      setMessage("");
+    }, 2000);
   };
 
   return (
@@ -99,12 +99,9 @@ const FormRegister = () => {
           required
           value={confirmPassword || ""}
         />
-        {loading ? (
-          <input type="submit" disabled value="Carregando..." />
-        ) : (
-          <input type="submit" value="Cadastrar-se" />
-        )}
-         {message && <p className="message" >{message}</p>}
+
+        <input type="submit" value="Cadastrar-se" />
+        {message && <p className="message">{message}</p>}
         <Link to="/">Ja tenho cadastro</Link>
       </form>
     </div>
