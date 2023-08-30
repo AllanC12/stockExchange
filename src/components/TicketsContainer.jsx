@@ -9,11 +9,8 @@ import Ticket from "./Ticket";
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 
-const TicketsContainer = ({
-  setBag,
-  setSaves,
-  setFavorites,
-}) => {
+const TicketsContainer = () => {
+
   const dispatch = useDispatch();
   const [data, setData] = useState(null);
 
@@ -25,7 +22,7 @@ const TicketsContainer = ({
       setData(response);
     };
     searchTickets();
-  }, []);
+  }, [url]);
 
   return (
     <div className="tickets_container">
@@ -33,9 +30,6 @@ const TicketsContainer = ({
           data.payload.stocks.map((stock) => (
             <Ticket
               key={stock.stock}
-              setBag={setBag}
-              setSaves={setSaves}
-              setFavorites={setFavorites}
               stock={stock}
             />
           ))
