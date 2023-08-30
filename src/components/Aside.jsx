@@ -8,16 +8,16 @@ const Aside = () => {
   return (
     <aside>
       <div className="container_link">
-        <Link><FaHome/> <br/> Início</Link>
+        <Link to="/home_broker"><FaHome/> <br/> Início</Link>
        </div>    
       <div className="container_link">
-        <Link to="portfolio"><FaWallet/> <br/> Minha Carteira</Link>
+        <Link to="/portfolio"><FaWallet/> <br/> Minha Carteira</Link>
        </div>    
       <div className="container_link">
-        <Link to="saves"><FaSearch/> <br/> Investimentos salvos</Link>
+        <Link to="/saves"><FaSearch/> <br/> Investimentos salvos</Link>
        </div>    
       <div className="container_link">
-        <Link to="favorites"><FaStar/> <br/> Meus favoritos</Link>
+        <Link to="/favorites"><FaStar/> <br/> Meus favoritos</Link>
        </div>    
       <div className="container_link">
         <Link><FaBitcoin/> <br/> Criptomoedas</Link>
