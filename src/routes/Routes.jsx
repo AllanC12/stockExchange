@@ -26,15 +26,15 @@ export const router = createBrowserRouter([
         element: <HomeBroker />,
       },
       {
-        path: "home_broker/saves",
+        path: "/saves",
         element: <TicketsSaves />,
       },
       {
-        path: "home_broker/favorites",
+        path: "/favorites",
         element: <TicketsFavorites/>,
       },
       {
-        path: "home_broker/portfolio",
+        path: "/portfolio",
         element: <TicketsPortfolio/>,
       },
     ],

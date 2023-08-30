@@ -2,6 +2,8 @@ import "./sass_components/Ticket.scss";
 
 import { useState } from "react";
 
+import { UseMyContext } from "../context/Context";
+
 import {
   FaPlus,
   FaStar,
@@ -11,8 +13,11 @@ import {
   FaCheck,
 } from "react-icons/fa";
 
-const Ticket = ({ setBag, setSaves, setFavorites, stock }) => {
-  
+const Ticket = ({ stock }) => {
+
+  const {methods} = UseMyContext()
+  const {setBag,setSaves,setFavorites} = methods
+
   const addBag = (stock) => {
     setBag((prevBag) => Array.from(new Set([...prevBag, stock])));
   };

@@ -27,6 +27,13 @@
       "password": "allan",
       "confirmPassword": "allan",
       "id": 4
+    },
+    {
+      "name": "marcio",
+      "email": "marcio12@gmail.com",
+      "password": "marcio1212",
+      "confirmPassword": "marcio1212",
+      "id": 5
     }
   ]
 }
