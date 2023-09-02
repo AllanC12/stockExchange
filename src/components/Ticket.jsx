@@ -47,15 +47,14 @@ const Ticket = ({ stock }) => {
       </div>
 
       <div className="footer-ticket">
-        <div
-          className="add-portfolio"
-          onClick={() => addBag(stock)}
-          title="Adicionar na carteira"
-        >
-          {bag.includes(stock) ? (
-            <FaCheck/>
+        <div className="add-portfolio">
+          {bag.some((item) => item.stock === stock.stock) ? (
+            <FaCheck />
           ) : (
-            <FaPlus/>
+            <FaPlus
+              onClick={() => addBag(stock)}
+              title="Adicionar na carteira"
+            />
           )}
         </div>
         <div
@@ -63,10 +62,10 @@ const Ticket = ({ stock }) => {
           onClick={() => addSaves(stock)}
           title="Salvar para mais tarde"
         >
-          {saves.includes(stock) ? (
-            <FaBookmark/>
+          {saves.some((item) => item.stock === stock.stock) ? (
+            <FaBookmark />
           ) : (
-            <FaRegBookmark/>
+            <FaRegBookmark title="Salvar investimento" />
           )}
         </div>
         <div
@@ -74,10 +73,10 @@ const Ticket = ({ stock }) => {
           onClick={() => addFavorites(stock)}
           title="Favoritar investimento"
         >
-          {favorites.includes(stock) ? (
-            <FaStar/>
+          {favorites.some((item) => item.stock === stock.stock) ? (
+            <FaStar />
           ) : (
-            <FaRegStar/>
+            <FaRegStar title="Favoritar investimento" />
           )}
         </div>
       </div>

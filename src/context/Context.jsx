@@ -13,6 +13,9 @@ export const ContextUserDataProvider = ({ children }) => {
       setFavorites
    }
 
+   console.log(bag)
+
+
    const states = {
       bag,
       saves,
