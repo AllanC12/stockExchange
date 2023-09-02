@@ -11,7 +11,7 @@ const TicketsFavoritesComponent = () => {
   return (
     <div className="tickets_container">
       {favorites.length > 0 ? (
-        favorites.map((save) => <Ticket key={save.stock} stock={save} />)
+        favorites.map((save,index) => <Ticket key={index} stock={save} />)
       ) : (
         <p>Ainda não há itens salvos</p>
       )}

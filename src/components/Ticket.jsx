@@ -14,24 +14,14 @@ import {
 } from "react-icons/fa";
 
 const Ticket = ({ stock }) => {
-  const { methods } = UseMyContext();
+
+  const { methodsAdd } = UseMyContext();
+  const { methodsRemove } = UseMyContext();
   const { states } = UseMyContext();
-  const { setBag, setSaves, setFavorites } = methods;
+  const {addBag,addSaves,addFavorites} = methodsAdd;
   const { bag, saves, favorites } = states;
+  const {removeFromBag,removeFromSaves,removeFromFavorites} = methodsRemove
 
-  const addBag = (stock) => {
-    setBag((prevBag) => Array.from(new Set([...prevBag, stock])));
-  };
-
-  const addSaves = (stock) => {
-    setSaves((prevSaves) => Array.from(new Set([...prevSaves, stock])));
-  };
-
-  const addFavorites = (stock) => {
-    setFavorites((prevFavorites) =>
-      Array.from(new Set([...prevFavorites, stock]))
-    );
-  };
 
   return (
     <div key={stock.stock} className="ticket">
@@ -47,40 +37,33 @@ const Ticket = ({ stock }) => {
       </div>
 
       <div className="footer-ticket">
-        <div
-          className="add-portfolio"
-          onClick={() => addBag(stock)}
-          title="Adicionar na carteira"
-        >
-          {bag.includes(stock) ? (
-            <FaCheck/>
+          {bag.some((item) => item.stock === stock.stock) ? (
+            <FaCheck onClick={() => removeFromBag(stock)} title="Investimento em carteira" />
           ) : (
-            <FaPlus/>
+            <FaPlus
+              onClick={() => addBag(stock)}
+              title="Adicionar na carteira"
+            />
           )}
-        </div>
-        <div
-          className="add-saves"
-          onClick={() => addSaves(stock)}
-          title="Salvar para mais tarde"
-        >
-          {saves.includes(stock) ? (
-            <FaBookmark/>
+
+          {saves.some((item) => item.stock === stock.stock) ? (
+            <FaBookmark onClick={() => removeFromSaves(stock)} title="Investimento salvo" />
           ) : (
-            <FaRegBookmark/>
+            <FaRegBookmark
+              onClick={() => addSaves(stock)}
+              title="Salvar investimento"
+            />
           )}
-        </div>
-        <div
-          className="add-favorites"
-          onClick={() => addFavorites(stock)}
-          title="Favoritar investimento"
-        >
-          {favorites.includes(stock) ? (
-            <FaStar/>
+
+          {favorites.some((item) => item.stock === stock.stock) ? (
+            <FaStar onClick={() => removeFromFavorites(stock)} title="Adicionado nos favoritos" />
           ) : (
-            <FaRegStar/>
+            <FaRegStar
+              onClick={() => addFavorites(stock)}
+              title="Favoritar investimento"
+            />
           )}
-        </div>
-      </div>
+       </div>
     </div>
   );
 };

@@ -24,12 +24,14 @@ const TicketsContainer = () => {
     searchTickets();
   }, [url]);
 
+  console.log(data)
+
   return (
     <div className="tickets_container">
       {data ? (
-          data.payload.stocks.map((stock) => (
+          data.payload.stocks.map((stock,index) => (
             <Ticket
-              key={stock.stock}
+              key={index}
               stock={stock}
             />
           ))
