@@ -36,7 +36,7 @@ const TicketsContainer = () => {
             />
           ))
         ) : (
-          <p>Carregando...</p>
+          <p className="load-ticket">Carregando...</p>
         )
       
       }

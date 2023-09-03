@@ -15,13 +15,11 @@ import {
 
 const Ticket = ({ stock }) => {
 
-  const { methodsAdd } = UseMyContext();
-  const { methodsRemove } = UseMyContext();
-  const { states } = UseMyContext();
-  const {addBag,addSaves,addFavorites} = methodsAdd;
+  const { methodAdd,methodRemove,states,setLists } = UseMyContext();
+  const {addFunction} = methodAdd;
+  const {removeFunction} = methodRemove
   const { bag, saves, favorites } = states;
-  const {removeFromBag,removeFromSaves,removeFromFavorites} = methodsRemove
-
+  const {setBag,setSaves,setFavorites} = setLists
 
   return (
     <div key={stock.stock} className="ticket">
@@ -38,28 +36,28 @@ const Ticket = ({ stock }) => {
 
       <div className="footer-ticket">
           {bag.some((item) => item.stock === stock.stock) ? (
-            <FaCheck onClick={() => removeFromBag(stock)} title="Investimento em carteira" />
+            <FaCheck onClick={() => removeFunction(stock,setBag)} title="Remover investimento" />
           ) : (
             <FaPlus
-              onClick={() => addBag(stock)}
+              onClick={() => addFunction(stock,setBag)}
               title="Adicionar na carteira"
             />
           )}
 
           {saves.some((item) => item.stock === stock.stock) ? (
-            <FaBookmark onClick={() => removeFromSaves(stock)} title="Investimento salvo" />
+            <FaBookmark onClick={() => removeFunction(stock,setSaves)} title="Remover investimento" />
           ) : (
             <FaRegBookmark
-              onClick={() => addSaves(stock)}
+              onClick={() => addFunction(stock,setSaves)}
               title="Salvar investimento"
             />
           )}
 
           {favorites.some((item) => item.stock === stock.stock) ? (
-            <FaStar onClick={() => removeFromFavorites(stock)} title="Adicionado nos favoritos" />
+            <FaStar onClick={() => removeFunction(stock,setFavorites)} title="Remover investimento" />
           ) : (
             <FaRegStar
-              onClick={() => addFavorites(stock)}
+              onClick={() => addFunction(stock,setFavorites)}
               title="Favoritar investimento"
             />
           )}

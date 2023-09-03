@@ -52,8 +52,10 @@ body {
   background-image: url("https://www.modalmais.com.br/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2022/03/bull_market_mercado_touro.jpg.webp");
   background-size: cover;
   background-position: center;
-  /* @include define_flex(center,center); */
 }
 
+.active{
+  border-bottom: 1px solid #fff;
+}
 
-
+ 
