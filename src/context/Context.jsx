@@ -7,40 +7,25 @@ export const ContextUserDataProvider = ({ children }) => {
    const [saves, setSaves] = useState([]);
    const [favorites, setFavorites] = useState([]);
 
-   const addBag = (stock) => {
-      setBag((prevBag) => Array.from(new Set([...prevBag, stock])));
-    };
-  
-    const addSaves = (stock) => {
-      setSaves((prevSaves) => Array.from(new Set([...prevSaves, stock])));
-    };
-  
-    const addFavorites = (stock) => {
-      setFavorites((prevFavorites) =>
-        Array.from(new Set([...prevFavorites, stock]))
-      );
-    };
-
-    const removeFromBag = (stock) => {
-      setBag(prevBag => prevBag.filter(item => item.stock !== stock.stock))
+    const addFunction = (stock,setStockAdd) => {
+      setStockAdd(prevStockAdded => Array.from(new Set([...prevStockAdded, stock])));
     }
 
-    const removeFromSaves = (stock) => {
-      setSaves(prevSaves => prevSaves.filter(item => item.stock !== stock.stock))
+    const removeFunction = (stock,setListStock) => {
+      setListStock(prevList => prevList.filter(item => item.stock !== stock.stock))
     }
 
-    const removeFromFavorites = (stock) => {
-      setFavorites(prevFavorites => prevFavorites.filter(item => item.stock !== stock.stock))
-    }
-  
-
-   const methodsAdd = {
-      addBag,
-      addSaves,
-      addFavorites
+   const methodAdd = {
+      addFunction
    }
 
-   const methodsRemove = {removeFromBag,removeFromSaves,removeFromFavorites}
+   const methodRemove = {removeFunction}
+
+   const setLists = {
+    setBag,
+    setSaves,
+    setFavorites
+   }
 
    console.log(bag)
 
@@ -52,7 +37,7 @@ export const ContextUserDataProvider = ({ children }) => {
    }
 
    const contextValue = {
-      states,methodsAdd,methodsRemove
+      states,methodAdd,methodRemove,setLists
    }
 
    return (

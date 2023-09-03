@@ -13,7 +13,7 @@ const TicketsPortfolioComponent = () => {
       {bag.length > 0 ? (
         bag.map((save,index) => <Ticket key={index} stock={save}/>)
       ) : (
-        <p>Ainda não há itens salvos</p>
+        <p className="load-ticket" >Ainda não há itens salvos</p>
       )}
     </div>
   )
