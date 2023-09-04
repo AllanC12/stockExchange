@@ -1,18 +1,23 @@
+import {MyContextDataUser} from "../context/ContextDataUser"
+
 export const verifyUserRegister = async (dataUser, setMessage) => {
+
   const emailUser = dataUser.email;
   const urlEmail = `${import.meta.env.VITE_URL_EMAIL}=${emailUser}`;
   const respRegister = await fetch(urlEmail).then((resp) => resp.json());
   const pageRegister = "http://localhost:5173/register";
   const pageLogin = "http://localhost:5173/";
 
-  //usuário ja tem cadastro
+  const {id} = respRegister[0]
+  
+  const setUserId = MyContextDataUser()
+
   if (location.href === pageRegister) {
     if (respRegister.length > 0) {
       return true;
     }
   }
 
-  //usuário sem cadastro ou informações de login incorretas
   if (location.href === pageLogin) {
     if (respRegister.length === 0) {
       setMessage("Verifique seu email");
@@ -20,24 +25,18 @@ export const verifyUserRegister = async (dataUser, setMessage) => {
     }
   }
 
-  console.log(respRegister)
-
-  //verificando senha caso tenha cadastro
-  if(respRegister.length === 0){
-    return
-  }else{
+  if (respRegister.length === 0) {
+    return;
+  } else {
     if (respRegister[0].password === dataUser.password) {
       setMessage(`Olá ${respRegister[0].name}`);
-    }else{
-      setMessage('Verifique sua senha')
-      return true
+    } else {
+      setMessage("Verifique sua senha");
+      return true;
     }
   }
-
-
 };
 
-//validações adicionais
 export const validateUserRegister = (dataUser) => {
   const keys = Object.keys(dataUser);
 

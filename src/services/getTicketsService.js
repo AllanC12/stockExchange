@@ -16,7 +16,7 @@ const sendDataUser = async (url, data) => {
       body: JSON.stringify(data),
       headers: {
         "content-type": "application/json",
-      },
+      }
     })
 
     return response.json(); 

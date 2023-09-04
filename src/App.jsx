@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom'
 import NavBar from "./components/NavBar"
 import Footer from "./components/Footer"
 
-import {ContextUserDataProvider}  from "./context/Context"
+import {ContextUserDataProvider}  from "./context/ContextTickets"
 
 function App() {
 

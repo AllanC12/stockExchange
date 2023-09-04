@@ -6,34 +6,6 @@
       "password": "allan",
       "confirmPassword": "allan",
       "id": 1
-    },
-    {
-      "name": "José ",
-      "email": "jose@gmail.com",
-      "password": "jose1212",
-      "confirmPassword": "jose1212",
-      "id": 2
-    },
-    {
-      "name": "joshe",
-      "email": "joshe@gmail.com",
-      "password": "joshe",
-      "confirmPassword": "joshe",
-      "id": 3
-    },
-    {
-      "name": "Allan",
-      "email": "allan12122121212221212@gmail.com",
-      "password": "allan",
-      "confirmPassword": "allan",
-      "id": 4
-    },
-    {
-      "name": "marcio",
-      "email": "marcio12@gmail.com",
-      "password": "marcio1212",
-      "confirmPassword": "marcio1212",
-      "id": 5
     }
   ]
 }

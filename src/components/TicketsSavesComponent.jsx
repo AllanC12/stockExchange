@@ -1,4 +1,4 @@
-import { UseMyContext } from "../context/Context";
+import { UseMyContext } from "../context/ContextTickets";
 import Ticket from "./Ticket";
 
 import "./sass_components/TicketsContainer.scss"

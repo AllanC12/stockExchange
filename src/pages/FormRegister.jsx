@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { validateUserRegister, verifyUserRegister } from "../validate/Validate";
 
@@ -11,7 +11,6 @@ import "./sass_pages/Form.scss";
 
 const FormRegister = () => {
   const dispatch = useDispatch();
-  const { loading } = useSelector((state) => state.tickets);
   const urlServer = import.meta.env.VITE_URL_SERVER;
   const [message, setMessage] = useState("");
 
@@ -109,3 +108,4 @@ const FormRegister = () => {
 };
 
 export default FormRegister;
+ 
