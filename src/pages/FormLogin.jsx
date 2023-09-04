@@ -6,7 +6,6 @@ import "./sass_pages/Form.scss";
 
 import { verifyUserRegister } from "../validate/Validate";
 
-
 const FormLogin = () => {
   const navigate = useNavigate()
 
@@ -14,6 +13,7 @@ const FormLogin = () => {
   const [password, setPassword] = useState("");
   const [message,setMessage] = useState('')
 
+  
   const dataUser = {
     email,
     password,

@@ -2,7 +2,7 @@ import "./sass_components/Ticket.scss";
 
 import { useState } from "react";
 
-import { UseMyContext } from "../context/Context";
+import { UseMyContext } from "../context/ContextTickets";
 
 import {
   FaPlus,
@@ -14,12 +14,10 @@ import {
 } from "react-icons/fa";
 
 const Ticket = ({ stock }) => {
-
-  const { methodAdd,methodRemove,states,setLists } = UseMyContext();
-  const {addFunction} = methodAdd;
-  const {removeFunction} = methodRemove
+  const { methods, states, setLists } = UseMyContext();
+  const { addFunction, removeFunction } = methods;
   const { bag, saves, favorites } = states;
-  const {setBag,setSaves,setFavorites} = setLists
+  const { setBag, setSaves, setFavorites } = setLists;
 
   return (
     <div key={stock.stock} className="ticket">
@@ -35,33 +33,42 @@ const Ticket = ({ stock }) => {
       </div>
 
       <div className="footer-ticket">
-          {bag.some((item) => item.stock === stock.stock) ? (
-            <FaCheck onClick={() => removeFunction(stock,setBag)} title="Remover investimento" />
-          ) : (
-            <FaPlus
-              onClick={() => addFunction(stock,setBag)}
-              title="Adicionar na carteira"
-            />
-          )}
+        {bag.some((item) => item.stock === stock.stock) ? (
+          <FaCheck
+            onClick={() => removeFunction(stock, setBag)}
+            title="Remover investimento"
+          />
+        ) : (
+          <FaPlus
+            onClick={() => addFunction(stock, setBag)}
+            title="Adicionar na carteira"
+          />
+        )}
 
-          {saves.some((item) => item.stock === stock.stock) ? (
-            <FaBookmark onClick={() => removeFunction(stock,setSaves)} title="Remover investimento" />
-          ) : (
-            <FaRegBookmark
-              onClick={() => addFunction(stock,setSaves)}
-              title="Salvar investimento"
-            />
-          )}
+        {saves.some((item) => item.stock === stock.stock) ? (
+          <FaBookmark
+            onClick={() => removeFunction(stock, setSaves)}
+            title="Remover investimento"
+          />
+        ) : (
+          <FaRegBookmark
+            onClick={() => addFunction(stock, setSaves)}
+            title="Salvar investimento"
+          />
+        )}
 
-          {favorites.some((item) => item.stock === stock.stock) ? (
-            <FaStar onClick={() => removeFunction(stock,setFavorites)} title="Remover investimento" />
-          ) : (
-            <FaRegStar
-              onClick={() => addFunction(stock,setFavorites)}
-              title="Favoritar investimento"
-            />
-          )}
-       </div>
+        {favorites.some((item) => item.stock === stock.stock) ? (
+          <FaStar
+            onClick={() => removeFunction(stock, setFavorites)}
+            title="Remover investimento"
+          />
+        ) : (
+          <FaRegStar
+            onClick={() => addFunction(stock, setFavorites)}
+            title="Favoritar investimento"
+          />
+        )}
+      </div>
     </div>
   );
 };
