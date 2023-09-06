@@ -3,18 +3,21 @@ import { createContext,useContext,useState } from "react";
 export const ContextUser = createContext()
 
 export const contextUserProvider = ({children}) => {
-    
-    const [idUser,setIdUser] = useState(null)
+  
+  const [idUser,setIdUser] = useState(null)
 
-    const setUserId = (id) => {
-        console.log('ok')
-      setIdUser(id)
-    }
+  const setUserId = (id) => {
+    setIdUser(id)
+  }
 
- 
-    return <ContextUser.Provider value={{setUserId}}>
-      {children}
-    </ContextUser.Provider>
+  const methodId = {
+    setUserId
+  }
+
+
+  return <ContextUser.Provider value={methodId}>
+    {children}
+  </ContextUser.Provider>
 
 }
 

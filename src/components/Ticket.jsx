@@ -1,8 +1,8 @@
 import "./sass_components/Ticket.scss";
 
-import { useState } from "react";
-
 import { UseMyContext } from "../context/ContextTickets";
+
+import {MyContextDataUser} from "../context/ContextDataUser"
 
 import {
   FaPlus,

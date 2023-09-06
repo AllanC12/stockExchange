@@ -1,17 +1,16 @@
 import {MyContextDataUser} from "../context/ContextDataUser"
 
-export const verifyUserRegister = async (dataUser, setMessage) => {
+export const verifyUserRegister = async (dataUser, setMessage,setUserId) => {
 
   const emailUser = dataUser.email;
   const urlEmail = `${import.meta.env.VITE_URL_EMAIL}=${emailUser}`;
   const respRegister = await fetch(urlEmail).then((resp) => resp.json());
   const pageRegister = "http://localhost:5173/register";
   const pageLogin = "http://localhost:5173/";
-
   const {id} = respRegister[0]
-  
-  const setUserId = MyContextDataUser()
 
+  setUserId(id)
+  
   if (location.href === pageRegister) {
     if (respRegister.length > 0) {
       return true;
