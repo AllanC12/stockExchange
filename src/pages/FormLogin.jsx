@@ -4,7 +4,8 @@ import { Link,useNavigate} from "react-router-dom";
 
 import "./sass_pages/Form.scss";
 
-import { verifyUserRegister } from "../validate/Validate";
+import { verifyUserRegister,getUserRegister } from "../validate/Validate";
+import { MyContextDataUser } from "../context/ContextDataUser";
 
 const FormLogin = () => {
   const navigate = useNavigate()
@@ -13,7 +14,6 @@ const FormLogin = () => {
   const [password, setPassword] = useState("");
   const [message,setMessage] = useState('')
 
-  
   const dataUser = {
     email,
     password,
@@ -22,6 +22,11 @@ const FormLogin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     let userLogin = await verifyUserRegister(dataUser,setMessage)
+    const respRegister = await getUserRegister(dataUser)
+    const {id} = respRegister[0]
+    const {setUserId} = MyContextDataUser()
+
+    setUserId(id)
     
     if(userLogin){
        return
