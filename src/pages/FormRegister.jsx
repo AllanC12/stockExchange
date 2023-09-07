@@ -43,7 +43,7 @@ const FormRegister = () => {
 
     let userRegistered = await verifyUserRegister(dataRegister);
     let validatedUser = validateUserRegister(dataRegister);
-
+ 
     if (userRegistered) {
       setMessage("Email ja em uso");
       userRegistered = false;

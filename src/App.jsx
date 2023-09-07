@@ -5,11 +5,13 @@ import NavBar from "./components/NavBar"
 import Footer from "./components/Footer"
 
 import {ContextUserDataProvider}  from "./context/ContextTickets"
+import { MyContextDataUser } from "./context/ContextDataUser"
 
 function App() {
 
   return (
     <div className="App">
+     
       <ContextUserDataProvider>
         <NavBar/>
          <Outlet/>
