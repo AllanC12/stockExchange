@@ -1,11 +1,6 @@
 {
   "clients": [
     {
-      "name": "Allan",
-      "email": "allan12@gmail.com",
-      "password": "allan",
-      "confirmPassword": "allan",
-      "id": 1
     }
   ]
 }

@@ -3,6 +3,7 @@ export const getUserRegister = async (dataUser) => {
   const emailUser = dataUser.email;
   const urlEmail = `${import.meta.env.VITE_URL_EMAIL}=${emailUser}`;
   const resp = await fetch(urlEmail).then((resp) => resp.json());
+  console.log(resp[0])
   return resp
 }
 
@@ -11,16 +12,21 @@ export const verifyUserRegister = async (dataUser, setMessage) => {
   const pageLogin = "http://localhost:5173/"; 
   const respRegister = await getUserRegister(dataUser) 
 
+  console.log(respRegister.length)
+
   if (location.href === pageRegister) {
     if (respRegister.length > 0) {
+      console.log('aqui')
       return true;
+    }else{
+      return false
     }
   }
 
   if (location.href === pageLogin) {
     if (respRegister.length === 0) {
       setMessage("Verifique seu email");
-      return true;
+      return false;
     }
   }
 
@@ -31,7 +37,7 @@ export const verifyUserRegister = async (dataUser, setMessage) => {
       setMessage(`Olá ${respRegister[0].name}`);
     } else {
       setMessage("Verifique sua senha");
-      return true;
+      return false;
     }
   }
 };
