@@ -18,15 +18,15 @@ const FormLogin = () => {
     email,
     password,
   };
+  const {setUserId} = MyContextDataUser()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const userLogin = await verifyUserRegister(dataUser,setMessage)
     const respRegister = await getUserRegister(dataUser)
     const {id} = respRegister[0]
-    const {setUserId} = MyContextDataUser()
+    setUserId(id)
 
-    // setUserId(id)
     
     if(userLogin){
        return

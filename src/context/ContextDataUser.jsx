@@ -10,7 +10,7 @@ export const ContextUserDataProvider = ({children}) => {
     setIdUser(id)
   }
 
-  return <ContextUser.Provider value={idUser}>
+  return <ContextUser.Provider value={{setUserId}}>
     {children}
   </ContextUser.Provider>
 
