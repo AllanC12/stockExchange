@@ -22,12 +22,12 @@ const FormLogin = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const userLogin = await verifyUserRegister(dataUser,setMessage)
     const respRegister = await getUserRegister(dataUser)
     const {id} = respRegister[0]
     setUserId(id)
 
-    
     if(userLogin){
        return
     }
