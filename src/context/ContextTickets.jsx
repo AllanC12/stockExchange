@@ -2,7 +2,7 @@ import { createContext, useContext, useState } from "react";
 
 export const TicketsUser = createContext();
 
-export const ContextUserDataProvider = ({ children }) => {
+export const ContextTicketsDataProvider = ({ children }) => {
   const [bag, setBag] = useState([]);
   const [saves, setSaves] = useState([]);
   const [favorites, setFavorites] = useState([]);
