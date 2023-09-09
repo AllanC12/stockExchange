@@ -7,14 +7,6 @@
       "confirmPassword": "allan",
       "tickets": [],
       "id": 1
-    },
-    {
-      "name": "Allan",
-      "email": "allancandido12@gmail.com",
-      "password": "allan",
-      "confirmPassword": "allan",
-      "tickets": [],
-      "id": 2
     }
   ]
 }
