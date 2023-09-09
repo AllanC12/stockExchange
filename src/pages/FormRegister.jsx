@@ -42,11 +42,10 @@ const FormRegister = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    let userRegistered = await verifyUserRegister(dataRegister);
+    let userRegistered = await verifyUserRegister(dataRegister,setMessage);
     let validatedUser = validateUserRegister(dataRegister);
  
     if (userRegistered) {
-      setMessage("Email ja em uso");
       userRegistered = false;
       return;
     }
