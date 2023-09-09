@@ -1,44 +1,34 @@
- 
 export const getUserRegister = async (dataUser) => {
   const emailUser = dataUser.email;
   const urlEmail = `${import.meta.env.VITE_URL_EMAIL}=${emailUser}`;
   const resp = await fetch(urlEmail).then((resp) => resp.json());
-  console.log(resp[0])
-  return resp
-}
+  return resp;
+};
+
+export const makeLogin = async (dataUser, setMessage) => {
+  const respRegister = await getUserRegister(dataUser);
+
+  if (dataUser.email === respRegister[0].email) {
+    if (dataUser.password === respRegister[0].password) {
+      setMessage(`Seja bem vindo (a) ${dataUser.name}`);
+    } else {
+      setMessage("Senha incorreta");
+    }
+  } else {
+    setMessage("Usuário ainda não cadastrado");
+    return;
+  }
+};
 
 export const verifyUserRegister = async (dataUser, setMessage) => {
-  const pageRegister = "http://localhost:5173/register";
-  const pageLogin = "http://localhost:5173/"; 
-  const respRegister = await getUserRegister(dataUser) 
+  const respRegister = await getUserRegister(dataUser);
+  const existEmail = respRegister.some(item => item.email === dataUser.email);
 
-  console.log(respRegister.length)
-
-  if (location.href === pageRegister) {
-    if (respRegister.length > 0) {
-      console.log('aqui')
-      return true;
-    }else{
-      return false
-    }
-  }
-
-  if (location.href === pageLogin) {
-    if (respRegister.length === 0) {
-      setMessage("Verifique seu email");
-      return false;
-    }
-  }
-
-  if (respRegister.length === 0) {
-    return;
+  if (existEmail) {
+    setMessage("Usuário ja cadastrado")
+    return true;
   } else {
-    if (respRegister[0].password === dataUser.password) {
-      setMessage(`Olá ${respRegister[0].name}`);
-    } else {
-      setMessage("Verifique sua senha");
-      return false;
-    }
+    return false;
   }
 };
 
