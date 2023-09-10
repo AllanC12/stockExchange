@@ -5,7 +5,7 @@ import { Link,useNavigate} from "react-router-dom";
 import "./sass_pages/Form.scss";
 
 import { makeLogin,getUserRegister } from "../validate/Validate";
-import { MyContextDataUser } from "../context/ContextDataUser";
+import { ContextDataUser } from "../context/ContextDataUser";
 
 const FormLogin = () => {
   const navigate = useNavigate()
@@ -19,7 +19,7 @@ const FormLogin = () => {
     password,
   };
 
-  const {setUserId} = MyContextDataUser()
+  const {setUserId} = ContextDataUser()
 
   const handleSubmit = async (e) => {
     e.preventDefault();

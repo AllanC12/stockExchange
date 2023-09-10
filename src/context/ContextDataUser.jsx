@@ -10,12 +10,12 @@ export const ContextUserDataProvider = ({children}) => {
     setIdUser(id)
   }
 
-  return <ContextUser.Provider value={{setUserId}}>
+  return <ContextUser.Provider value={{setUserId,idUser}}>
     {children}
   </ContextUser.Provider>
 
 }
 
-export const MyContextDataUser = () => {
+export const ContextDataUser = () => {
     return useContext(ContextUser)
 }

@@ -1,11 +1,11 @@
 import "./sass_components/TicketsContainer.scss"
 
-import { UseMyContext } from "../context/ContextTickets";
+import { ContextTicketUser } from "../context/ContextTickets";
 import Ticket from "./Ticket";
 
 const TicketsFavoritesComponent = () => {
 
-    const {states} = UseMyContext()
+    const {states} = ContextTicketUser()
     const {favorites} = states 
 
   return (

@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import {ContextDataUser} from "./ContextDataUser"
 
 export const TicketsUser = createContext();
 
@@ -49,6 +50,6 @@ export const ContextTicketsDataProvider = ({ children }) => {
   );
 };
 
-export const UseMyContext = () => {
+export const ContextTicketUser = () => {
   return useContext(TicketsUser);
 };
