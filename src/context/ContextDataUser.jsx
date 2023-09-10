@@ -5,7 +5,7 @@ export const ContextUser = createContext()
 export const ContextUserDataProvider = ({children}) => {
   
   const [idUser,setIdUser] = useState(null)
-  
+   
   const setUserId = (id) => {
     setIdUser(id)
   }

@@ -1,5 +1,4 @@
 import { createContext, useContext, useState } from "react";
-import {ContextDataUser} from "./ContextDataUser"
 
 export const TicketsUser = createContext();
 

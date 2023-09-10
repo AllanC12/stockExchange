@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import getData from "../services/getTicketsService";
 
-
 const initialState = {
   tickets: [],
+  ticketsFavorites: [],
   error: null,
   success: false,
   loading: false,
@@ -24,7 +24,7 @@ export const sendDataUser = createAsyncThunk(
   }
 );
 
-export const sendTicketUser = createAsyncThunk(
+export const sendTicketUserSlice = createAsyncThunk(
   "tickets/sendTicketUser",
    async({url,ticket}) => {
      await getData.sendTicketUser(url,ticket)
@@ -69,17 +69,17 @@ export const ticketsSlice = createSlice({
         state.loading = false,
         state.error = true
       })
-      .addCase(sendTicketUser.fulfilled,(state,action) =>{
-        state.tickets = action.payload;
+      .addCase(sendTicketUserSlice.fulfilled,(state,action) =>{
+        state.ticketsFavorites = action.payload
         state.success = true
         state.error = false
         state.loading = false
-      }).addCase(sendTicketUser.rejected,(state) => {
+      }).addCase(sendTicketUserSlice.rejected,(state) => {
         state.error = true
         state.success = false
         state.loading = false
       })
-      .addCase(sendTicketUser.pending,(state) => {
+      .addCase(sendTicketUserSlice.pending,(state) => {
         state.error = false
         state.success = false
         state.loading = true
