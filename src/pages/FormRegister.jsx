@@ -24,7 +24,9 @@ const FormRegister = () => {
     email,
     password,
     confirmPassword,
-    tickets: []
+    ticketsPortfolio: [],
+    ticketsFavorites: [],
+    ticketsSaves: []
   };
 
   const dataRequest = {

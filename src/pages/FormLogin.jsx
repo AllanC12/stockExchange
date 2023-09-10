@@ -4,8 +4,8 @@ import { Link,useNavigate} from "react-router-dom";
 
 import "./sass_pages/Form.scss";
 
-import { verifyUserRegister,getUserRegister } from "../validate/Validate";
-import { MyContextDataUser } from "../context/ContextDataUser";
+import { makeLogin,getUserRegister } from "../validate/Validate";
+import { ContextDataUser } from "../context/ContextDataUser";
 
 const FormLogin = () => {
   const navigate = useNavigate()
@@ -18,19 +18,25 @@ const FormLogin = () => {
     email,
     password,
   };
-  const {setUserId} = MyContextDataUser()
+
+  const {setUserId} = ContextDataUser()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const userLogin = await verifyUserRegister(dataUser,setMessage)
     const respRegister = await getUserRegister(dataUser)
-    const {id} = respRegister[0]
+    const name = respRegister.length > 0 ? respRegister[0].name : ""
+    const {id} = respRegister.length > 0 ? respRegister[0] : 0 
+
     setUserId(id)
 
-    if(userLogin){
-       return
+    if(!id){
+      setMessage("Usuário sem cadastro")
+      return
     }
+
+    makeLogin(dataUser,setMessage,name)
+
     
     setTimeout(() => {
       navigate('/home_broker')

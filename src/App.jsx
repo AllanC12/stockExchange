@@ -10,14 +10,13 @@ import { ContextUserDataProvider } from "./context/ContextDataUser";
 function App() {
   return (
     <div className="App">
-    <ContextTicketsDataProvider>
       <ContextUserDataProvider>
+        <ContextTicketsDataProvider>
           <NavBar />
           <Outlet />
           <Footer />
-        </ContextUserDataProvider>
-    </ContextTicketsDataProvider>
-
+        </ContextTicketsDataProvider>
+      </ContextUserDataProvider>
     </div>
   );
 }

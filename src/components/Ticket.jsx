@@ -1,8 +1,6 @@
 import "./sass_components/Ticket.scss";
 
-import { UseMyContext } from "../context/ContextTickets";
-
-import {MyContextDataUser} from "../context/ContextDataUser"
+import { ContextTicketUser } from "../context/ContextTickets";
 
 import {
   FaPlus,
@@ -14,13 +12,13 @@ import {
 } from "react-icons/fa";
 
 const Ticket = ({ stock }) => {
-  const { methods, states, setLists } = UseMyContext();
+  const { methods, states, setLists } = ContextTicketUser();
   const { addFunction, removeFunction } = methods;
   const { bag, saves, favorites } = states;
   const { setBag, setSaves, setFavorites } = setLists;
 
   return (
-    <div key={stock.stock} className="ticket">
+    <div className="ticket">
       <div className="header-ticket">
         <img src={stock.logo} />
         <h2>{stock.name}</h2>

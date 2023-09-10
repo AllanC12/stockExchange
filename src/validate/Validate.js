@@ -5,12 +5,12 @@ export const getUserRegister = async (dataUser) => {
   return resp;
 };
 
-export const makeLogin = async (dataUser, setMessage) => {
+export const makeLogin = async (dataUser, setMessage,name) => {
   const respRegister = await getUserRegister(dataUser);
 
   if (dataUser.email === respRegister[0].email) {
     if (dataUser.password === respRegister[0].password) {
-      setMessage(`Seja bem vindo (a) ${dataUser.name}`);
+      setMessage(`Seja bem vindo (a) ${name}`);
     } else {
       setMessage("Senha incorreta");
     }

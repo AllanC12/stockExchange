@@ -49,6 +49,6 @@ export const ContextTicketsDataProvider = ({ children }) => {
   );
 };
 
-export const UseMyContext = () => {
+export const ContextTicketUser = () => {
   return useContext(TicketsUser);
 };
