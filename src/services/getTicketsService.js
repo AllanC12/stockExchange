@@ -12,21 +12,25 @@ const getTickets = async (url) => {
 
 
 const sendDataUser = async (url, data) => {
-  await fetch(url, {
-    method: "POST",
-    body: JSON.stringify(data),
-    headers: {
-      "content-type": "application/json",
-    }
-  })
+  try {
+    await fetch(url, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "content-type": "application/json",
+      }
+    })
+  } catch (error) {
+    console.log(error)
+  }
 };
 
 
-const sendTicketUser = async (url,ticket) => {
+const sendTicketUser = async (url,ticket,idUser) => {
   try {
     await fetch(url,{
       method: 'POST',
-      body: JSON.stringify(ticket),
+      body: JSON.stringify(ticket,idUser),
       headers: {
         "content-type" : "application/json"
       }
@@ -34,7 +38,8 @@ const sendTicketUser = async (url,ticket) => {
   } catch (error) {
     console.log(error)
   }
-}
+} 
+
 
 const getData = {
   getTickets,

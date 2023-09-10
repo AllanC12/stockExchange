@@ -5,10 +5,10 @@
       "email": "allan12@gmail.com",
       "password": "allan",
       "confirmPassword": "allan",
-      "ticketsPortfolio": [],
-      "ticketsFavorites": [],
-      "ticketsSaves": [],
       "id": 1
     }
+  ],
+  "tickets_favorites": [
+
   ]
 }
