@@ -4,12 +4,14 @@ import { ContextTicketUser } from "../context/ContextTickets";
 
 import Ticket from "./Ticket";
 
-const TicketsFavoritesComponent = ({favorites}) => {
+const TicketsFavoritesComponent = () => {
+  const {states} = ContextTicketUser()
+  const {favorites} = states
 
   return (
     <div className="tickets_container">
       {favorites.length > 0 ? (
-        favorites.map((favorite, index) => <Ticket key={index} stock={favorite} favorites={favorites}/>)
+        favorites.map((favorite, index) => <Ticket key={index} stock={favorite}/>)
       ) : (
         <p className="load-ticket">Ainda não há itens salvos</p>
       )}
