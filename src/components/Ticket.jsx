@@ -1,5 +1,8 @@
 import "./sass_components/Ticket.scss";
 
+import { sendTicketUserSlice } from "../slices/getTicketsSlices";
+import { ContextDataUser } from "../context/ContextDataUser";
+import { useDispatch } from "react-redux";
 import { ContextTicketUser } from "../context/ContextTickets";
 
 import {
@@ -12,11 +15,12 @@ import {
 } from "react-icons/fa";
 
 const Ticket = ({ stock }) => {
+
   const { methods, states, setLists } = ContextTicketUser();
   const { addFunction, removeFunction } = methods;
   const { bag, saves, favorites } = states;
   const { setBag, setSaves, setFavorites } = setLists;
-
+  
   return (
     <div className="ticket">
       <div className="header-ticket">

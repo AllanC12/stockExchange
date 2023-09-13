@@ -1,19 +1,13 @@
 import { useEffect, useMemo } from "react";
 import "./sass_pages/HomeBroker.scss";
-
-import { sendTicketUserSlice } from "../slices/getTicketsSlices";
-import { ContextDataUser } from "../context/ContextDataUser";
 import { useDispatch } from "react-redux";
-import { ContextTicketUser } from "../context/ContextTickets";
 
 import Aside from "../components/Aside";
 import TicketsFavoritesComponent from "../components/TicketsFavoritesComponent";
 
 const TicketsFavorites = () => {
-  const dispatch = useDispatch();
-  const { states } = ContextTicketUser();
-  const { idUser } = ContextDataUser();
-  const { favorites } = states;
+  const dispatch = useDispatch()
+  const {idUser} = ContextDataUser()
   const urlUser = `${import.meta.env.VITE_URL_TICKETS}`;
 
   useEffect(() => {
