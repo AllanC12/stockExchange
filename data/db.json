@@ -9,6 +9,23 @@
     }
   ],
   "tickets_favorites": [
-   
+    {
+      "ticket": {
+        "stock": "VIIA3",
+        "name": "GRUPO CASAS BAHIA S.A.",
+        "close": 0.9,
+        "change": -18.91891892,
+        "volume": 382445100,
+        "market_cap": 1773925683,
+        "logo": "https://s3-symbol-logo.tradingview.com/via--big.svg",
+        "sector": "Retail Trade"
+      },
+      "idUser": 1,
+      "id": 1
+    },
+    {
+      "idUser": 1,
+      "id": 2
+    }
   ]
 }
