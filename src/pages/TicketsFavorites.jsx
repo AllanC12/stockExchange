@@ -11,15 +11,26 @@ import TicketsFavoritesComponent from "../components/TicketsFavoritesComponent";
 
 const TicketsFavorites = () => {
   const dispatch = useDispatch();
-  const { favorites } = ContextTicketUser();
+  const { states } = ContextTicketUser();
+  const {favorites} = states
   const { idUser } = ContextDataUser();
-  const urlUser = `${import.meta.env.VITE_URL_TICKETS}`;
+  const urlUser = `${import.meta.env.VITE_URL_TICKETS_FAVORITES}`;
+  const favoriteMemoized = useMemo(()=> {
+    return favorites
+  },[favorites])
 
-  console.log(favorites);
 
   useEffect(() => {
     const sendTicketUser = async () => {
-      if (favorites) {
+      // const respUser = await fetch(`${import.meta.env.VITE_URL_SERVER}/1/favorites`,{
+      //   method: "POST",
+      //   body: JSON.stringify("Alguma coisa"),
+      //   headers:{
+      //     "Content-Type": "application/json"
+      //   },
+      // }).then(resp => resp.json())
+      
+      if (favorites.length > 0) {
         await Promise.all(
           await favorites.map(async (favorite) => {
             let dataRequest = {
@@ -36,9 +47,7 @@ const TicketsFavorites = () => {
     };
 
     sendTicketUser();
-
-    console.log("resolvido");
-  }, [favorites]);
+  }, [favoriteMemoized]);
 
   return (
     <div className="container_ticket">
