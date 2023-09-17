@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect,useMemo } from "react";
 
 import { createContext, useContext, useState } from "react";
 
@@ -18,7 +18,12 @@ export const ContextTicketsDataProvider = ({ children }) => {
   const { idUser } = ContextDataUser();
   const urlFavorite = `${import.meta.env.VITE_URL_TICKETS_FAVORITES}`;
 
+  const favoriteMemoized = useMemo(()=> {
+    return favorites 
+  },[favorites])
+
   const addFunction = (stock, setStockAdd) => {
+
     setStockAdd((prevStockAdded) =>
       Array.from(new Set([...prevStockAdded, stock]))
     );
@@ -53,12 +58,13 @@ export const ContextTicketsDataProvider = ({ children }) => {
     states
   };
   
-  useEffect(() => {
-    const sendTicketUser = async () => {
+     const sendTicketUser = async () => {
 
       if (favorites.length > 0) {
+
         await Promise.all(
           await favorites.map(async (favorite) => {
+    
             let dataRequest = {
               urlFavorite,
               favorite,
@@ -84,8 +90,7 @@ export const ContextTicketsDataProvider = ({ children }) => {
     sendTicketUser();
     getTicket()
 
-  }, [favorites]);
-
+ 
   return (
     <TicketsUser.Provider value={TicketsUserValue}>
       {children}
