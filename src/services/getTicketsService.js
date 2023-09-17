@@ -26,11 +26,11 @@ const sendDataUser = async (url, data) => {
 };
 
 
-const sendTicketUser = async (url,ticket,idUser) => {
+const sendTicketUser = async (urlFavorite,favorite,idUser) => {
   try {
-    await fetch(url,{
+    await fetch(urlFavorite,{
       method: 'POST',
-      body: JSON.stringify(ticket,idUser),
+      body: JSON.stringify(favorite,idUser),
       headers: {
         "content-type" : "application/json"
       }
