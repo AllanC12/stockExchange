@@ -9,33 +9,6 @@
     }
   ],
   "tickets_favorites": [
-    {
-      "ticket": {
-        "stock": "VIIA3",
-        "name": "GRUPO CASAS BAHIA S.A.",
-        "close": 0.9,
-        "change": -18.91891892,
-        "volume": 382445100,
-        "market_cap": 1773925683,
-        "logo": "https://s3-symbol-logo.tradingview.com/via--big.svg",
-        "sector": "Retail Trade"
-      },
-      "idUser": 1,
-      "id": 1
-    },
-    {
-      "ticket": {
-        "stock": "MGLU3",
-        "name": "MAGAZINE LUIZA",
-        "close": 2.58,
-        "change": -1.52671756,
-        "volume": 120928100,
-        "market_cap": 17495946023,
-        "logo": "https://s3-symbol-logo.tradingview.com/magaz-luiza-on-nm--big.svg",
-        "sector": "Retail Trade"
-      },
-      "idUser": 1,
-      "id": 2
-    }
+ 
   ]
 }
