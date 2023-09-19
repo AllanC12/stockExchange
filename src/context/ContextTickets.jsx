@@ -1,4 +1,4 @@
-import { useEffect,useMemo } from "react";
+import { useEffect, useMemo } from "react";
 
 import { createContext, useContext, useState } from "react";
 
@@ -11,19 +11,14 @@ import { ContextDataUser } from "./ContextDataUser";
 export const TicketsUser = createContext();
 
 export const ContextTicketsDataProvider = ({ children }) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const [bag, setBag] = useState([]);
   const [saves, setSaves] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const { idUser } = ContextDataUser();
   const urlFavorite = `${import.meta.env.VITE_URL_TICKETS_FAVORITES}`;
 
-  const favoriteMemoized = useMemo(()=> {
-    return favorites 
-  },[favorites])
-
   const addFunction = (stock, setStockAdd) => {
-
     setStockAdd((prevStockAdded) =>
       Array.from(new Set([...prevStockAdded, stock]))
     );
@@ -35,9 +30,9 @@ export const ContextTicketsDataProvider = ({ children }) => {
     );
   };
 
-  const methods = { 
+  const methods = {
     addFunction,
-    removeFunction 
+    removeFunction,
   };
 
   const setLists = {
@@ -55,42 +50,39 @@ export const ContextTicketsDataProvider = ({ children }) => {
   const TicketsUserValue = {
     methods,
     setLists,
-    states
+    states,
   };
-  
-     const sendTicketUser = async () => {
+
+  useEffect(() => {
+    const sendTicketUser = async () => {
+      let stock;
+
+      const dataRequest = {
+        urlFavorite,
+        favorite: stock,
+        idUser
+      }
+
+      console.log(dataRequest.favorite)
 
       if (favorites.length > 0) {
-
         await Promise.all(
           await favorites.map(async (favorite) => {
-    
-            let dataRequest = {
-              urlFavorite,
-              favorite,
-              idUser
-            };
-
-            await dispatch(sendTicketUserSlice(dataRequest));
+            stock = favorite;
           })
         );
+
+        console.log(stock);
       } else {
         return;
       }
 
+      await dispatch(sendTicketUserSlice(dataRequest))
     };
-    
-    const getTicket = async () => {
-      const resp = await fetch(
-        `${import.meta.env.VITE_URL_SERVER}/${idUser}/tickets_favorites`
-        ).then((resp) => resp.json());
-        console.log(resp)
-    }
 
     sendTicketUser();
-    getTicket()
+  }, [favorites]);
 
- 
   return (
     <TicketsUser.Provider value={TicketsUserValue}>
       {children}

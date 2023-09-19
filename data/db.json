@@ -9,6 +9,17 @@
     }
   ],
   "tickets_favorites": [
- 
+    {
+      "idUser": 1,
+      "id": 1
+    },
+    {
+      "idUser": 1,
+      "id": 2
+    },
+    {
+      "idUser": 1,
+      "id": 3
+    }
   ]
 }

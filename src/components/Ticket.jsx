@@ -1,8 +1,5 @@
 import "./sass_components/Ticket.scss";
 
-import { sendTicketUserSlice } from "../slices/getTicketsSlices";
-import { ContextDataUser } from "../context/ContextDataUser";
-import { useDispatch } from "react-redux";
 import { ContextTicketUser } from "../context/ContextTickets";
 
 import {
@@ -61,12 +58,12 @@ const Ticket = ({ stock }) => {
 
         {favorites.some((item) => item.stock === stock.stock) ? (
           <FaStar
-            onClick={() => removeFunction(stock, setFavorites)}
+            onClick={() => removeFunction(stock,setFavorites)}
             title="Remover investimento"
           />
         ) : (
           <FaRegStar
-            onClick={() => addFunction(stock, setFavorites)}
+            onClick={() => addFunction(stock,setFavorites)}
             title="Favoritar investimento"
           />
         )}
