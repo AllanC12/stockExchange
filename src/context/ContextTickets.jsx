@@ -53,31 +53,27 @@ export const ContextTicketsDataProvider = ({ children }) => {
     states,
   };
 
+  const dataRequest = {
+    urlFavorite,
+    favorite: null,
+    idUser
+  }
+
   useEffect(() => {
     const sendTicketUser = async () => {
-      let stock;
-
-      const dataRequest = {
-        urlFavorite,
-        favorite: stock,
-        idUser
-      }
-
-      console.log(dataRequest.favorite)
-
+      
       if (favorites.length > 0) {
         await Promise.all(
           await favorites.map(async (favorite) => {
-            stock = favorite;
+            dataRequest.favorite = favorite
           })
-        );
+          );
+          await dispatch(sendTicketUserSlice(dataRequest))
 
-        console.log(stock);
       } else {
         return;
       }
 
-      await dispatch(sendTicketUserSlice(dataRequest))
     };
 
     sendTicketUser();
