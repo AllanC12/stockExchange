@@ -26,8 +26,8 @@ export const sendDataUser = createAsyncThunk(
 
 export const sendTicketUserSlice = createAsyncThunk(
   "tickets/sendTicketUser",
-   async({urlFavorite,favorite,idUser}) => {
-     await getData.sendTicketUser(urlFavorite,{favorite,idUser})
+   async({url,stock,idUser}) => {
+     await getData.sendTicketUser(url,{stock,idUser})
    }
 )
 
