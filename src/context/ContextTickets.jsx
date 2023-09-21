@@ -16,6 +16,8 @@ export const ContextTicketsDataProvider = ({ children }) => {
   const [saves, setSaves] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const { idUser } = ContextDataUser();
+  const urlPortfolio = `${import.meta.env.VITE_URL_TICKETS_PORTFOLIO}`;
+  const urlSaves = `${import.meta.env.VITE_URL_TICKETS_SAVES}`;
   const urlFavorite = `${import.meta.env.VITE_URL_TICKETS_FAVORITES}`;
 
   const addFunction = (stock, setStockAdd) => {
@@ -54,30 +56,48 @@ export const ContextTicketsDataProvider = ({ children }) => {
   };
 
   const dataRequest = {
-    urlFavorite,
-    favorite: null,
-    idUser
-  }
+    url: "",
+    stock: null,
+    idUser,
+  };
+
+  const sendTicketUser = async () => {
+    if (bag.length > 0) {
+      await Promise.all(
+        await bag.map(async (bag) => {
+          dataRequest.url = urlPortfolio
+          dataRequest.stock = bag;
+        })
+      );
+      await dispatch(sendTicketUserSlice(dataRequest));
+    } 
+
+    if (saves.length > 0) {
+      await Promise.all(
+        await saves.map(async (save) => {
+          dataRequest.url = urlSaves
+          dataRequest.stock = save;
+        })
+      );
+      await dispatch(sendTicketUserSlice(dataRequest));
+    } 
+    
+     if (favorites.length > 0) {
+      await Promise.all(
+        await favorites.map(async (favorite) => {
+          dataRequest.url = urlFavorite
+          dataRequest.stock = favorite;
+        })
+      );
+      await dispatch(sendTicketUserSlice(dataRequest));
+    } 
+      return;
+    
+  };
 
   useEffect(() => {
-    const sendTicketUser = async () => {
-      
-      if (favorites.length > 0) {
-        await Promise.all(
-          await favorites.map(async (favorite) => {
-            dataRequest.favorite = favorite
-          })
-          );
-          await dispatch(sendTicketUserSlice(dataRequest))
-
-      } else {
-        return;
-      }
-
-    };
-
     sendTicketUser();
-  }, [favorites]);
+  }, [bag, saves, favorites]);
 
   return (
     <TicketsUser.Provider value={TicketsUserValue}>
