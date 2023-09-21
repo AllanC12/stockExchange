@@ -16,6 +16,8 @@ export const ContextTicketsDataProvider = ({ children }) => {
   const [saves, setSaves] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const { idUser } = ContextDataUser();
+  const urlPortfolio = `${import.meta.env.VITE_URL_TICKETS_PORTFOLIO}`;
+  const urlSaves = `${import.meta.env.VITE_URL_TICKETS_SAVES}`;
   const urlFavorite = `${import.meta.env.VITE_URL_TICKETS_FAVORITES}`;
 
   const addFunction = (stock, setStockAdd) => {
@@ -61,31 +63,42 @@ export const ContextTicketsDataProvider = ({ children }) => {
 
   useEffect(() => {
     const sendTicketUser = async () => {
-      
+      let stock;
+
+      const dataRequest = {
+        urlFavorite,
+        favorite: stock,
+        idUser
+      }
+
+      console.log(dataRequest.favorite)
+
       if (favorites.length > 0) {
         await Promise.all(
           await favorites.map(async (favorite) => {
-            dataRequest.favorite = favorite
+            stock = favorite;
           })
-          );
-          await dispatch(sendTicketUserSlice(dataRequest))
+        );
 
+        console.log(stock);
       } else {
         return;
       }
 
+      await dispatch(sendTicketUserSlice(dataRequest))
     };
 
+  useEffect(() => {
     sendTicketUser();
-  }, [favorites]);
+  }, [bag, saves, favorites]);
 
   return (
     <TicketsUser.Provider value={TicketsUserValue}>
       {children}
     </TicketsUser.Provider>
   );
-};
+});
 
 export const ContextTicketUser = () => {
   return useContext(TicketsUser);
-};
+}
