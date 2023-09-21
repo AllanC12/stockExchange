@@ -62,6 +62,10 @@ export const ContextTicketsDataProvider = ({ children }) => {
   }
 
   useEffect(() => {
+    sendTicketUser();
+  }, [bag, saves, favorites]);
+
+  useEffect(() => {
     const sendTicketUser = async () => {
       let stock;
 
@@ -88,9 +92,7 @@ export const ContextTicketsDataProvider = ({ children }) => {
       await dispatch(sendTicketUserSlice(dataRequest))
     };
 
-  useEffect(() => {
-    sendTicketUser();
-  }, [bag, saves, favorites]);
+
 
   return (
     <TicketsUser.Provider value={TicketsUserValue}>
@@ -101,4 +103,4 @@ export const ContextTicketsDataProvider = ({ children }) => {
 
 export const ContextTicketUser = () => {
   return useContext(TicketsUser);
-}
+};
