@@ -17,6 +17,10 @@ const Ticket = ({ stock }) => {
   const { addFunction, removeFunction } = methods;
   const { bag, saves, favorites } = states;
   const { setBag, setSaves, setFavorites } = setLists;
+
+  const urlPortfolio = `${import.meta.env.VITE_URL_TICKETS_PORTFOLIO}`;
+  const urlSaves = `${import.meta.env.VITE_URL_TICKETS_SAVES}`;
+  const urlFavorite = `${import.meta.env.VITE_URL_TICKETS_FAVORITES}`;
   
   return (
     <div className="ticket">
@@ -63,7 +67,7 @@ const Ticket = ({ stock }) => {
           />
         ) : (
           <FaRegStar
-            onClick={() => addFunction(stock,setFavorites)}
+            onClick={() => addFunction(stock,setFavorites,urlFavorite,favorites)}
             title="Favoritar investimento"
           />
         )}
