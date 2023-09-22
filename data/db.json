@@ -8,7 +8,8 @@
       "id": 1
     }
   ],
-  "tickets_favorites": [
-   
-  ]
+
+   "tickets_portfolio": [],
+  "tickets_saves": [],
+  "tickets_favorites": []
 }
