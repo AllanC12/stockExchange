@@ -8,80 +8,8 @@
       "id": 1
     }
   ],
-  "tickets_portfolio": [
-    {
-      "stock": {
-        "stock": "FNAM11",
-        "name": "FINAM CI *",
-        "close": 0.33,
-        "change": -8.33333333,
-        "volume": 326588000,
-        "market_cap": null,
-        "logo": "https://s3-symbol-logo.tradingview.com/amazonia-on-es--big.svg",
-        "sector": null
-      },
-      "idUser": 1,
-      "id": 1
-    },
-    {
-      "stock": {
-        "stock": "MGLU3",
-        "name": "MAGAZINE LUIZA",
-        "close": 2.24,
-        "change": -4.68085106,
-        "volume": 133978200,
-        "market_cap": 14958366782,
-        "logo": "https://s3-symbol-logo.tradingview.com/magaz-luiza-on-nm--big.svg",
-        "sector": "Retail Trade"
-      },
-      "idUser": 1,
-      "id": 2
-    }
-  ],
-  "tickets_saves": [
-    {
-      "stock": {
-        "stock": "FNAM11",
-        "name": "FINAM CI *",
-        "close": 0.33,
-        "change": -8.33333333,
-        "volume": 326588000,
-        "market_cap": null,
-        "logo": "https://s3-symbol-logo.tradingview.com/amazonia-on-es--big.svg",
-        "sector": null
-      },
-      "idUser": 1,
-      "id": 1
-    },
-    {
-      "stock": {
-        "stock": "MGLU3",
-        "name": "MAGAZINE LUIZA",
-        "close": 2.24,
-        "change": -4.68085106,
-        "volume": 133978200,
-        "market_cap": 14958366782,
-        "logo": "https://s3-symbol-logo.tradingview.com/magaz-luiza-on-nm--big.svg",
-        "sector": "Retail Trade"
-      },
-      "idUser": 1,
-      "id": 2
-    },
-    {
-      "stock": {
-        "stock": "BHIA3",
-        "name": "CASAS BAHIA",
-        "close": 0.68,
-        "change": -8.10810811,
-        "volume": 116308800,
-        "market_cap": 1616210769,
-        "logo": "https://brapi.dev/favicon.svg",
-        "sector": "Retail Trade"
-      },
-      "idUser": 1,
-      "id": 3
-    }
-  ],
+  "tickets_portfolio": [],
+  "tickets_saves": [],
   "tickets_favorites": [
     {
       "stock": {
@@ -99,101 +27,17 @@
     },
     {
       "stock": {
-        "stock": "MGLU3",
-        "name": "MAGAZINE LUIZA",
-        "close": 2.24,
-        "change": -4.68085106,
-        "volume": 133978200,
-        "market_cap": 14958366782,
-        "logo": "https://s3-symbol-logo.tradingview.com/magaz-luiza-on-nm--big.svg",
-        "sector": "Retail Trade"
+        "stock": "FNAM11",
+        "name": "FINAM CI *",
+        "close": 0.33,
+        "change": -8.33333333,
+        "volume": 326588000,
+        "market_cap": null,
+        "logo": "https://s3-symbol-logo.tradingview.com/amazonia-on-es--big.svg",
+        "sector": null
       },
       "idUser": 1,
       "id": 2
-    },
-    {
-      "stock": {
-        "stock": "MGLU3",
-        "name": "MAGAZINE LUIZA",
-        "close": 2.24,
-        "change": -4.68085106,
-        "volume": 133978200,
-        "market_cap": 14958366782,
-        "logo": "https://s3-symbol-logo.tradingview.com/magaz-luiza-on-nm--big.svg",
-        "sector": "Retail Trade"
-      },
-      "idUser": 1,
-      "id": 3
-    },
-    {
-      "stock": {
-        "stock": "MGLU3",
-        "name": "MAGAZINE LUIZA",
-        "close": 2.24,
-        "change": -4.68085106,
-        "volume": 133978200,
-        "market_cap": 14958366782,
-        "logo": "https://s3-symbol-logo.tradingview.com/magaz-luiza-on-nm--big.svg",
-        "sector": "Retail Trade"
-      },
-      "idUser": 1,
-      "id": 4
-    },
-    {
-      "stock": {
-        "stock": "MGLU3",
-        "name": "MAGAZINE LUIZA",
-        "close": 2.24,
-        "change": -4.68085106,
-        "volume": 133978200,
-        "market_cap": 14958366782,
-        "logo": "https://s3-symbol-logo.tradingview.com/magaz-luiza-on-nm--big.svg",
-        "sector": "Retail Trade"
-      },
-      "idUser": 1,
-      "id": 5
-    },
-    {
-      "stock": {
-        "stock": "MGLU3",
-        "name": "MAGAZINE LUIZA",
-        "close": 2.24,
-        "change": -4.68085106,
-        "volume": 133978200,
-        "market_cap": 14958366782,
-        "logo": "https://s3-symbol-logo.tradingview.com/magaz-luiza-on-nm--big.svg",
-        "sector": "Retail Trade"
-      },
-      "idUser": 1,
-      "id": 6
-    },
-    {
-      "stock": {
-        "stock": "MGLU3",
-        "name": "MAGAZINE LUIZA",
-        "close": 2.24,
-        "change": -4.68085106,
-        "volume": 133978200,
-        "market_cap": 14958366782,
-        "logo": "https://s3-symbol-logo.tradingview.com/magaz-luiza-on-nm--big.svg",
-        "sector": "Retail Trade"
-      },
-      "idUser": 1,
-      "id": 7
-    },
-    {
-      "stock": {
-        "stock": "MGLU3",
-        "name": "MAGAZINE LUIZA",
-        "close": 2.24,
-        "change": -4.68085106,
-        "volume": 133978200,
-        "market_cap": 14958366782,
-        "logo": "https://s3-symbol-logo.tradingview.com/magaz-luiza-on-nm--big.svg",
-        "sector": "Retail Trade"
-      },
-      "idUser": 1,
-      "id": 8
     }
   ]
 }
