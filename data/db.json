@@ -38,6 +38,20 @@
       },
       "idUser": 1,
       "id": 2
+    },
+    {
+      "stock": {
+        "stock": "FNAM11",
+        "name": "FINAM CI *",
+        "close": 0.32,
+        "change": -3.03030303,
+        "volume": 575031000,
+        "market_cap": null,
+        "logo": "https://s3-symbol-logo.tradingview.com/amazonia-on-es--big.svg",
+        "sector": null
+      },
+      "idUser": 1,
+      "id": 3
     }
   ]
 }
