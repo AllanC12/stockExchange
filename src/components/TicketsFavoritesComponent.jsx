@@ -10,6 +10,7 @@ import Ticket from "./Ticket";
 import { useEffect,useState } from "react";
 
 const TicketsFavoritesComponent =  () => {
+  
   const [favorites,setFavorites] = useState([])
   const dispatch = useDispatch()
   const {idUser} = ContextDataUser()
@@ -23,9 +24,6 @@ const TicketsFavoritesComponent =  () => {
   useEffect(()=> {
     getFavorites()
   },[urlFavorite])
-
-  console.log(favorites)
-
 
   return (
     <div className="tickets_container">
