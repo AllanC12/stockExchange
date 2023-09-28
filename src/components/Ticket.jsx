@@ -17,8 +17,6 @@ const Ticket = ({ stock }) => {
   const { addFunction, removeFunction } = methods;
   const { bag, saves, favorites } = states;
   const { setBag, setSaves, setFavorites } = setLists;
-
-
   
   return (
     <div className="ticket">

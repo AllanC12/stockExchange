@@ -8,64 +8,22 @@
       "id": 1
     }
   ],
-  "tickets_portfolio": [],
-  "tickets_saves": [],
-  "tickets_favorites": [
+  "tickets_portfolio": [
     {
       "stock": {
-        "stock": "FNAM11",
-        "name": "FINAM CI *",
-        "close": 0.32,
-        "change": -3.03030303,
-        "volume": 575031000,
-        "market_cap": null,
-        "logo": "https://s3-symbol-logo.tradingview.com/amazonia-on-es--big.svg",
-        "sector": null
+        "stock": "MGLU3",
+        "name": "MAGAZINE LUIZA",
+        "close": 2.04,
+        "change": -2.85714286,
+        "volume": 178706800,
+        "market_cap": 14023468162,
+        "logo": "https://s3-symbol-logo.tradingview.com/magaz-luiza-on-nm--big.svg",
+        "sector": "Retail Trade"
       },
       "idUser": 1,
       "id": 1
-    },
-    {
-      "stock": {
-        "stock": "FNOR11",
-        "name": "FINOR CI *",
-        "close": 0.69,
-        "change": -8,
-        "volume": 370418000,
-        "market_cap": null,
-        "logo": "https://s3-symbol-logo.tradingview.com/finor-ci--big.svg",
-        "sector": null
-      },
-      "idUser": 1,
-      "id": 2
-    },
-    {
-      "stock": {
-        "stock": "FNAM11",
-        "name": "FINAM CI *",
-        "close": 0.32,
-        "change": -3.03030303,
-        "volume": 575031000,
-        "market_cap": null,
-        "logo": "https://s3-symbol-logo.tradingview.com/amazonia-on-es--big.svg",
-        "sector": null
-      },
-      "idUser": 1,
-      "id": 3
-    },
-    {
-      "stock": {
-        "stock": "FNAM11",
-        "name": "FINAM CI *",
-        "close": 0.32,
-        "change": -3.03030303,
-        "volume": 575031000,
-        "market_cap": null,
-        "logo": "https://s3-symbol-logo.tradingview.com/amazonia-on-es--big.svg",
-        "sector": null
-      },
-      "idUser": 1,
-      "id": 4
     }
-  ]
+  ],
+  "tickets_saves": [],
+  "tickets_favorites": []
 }
