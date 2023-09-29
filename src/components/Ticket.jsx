@@ -2,6 +2,8 @@ import "./sass_components/Ticket.scss";
 
 import { ContextTicketUser } from "../context/ContextTickets";
 
+import { ContextDataUser } from "../context/ContextDataUser";
+
 import {
   FaPlus,
   FaStar,
@@ -11,12 +13,26 @@ import {
   FaCheck,
 } from "react-icons/fa";
 
-const Ticket = ({ stock }) => {
+import { useDispatch } from "react-redux";
 
+import { getTickets } from "../slices/getTicketsSlices";
+
+const Ticket = ({stock }) => {
+  const urlFavorite = `${import.meta.env.VITE_URL_TICKETS_FAVORITES}?idUser=${idUser}`
+  const dispatch = useDispatch()
   const { methods, states, setLists } = ContextTicketUser();
   const { addFunction, removeFunction } = methods;
-  const { bag, saves, favorites } = states;
+  const { bag, saves } = states;
   const { setBag, setSaves, setFavorites } = setLists;
+  const {idUser} = ContextDataUser()
+
+
+  const getAllTicketsUser = async () => {
+    const favorites = await dispatch(getTickets(urlFavorite))
+    return {
+      favorites
+    }
+  }
   
   return (
     <div className="ticket">
