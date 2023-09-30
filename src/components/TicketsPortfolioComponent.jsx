@@ -18,7 +18,6 @@ const TicketsPortfolioComponent = () => {
 
     const getPortfolio = async () => {
       const response = await dispatch(getTickets(urlPortfolio))
-      console.log(response.payload)
       setPortfolio(response.payload)
 
     }
