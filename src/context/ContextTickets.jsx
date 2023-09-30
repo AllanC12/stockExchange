@@ -4,7 +4,7 @@ import { createContext, useContext, useState } from "react";
 
 import { useDispatch } from "react-redux";
 
-import { sendTicketUserSlice } from "../slices/getTicketsSlices";
+import { sendTicketUserSlice,getTickets } from "../slices/getTicketsSlices";
 
 import { ContextDataUser } from "./ContextDataUser";
 
@@ -15,16 +15,25 @@ export const ContextTicketsDataProvider = ({ children }) => {
   const [bag, setBag] = useState([]);
   const [saves, setSaves] = useState([]);
   const [favorites, setFavorites] = useState([]);
+  const [favoritesUser,setFavoritesUser] = useState([])
   const { idUser } = ContextDataUser();
   const urlPortfolio = `${import.meta.env.VITE_URL_TICKETS_PORTFOLIO}`;
   const urlSaves = `${import.meta.env.VITE_URL_TICKETS_SAVES}`;
   const urlFavorite = `${import.meta.env.VITE_URL_TICKETS_FAVORITES}`;
+
+  const urlFavoriteUser = `${urlFavorite}?idUser=${idUser}`
+  console.log(urlFavoriteUser)
 
   const dataRequest = {
     url: "",
     stock: null,
     idUser,
   };
+
+  const getTicketByUser = async (url,setListTicket) => {
+     let response = await fetch(url).then(resp => resp.json())
+     setListTicket(response)
+  }
 
   const addFunction = async (stock, setStockAdd) => {
     setStockAdd((prevStockAdded) =>
@@ -49,11 +58,12 @@ export const ContextTicketsDataProvider = ({ children }) => {
     setSaves,
     setFavorites,
   };
-
+  
   const states = {
     bag,
     saves,
     favorites,
+    favoritesUser
   };
 
   const TicketsUserValue = {
@@ -85,6 +95,7 @@ export const ContextTicketsDataProvider = ({ children }) => {
 
   useEffect(() => {
     sendTicketFromServer(urlFavorite,favorites)
+    getTicketByUser(urlFavoriteUser,setFavoritesUser)
   },[favorites]) 
 
   return (

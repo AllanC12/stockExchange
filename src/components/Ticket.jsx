@@ -19,13 +19,12 @@ import { getTickets } from "../slices/getTicketsSlices";
 
 const Ticket = ({stock }) => {
   const {idUser} = ContextDataUser()
-  const urlFavorite = `${import.meta.env.VITE_URL_TICKETS_FAVORITES}?idUser=${idUser}`
-  const dispatch = useDispatch()
   const { methods, states, setLists } = ContextTicketUser();
+  const {favoritesUser} = states
   const { addFunction, removeFunction } = methods;
   const { bag, saves,favorites } = states;
   const { setBag, setSaves, setFavorites } = setLists;
-  
+
   return (
     <div className="ticket">
       <div className="header-ticket">
@@ -64,7 +63,7 @@ const Ticket = ({stock }) => {
           />
         )}
 
-        {favorites.some((item) => item.stock === stock.stock) ? (
+        {favoritesUser.length > 0 ? (
           <FaStar
             onClick={() => removeFunction(stock,setFavorites)}
             title="Remover investimento"
