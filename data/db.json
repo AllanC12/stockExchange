@@ -10,6 +10,21 @@
   ],
   "tickets_portfolio": [],
   "tickets_saves": [],
-  "tickets_favorites": []
+  "tickets_favorites": [
+    {
+      "stock": {
+        "stock": "FNAM11",
+        "name": "FINAM CI *",
+        "close": 0.32,
+        "change": 0,
+        "volume": 202217000,
+        "market_cap": null,
+        "logo": "https://s3-symbol-logo.tradingview.com/amazonia-on-es--big.svg",
+        "sector": null
+      },
+      "idUser": 1,
+      "id": 1
+    }
+  ]
 
 }
