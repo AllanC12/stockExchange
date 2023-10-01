@@ -17,12 +17,15 @@ export const ContextTicketsDataProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([]);
   const [favoritesUser,setFavoritesUser] = useState([])
   const { idUser } = ContextDataUser();
+
   const urlPortfolio = `${import.meta.env.VITE_URL_TICKETS_PORTFOLIO}`;
   const urlSaves = `${import.meta.env.VITE_URL_TICKETS_SAVES}`;
   const urlFavorite = `${import.meta.env.VITE_URL_TICKETS_FAVORITES}`;
 
   const urlFavoriteUser = `${urlFavorite}?idUser=${idUser}`
-  console.log(urlFavoriteUser)
+  
+   console.log(favoritesUser)
+
 
   const dataRequest = {
     url: "",
@@ -31,8 +34,8 @@ export const ContextTicketsDataProvider = ({ children }) => {
   };
 
   const getTicketByUser = async (url,setListTicket) => {
-     let response = await fetch(url).then(resp => resp.json())
-     setListTicket(response)
+     let response = await dispatch(getTickets(url))
+     setListTicket(response.payload)
   }
 
   const addFunction = async (stock, setStockAdd) => {
@@ -51,12 +54,15 @@ export const ContextTicketsDataProvider = ({ children }) => {
   const methods = {
     addFunction,
     removeFunction,
+    getTicketByUser
   };
 
   const setLists = {
     setBag,
     setSaves,
     setFavorites,
+    setFavoritesUser
+  
   };
   
   const states = {

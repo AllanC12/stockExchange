@@ -6,14 +6,30 @@ import { getTickets } from "../slices/getTicketsSlices";
 
 import { ContextDataUser } from "../context/ContextDataUser";
 
+import { useEffect } from "react";
+
 import Ticket from "./Ticket";
 
 import { ContextTicketUser } from "../context/ContextTickets";
 
 const TicketsFavoritesComponent =  () => {
-  
+  const {idUser} = ContextDataUser()
+  const {userLogged} = ContextDataUser()
   const {states}  = ContextTicketUser()
+  const {methods} = ContextTicketUser()
+  const {setLists} = ContextTicketUser()
+  const {setFavoritesUser} = setLists
   const {favoritesUser} = states
+  const {getTicketByUser} = methods
+
+  const urlFavorite = `${import.meta.env.VITE_URL_TICKETS_FAVORITES}?idUser=${idUser}`;
+
+  useEffect(() => {
+    if(userLogged){
+      getTicketByUser(urlFavorite,setFavoritesUser)
+    }
+  },[])
+
   console.log(favoritesUser)
 
   return (

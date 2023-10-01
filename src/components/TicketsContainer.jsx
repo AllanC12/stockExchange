@@ -24,6 +24,8 @@ const TicketsContainer = () => {
     searchTickets();
   }, [url]);
 
+  console.log(data.payload)
+
   return (
     <div className="tickets_container">
       {data ? (

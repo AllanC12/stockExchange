@@ -13,10 +13,6 @@ import {
   FaCheck,
 } from "react-icons/fa";
 
-import { useDispatch } from "react-redux";
-
-import { getTickets } from "../slices/getTicketsSlices";
-
 const Ticket = ({stock }) => {
   const {idUser} = ContextDataUser()
   const { methods, states, setLists } = ContextTicketUser();
