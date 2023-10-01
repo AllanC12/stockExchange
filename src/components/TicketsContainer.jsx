@@ -9,22 +9,27 @@ import Ticket from "./Ticket";
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 
-const TicketsContainer = () => {
+import { ContextTicketUser } from "../context/ContextTickets";
 
+const TicketsContainer = () => {
+  const url = import.meta.env.VITE_URL_API;
   const dispatch = useDispatch();
   const [data, setData] = useState(null);
 
-  const url = import.meta.env.VITE_URL_API;
+  const {states} = ContextTicketUser()
+  const {bagByUser,savedByUser,favoritesByUser} = states
+
+  console.log(favoritesByUser)
+
+  const searchTickets = async () => {
+    let response = await dispatch(getTickets(url));
+    setData(response);
+  };
 
   useEffect(() => {
-    const searchTickets = async () => {
-      let response = await dispatch(getTickets(url));
-      setData(response);
-    };
     searchTickets();
   }, [url]);
 
-  console.log(data.payload)
 
   return (
     <div className="tickets_container">
