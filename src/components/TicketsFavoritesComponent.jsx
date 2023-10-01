@@ -6,20 +6,20 @@ import { getTickets } from "../slices/getTicketsSlices";
 
 import { ContextDataUser } from "../context/ContextDataUser";
 
+import { useEffect } from "react";
+
 import Ticket from "./Ticket";
 
 import { ContextTicketUser } from "../context/ContextTickets";
 
 const TicketsFavoritesComponent =  () => {
-  
   const {states}  = ContextTicketUser()
-  const {favoritesUser} = states
-  console.log(favoritesUser)
-
+  const {favoritesByUser} = states
+  
   return (
     <div className="tickets_container">
-      {favoritesUser.length > 0 ? (
-        favoritesUser.map((favorite, index) => <Ticket key={index} stock={favorite.stock}/>)
+      {favoritesByUser.length > 0 ? (
+        favoritesByUser.map((favorite, index) => <Ticket key={index} stock={favorite.stock}/>)
       ) : (
         <p className="load-ticket">Ainda não há itens salvos</p>
       )}

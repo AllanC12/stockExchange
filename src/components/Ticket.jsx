@@ -13,16 +13,11 @@ import {
   FaCheck,
 } from "react-icons/fa";
 
-import { useDispatch } from "react-redux";
-
-import { getTickets } from "../slices/getTicketsSlices";
-
-const Ticket = ({stock }) => {
-  const {idUser} = ContextDataUser()
+const Ticket = ({ stock }) => {
   const { methods, states, setLists } = ContextTicketUser();
-  const {favoritesUser} = states
+  const { favoritesByUser } = states;
   const { addFunction, removeFunction } = methods;
-  const { bag, saves,favorites } = states;
+  const { bag, saves, favorites } = states;
   const { setBag, setSaves, setFavorites } = setLists;
 
   return (
@@ -63,14 +58,14 @@ const Ticket = ({stock }) => {
           />
         )}
 
-        {favoritesUser.length > 0 ? (
+        {favoritesByUser.some((item) => item.stock === stock) ? (
           <FaStar
-            onClick={() => removeFunction(stock,setFavorites)}
+            onClick={() => removeFunction(stock, setFavorites)}
             title="Remover investimento"
           />
         ) : (
           <FaRegStar
-            onClick={() => addFunction(stock,setFavorites)}
+            onClick={() => addFunction(stock, setFavorites)}
             title="Favoritar investimento"
           />
         )}
