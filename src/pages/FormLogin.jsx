@@ -21,6 +21,8 @@ const FormLogin = () => {
 
   const {setUserId} = ContextDataUser()
 
+  const {setUserLogged} = ContextDataUser()
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -37,6 +39,7 @@ const FormLogin = () => {
 
     makeLogin(dataUser,setMessage,name)
 
+    setUserLogged(true)
     
     setTimeout(() => {
       navigate('/home_broker')
