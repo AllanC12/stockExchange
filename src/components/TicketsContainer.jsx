@@ -16,10 +16,8 @@ const TicketsContainer = () => {
   const dispatch = useDispatch();
   const [data, setData] = useState(null);
 
-  const {states} = ContextTicketUser()
-  const {bagByUser,savedByUser,favoritesByUser} = states
-
-  console.log(favoritesByUser)
+  const { states } = ContextTicketUser();
+  const { bagByUser, savedByUser, favoritesByUser } = states;
 
   const searchTickets = async () => {
     let response = await dispatch(getTickets(url));
@@ -30,22 +28,15 @@ const TicketsContainer = () => {
     searchTickets();
   }, [url]);
 
-
   return (
     <div className="tickets_container">
       {data ? (
-          data.payload.stocks.map((stock,index) => (
-            <Ticket
-              key={index}
-              stock={stock}
-            />
-          ))
-        ) : (
-          <p className="load-ticket">Carregando...</p>
-        )
-      
-      }
-
+        data.payload.stocks.map((stock, index) => (
+          <Ticket key={index} stock={stock} />
+        ))
+      ) : (
+        <p className="load-ticket">Carregando...</p>
+      )}
     </div>
   );
 };

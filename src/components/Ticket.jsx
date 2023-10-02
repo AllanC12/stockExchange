@@ -15,7 +15,7 @@ import {
 
 const Ticket = ({ stock }) => {
   const { methods, states, setLists } = ContextTicketUser();
-  const { favoritesByUser } = states;
+  const { bagByUser, savedByUser, favoritesByUser } = states;
   const { addFunction, removeFunction } = methods;
   const { bag, saves, favorites } = states;
   const { setBag, setSaves, setFavorites } = setLists;
@@ -34,7 +34,7 @@ const Ticket = ({ stock }) => {
       </div>
 
       <div className="footer-ticket">
-        {bag.some((item) => item.stock === stock.stock) ? (
+        {bagByUser.some((item) => item.stock === stock.stock) ? (
           <FaCheck
             onClick={() => removeFunction(stock, setBag)}
             title="Remover investimento"
@@ -46,7 +46,7 @@ const Ticket = ({ stock }) => {
           />
         )}
 
-        {saves.some((item) => item.stock === stock.stock) ? (
+        {savedByUser.some((item) => item.stock === stock.stock) ? (
           <FaBookmark
             onClick={() => removeFunction(stock, setSaves)}
             title="Remover investimento"

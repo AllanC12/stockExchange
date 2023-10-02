@@ -27,7 +27,7 @@ export const ContextTicketsDataProvider = ({ children }) => {
   const urlFavorite = import.meta.env.VITE_URL_TICKETS_FAVORITES;
 
   const urlBagUser = `${urlPortfolio}?idUser=${idUser}`;
-  const urlSaveUser = `${urlPortfolio}?idUser=${idUser}`;
+  const urlSaveUser = `${urlSaves}?idUser=${idUser}`;
   const urlFavoriteUser = `${urlFavorite}?idUser=${idUser}`;
 
   const dataRequest = {
@@ -41,11 +41,11 @@ export const ContextTicketsDataProvider = ({ children }) => {
     setListTicket(response.payload);
   };
 
-  if (userLogged) {
-    getTicketByUser(urlBagUser, setBagByUser);
-    getTicketByUser(urlSaveUser, setSavedByUser);
-    getTicketByUser(urlFavoriteUser, setFavoritesByUser);
-  }
+useEffect(() => {
+  getTicketByUser(urlBagUser, setBagByUser);
+  getTicketByUser(urlSaveUser, setSavedByUser);
+  getTicketByUser(urlFavoriteUser, setFavoritesByUser);
+ },[userLogged])
 
   const addFunction = async (stock, setStockAdd) => {
     setStockAdd((prevStockAdded) =>
