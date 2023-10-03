@@ -28,11 +28,17 @@ const TicketsContainer = () => {
     searchTickets();
   }, [url]);
 
+  const verifyTicketFavorite = async (stock) => {
+    const saveInFavorite =  await favoritesByUser.includes(stock.stock) ? true : false
+    console.log(saveInFavorite)
+    return saveInFavorite
+   }
+
   return (
     <div className="tickets_container">
       {data ? (
         data.payload.stocks.map((stock, index) => (
-          <Ticket key={index} stock={stock} />
+          <Ticket key={index} stock={stock} isSaveInFavorite={verifyTicketFavorite(stock)}/>
         ))
       ) : (
         <p className="load-ticket">Carregando...</p>

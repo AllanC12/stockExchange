@@ -2,8 +2,6 @@ import "./sass_components/Ticket.scss";
 
 import { ContextTicketUser } from "../context/ContextTickets";
 
-import { ContextDataUser } from "../context/ContextDataUser";
-
 import {
   FaPlus,
   FaStar,
@@ -13,12 +11,14 @@ import {
   FaCheck,
 } from "react-icons/fa";
 
-const Ticket = ({ stock }) => {
+const Ticket = ({isSaveInFavorite,stock }) => {
   const { methods, states, setLists } = ContextTicketUser();
   const { bagByUser, savedByUser, favoritesByUser } = states;
   const { addFunction, removeFunction } = methods;
   const { bag, saves, favorites } = states;
   const { setBag, setSaves, setFavorites } = setLists;
+
+   console.log(isSaveInFavorite)
 
   return (
     <div className="ticket">
@@ -34,7 +34,7 @@ const Ticket = ({ stock }) => {
       </div>
 
       <div className="footer-ticket">
-        {bagByUser.some((item) => item.stock === stock.stock) ? (
+        {bagByUser.some((item) => item.stock === stock) ? (
           <FaCheck
             onClick={() => removeFunction(stock, setBag)}
             title="Remover investimento"
@@ -46,7 +46,7 @@ const Ticket = ({ stock }) => {
           />
         )}
 
-        {savedByUser.some((item) => item.stock === stock.stock) ? (
+        {savedByUser.some((item) => item.stock === stock) ? (
           <FaBookmark
             onClick={() => removeFunction(stock, setSaves)}
             title="Remover investimento"
@@ -58,7 +58,7 @@ const Ticket = ({ stock }) => {
           />
         )}
 
-        {favoritesByUser.some((item) => item.stock === stock) ? (
+        { isSaveInFavorite ? (
           <FaStar
             onClick={() => removeFunction(stock, setFavorites)}
             title="Remover investimento"
