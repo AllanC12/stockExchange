@@ -2,8 +2,6 @@ import "./sass_components/Ticket.scss";
 
 import { ContextTicketUser } from "../context/ContextTickets";
 
-import { ContextDataUser } from "../context/ContextDataUser";
-
 import {
   FaPlus,
   FaStar,
@@ -13,7 +11,7 @@ import {
   FaCheck,
 } from "react-icons/fa";
 
-const Ticket = ({ stock }) => {
+const Ticket = ({stock }) => {
   const { methods, states, setLists } = ContextTicketUser();
   const { bagByUser, savedByUser, favoritesByUser } = states;
   const { addFunction, removeFunction } = methods;
@@ -34,7 +32,7 @@ const Ticket = ({ stock }) => {
       </div>
 
       <div className="footer-ticket">
-        {bagByUser.some((item) => item.stock === stock.stock) ? (
+        {bagByUser.some((item) => item.stock === stock) ? (
           <FaCheck
             onClick={() => removeFunction(stock, setBag)}
             title="Remover investimento"
@@ -46,7 +44,7 @@ const Ticket = ({ stock }) => {
           />
         )}
 
-        {savedByUser.some((item) => item.stock === stock.stock) ? (
+        {savedByUser.some((item) => item.stock === stock) ? (
           <FaBookmark
             onClick={() => removeFunction(stock, setSaves)}
             title="Remover investimento"
