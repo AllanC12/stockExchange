@@ -11,12 +11,14 @@ import {
   FaCheck,
 } from "react-icons/fa";
 
-const Ticket = ({stock }) => {
+const Ticket = ({isSaveInFavorite,stock }) => {
   const { methods, states, setLists } = ContextTicketUser();
   const { bagByUser, savedByUser, favoritesByUser } = states;
   const { addFunction, removeFunction } = methods;
   const { bag, saves, favorites } = states;
   const { setBag, setSaves, setFavorites } = setLists;
+
+   console.log(isSaveInFavorite)
 
   return (
     <div className="ticket">
@@ -56,7 +58,7 @@ const Ticket = ({stock }) => {
           />
         )}
 
-        {favoritesByUser.some((item) => item.stock === stock) ? (
+        { isSaveInFavorite ? (
           <FaStar
             onClick={() => removeFunction(stock, setFavorites)}
             title="Remover investimento"
