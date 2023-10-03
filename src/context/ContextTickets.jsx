@@ -45,7 +45,7 @@ useEffect(() => {
   getTicketByUser(urlBagUser, setBagByUser);
   getTicketByUser(urlSaveUser, setSavedByUser);
   getTicketByUser(urlFavoriteUser, setFavoritesByUser);
- },[userLogged])
+  },[userLogged])
 
   const addFunction = async (stock, setStockAdd) => {
     setStockAdd((prevStockAdded) =>
@@ -115,7 +115,7 @@ useEffect(() => {
   useEffect(() => {
     sendTicketFromServer(urlFavorite, favorites);
     getTicketByUser(urlFavoriteUser, setFavoritesByUser);
-  }, [favorites]);
+   }, [favorites]);
 
   return (
     <TicketsUser.Provider value={TicketsUserValue}>
