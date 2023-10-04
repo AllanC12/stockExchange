@@ -18,8 +18,6 @@ const Ticket = ({isSaveInFavorite,stock }) => {
   const { bag, saves, favorites } = states;
   const { setBag, setSaves, setFavorites } = setLists;
 
-   console.log(isSaveInFavorite)
-
   return (
     <div className="ticket">
       <div className="header-ticket">

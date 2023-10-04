@@ -29,9 +29,8 @@ const TicketsContainer = () => {
   }, [url]);
 
   const verifyTicketFavorite = async (stock) => {
-    const saveInFavorite =  await favoritesByUser.includes(stock.stock) ? true : false
-    console.log(saveInFavorite)
-    return saveInFavorite
+    const respFavorite = await favoritesByUser.stock.name === stock ? true : false
+    console.log(respFavorite)
    }
 
   return (
