@@ -2,6 +2,8 @@ import "./sass_components/Ticket.scss";
 
 import { ContextTicketUser } from "../context/ContextTickets";
 
+import { useState,useEffect } from "react";
+
 import {
   FaPlus,
   FaStar,
@@ -17,7 +19,19 @@ const Ticket = ({isSaveInFavorite,stock }) => {
   const { addFunction, removeFunction } = methods;
   const { bag, saves, favorites } = states;
   const { setBag, setSaves, setFavorites } = setLists;
+  const [confirmFavorite,setConfirmFavorite] = useState()
+  
+  const verifyFavorite = async () => {
+    const resp = await isSaveInFavorite
+    setConfirmFavorite(resp)
+    console.log(confirmFavorite)
+    return resp
+  }
 
+   useEffect(() => {
+    verifyFavorite()
+   },[favorites])
+ 
   return (
     <div className="ticket">
       <div className="header-ticket">
@@ -56,7 +70,7 @@ const Ticket = ({isSaveInFavorite,stock }) => {
           />
         )}
 
-        { isSaveInFavorite ? (
+        { confirmFavorite ? (
           <FaStar
             onClick={() => removeFunction(stock, setFavorites)}
             title="Remover investimento"
