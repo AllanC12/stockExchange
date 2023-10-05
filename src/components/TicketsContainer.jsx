@@ -29,9 +29,21 @@ const TicketsContainer = () => {
   }, [url]);
 
   const verifyTicketFavorite = async (stock) => {
-    const respFavorite = await favoritesByUser.stock.name === stock ? true : false
-    console.log(respFavorite)
-   }
+
+    const respFavorite = await Promise.all(favoritesByUser).then((response) => {
+      let verifyFavorite = false
+
+      for(const favorite of response){
+        if(favorite.stock.stock === stock.stock){
+          verifyFavorite = true
+          break;
+        }
+      }
+
+      return verifyFavorite
+    })
+   return respFavorite
+  }
 
   return (
     <div className="tickets_container">
