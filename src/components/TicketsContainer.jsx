@@ -54,17 +54,9 @@ const TicketsContainer = () => {
   return (
     <div className="tickets_container">
       {data ? (
-<<<<<<< HEAD
-        data.payload.stocks.map((stock, index) => (
-          <Ticket
-            key={index}
-            stock={stock}
-            isSaveInFavorite={verifyTicketFavorite(stock)}
-          />
-=======
+
         data.payload.stocks.slice(0,20).map((stock, index) => (
           <Ticket key={index} stock={stock} isSaveInFavorite={verifyTicketFavorite(stock)}/>
->>>>>>> testing
         ))
       ) : (
         <p className="load-ticket">Carregando...</p>

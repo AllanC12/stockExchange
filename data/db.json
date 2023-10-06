@@ -85,7 +85,6 @@
   "tickets_favorites": [
     {
       "stock": {
-<<<<<<< HEAD
         "stock": "BBDC4",
         "name": "BRADESCO PN",
         "close": 14.44,
@@ -100,8 +99,6 @@
     },
     {
       "stock": {
-=======
->>>>>>> testing
         "stock": "MGLU3",
         "name": "MAGAZINE LUIZA",
         "close": 1.81,
@@ -112,7 +109,7 @@
         "sector": "Retail Trade"
       },
       "idUser": 1,
-      "id": 1
+      "id": 2
     },
     {
       "stock": {
@@ -126,10 +123,7 @@
         "sector": "Health Services"
       },
       "idUser": 1,
-<<<<<<< HEAD
       "id": 3
-=======
-      "id": 2
     },
     {
       "stock": {
@@ -143,7 +137,7 @@
         "sector": "Finance"
       },
       "idUser": 1,
-      "id": 3
+      "id": 4
     },
     {
       "stock": {
@@ -157,7 +151,7 @@
         "sector": null
       },
       "idUser": 1,
-      "id": 4
+      "id": 5
     },
     {
       "stock": {
@@ -171,7 +165,7 @@
         "sector": "Retail Trade"
       },
       "idUser": 1,
-      "id": 5
+      "id": 6
     },
     {
       "stock": {
@@ -185,7 +179,7 @@
         "sector": "Distribution Services"
       },
       "idUser": 1,
-      "id": 6
+      "id": 7
     },
     {
       "stock": {
@@ -199,8 +193,7 @@
         "sector": "Finance"
       },
       "idUser": 1,
-      "id": 7
->>>>>>> testing
+      "id": 8
     }
   ]
 }
