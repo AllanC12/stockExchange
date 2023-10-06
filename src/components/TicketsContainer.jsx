@@ -36,7 +36,6 @@ const TicketsContainer = () => {
       for(const favorite of response){
         if(favorite.stock.stock === stock.stock){
           verifyFavorite = true
-          break;
         }
       }
 

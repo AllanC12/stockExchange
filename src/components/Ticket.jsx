@@ -24,13 +24,19 @@ const Ticket = ({isSaveInFavorite,stock }) => {
   const verifyFavorite = async () => {
     const resp = await isSaveInFavorite
     setConfirmFavorite(resp)
-    console.log(confirmFavorite)
+    console.log(favoritesByUser)
     return resp
   }
 
+  console.log(confirmFavorite)
+
    useEffect(() => {
-    verifyFavorite()
-   },[favorites])
+    const getFavoriteInServer = async () => {
+      await verifyFavorite()
+      console.log(favorites)
+    }
+    getFavoriteInServer()
+   },[favoritesByUser])
  
   return (
     <div className="ticket">
