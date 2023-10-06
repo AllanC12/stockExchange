@@ -180,6 +180,20 @@
       },
       "idUser": 1,
       "id": 7
+    },
+    {
+      "stock": {
+        "stock": "MGLU3",
+        "name": "MAGAZINE LUIZA",
+        "close": 1.81,
+        "change": -4.23280423,
+        "volume": 81112600,
+        "market_cap": 12621121823,
+        "logo": "https://s3-symbol-logo.tradingview.com/magaz-luiza-on-nm--big.svg",
+        "sector": "Retail Trade"
+      },
+      "idUser": 1,
+      "id": 8
     }
   ]
 }
