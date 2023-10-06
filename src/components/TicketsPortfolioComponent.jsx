@@ -1,17 +1,17 @@
 import "./sass_components/TicketsContainer.scss"
 
-import { ContextTicketUser } from "../context/ContextTickets";
 import Ticket from "./Ticket";
+ 
+import { ContextTicketUser } from "../context/ContextTickets";
 
 const TicketsPortfolioComponent = () => {
-
-    const {states} = ContextTicketUser()
-    const {bag} = states 
+  const {states} = ContextTicketUser()
+  const {bagByUser} = states
 
   return (
     <div className="tickets_container">
-      {bag.length > 0 ? (
-        bag.map((save,index) => <Ticket key={index} stock={save}/>)
+      {bagByUser.length > 0 ? (
+        bagByUser.map((save,index) => <Ticket key={index} stock={save.stock}/>)
       ) : (
         <p className="load-ticket" >Ainda não há itens salvos</p>
       )}

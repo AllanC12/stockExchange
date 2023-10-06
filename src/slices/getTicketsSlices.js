@@ -3,7 +3,6 @@ import getData from "../services/getTicketsService";
 
 const initialState = {
   tickets: [],
-  ticketsFavorites: [],
   error: null,
   success: false,
   loading: false,
@@ -12,8 +11,8 @@ const initialState = {
 export const getTickets = createAsyncThunk(
   "tickets/getTickets",
   async (url) => {
-    const data = await getData.getTickets(url);
-    return data;
+    const data = await getData.getTickets(url)
+    return data
   }
 );
 
@@ -69,8 +68,7 @@ export const ticketsSlice = createSlice({
         state.loading = false,
         state.error = true
       })
-      .addCase(sendTicketUserSlice.fulfilled,(state,action) =>{
-        state.ticketsFavorites = action.payload
+      .addCase(sendTicketUserSlice.fulfilled,(state) =>{
         state.success = true
         state.error = false
         state.loading = false

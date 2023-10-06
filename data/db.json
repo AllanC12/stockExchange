@@ -8,9 +8,241 @@
       "id": 1
     }
   ],
+<<<<<<< HEAD
   "tickets_portfolio": [],
   "tickets_saves": [],
   "tickets_favorites": [
 
+=======
+  "tickets_portfolio": [
+    {
+      "stock": {
+        "stock": "BHIA3",
+        "name": "CASAS BAHIA",
+        "close": 0.63,
+        "change": 0,
+        "volume": 58270200,
+        "market_cap": 1497371715,
+        "logo": "https://brapi.dev/favicon.svg",
+        "sector": "Retail Trade"
+      },
+      "idUser": 1,
+      "id": 1
+    }
+  ],
+  "tickets_saves": [
+    {
+      "stock": {
+        "stock": "MGLU3",
+        "name": "MAGAZINE LUIZA",
+        "close": 2.01,
+        "change": -5.18867925,
+        "volume": 91688200,
+        "market_cap": 14157024880,
+        "logo": "https://s3-symbol-logo.tradingview.com/magaz-luiza-on-nm--big.svg",
+        "sector": "Retail Trade"
+      },
+      "idUser": 1,
+      "id": 1
+    },
+    {
+      "stock": {
+        "stock": "BHIA3",
+        "name": "CASAS BAHIA",
+        "close": 0.63,
+        "change": 0,
+        "volume": 58270200,
+        "market_cap": 1497371715,
+        "logo": "https://brapi.dev/favicon.svg",
+        "sector": "Retail Trade"
+      },
+      "idUser": 1,
+      "id": 2
+    },
+    {
+      "stock": {
+        "stock": "BHIA3",
+        "name": "CASAS BAHIA",
+        "close": 0.63,
+        "change": 0,
+        "volume": 58270200,
+        "market_cap": 1497371715,
+        "logo": "https://brapi.dev/favicon.svg",
+        "sector": "Retail Trade"
+      },
+      "idUser": 1,
+      "id": 3
+    },
+    {
+      "stock": {
+        "stock": "BHIA3",
+        "name": "CASAS BAHIA",
+        "close": 0.63,
+        "change": 0,
+        "volume": 58270200,
+        "market_cap": 1497371715,
+        "logo": "https://brapi.dev/favicon.svg",
+        "sector": "Retail Trade"
+      },
+      "idUser": 1,
+      "id": 4
+    }
+  ],
+  "tickets_favorites": [
+    {
+      "stock": {
+        "stock": "HAPV3",
+        "name": "HAPVIDA ATZ",
+        "close": 4.16,
+        "change": -4.80549199,
+        "volume": 83152100,
+        "market_cap": 32925074924,
+        "logo": "https://s3-symbol-logo.tradingview.com/hapvida--big.svg",
+        "sector": "Health Services"
+      },
+      "idUser": 1,
+      "id": 1
+    },
+    {
+      "stock": {
+        "stock": "MGLU3",
+        "name": "MAGAZINE LUIZA",
+        "close": 1.81,
+        "change": -4.23280423,
+        "volume": 81112600,
+        "market_cap": 12621121823,
+        "logo": "https://s3-symbol-logo.tradingview.com/magaz-luiza-on-nm--big.svg",
+        "sector": "Retail Trade"
+      },
+      "idUser": 1,
+      "id": 2
+    },
+    {
+      "stock": {
+        "stock": "FNAM11",
+        "name": "FINAM CI *",
+        "close": 0.35,
+        "change": 6.06060606,
+        "volume": 71198000,
+        "market_cap": null,
+        "logo": "https://s3-symbol-logo.tradingview.com/amazonia-on-es--big.svg",
+        "sector": null
+      },
+      "idUser": 1,
+      "id": 3
+    },
+    {
+      "stock": {
+        "stock": "BBDC4",
+        "name": "BRADESCO PN",
+        "close": 14.44,
+        "change": 0.41724618,
+        "volume": 40153400,
+        "market_cap": 143152753512,
+        "logo": "https://s3-symbol-logo.tradingview.com/bradesco--big.svg",
+        "sector": "Finance"
+      },
+      "idUser": 1,
+      "id": 4
+    },
+    {
+      "stock": {
+        "stock": "BHIA3",
+        "name": "CASAS BAHIA",
+        "close": 0.56,
+        "change": -3.44827586,
+        "volume": 39130700,
+        "market_cap": 1378532661,
+        "logo": "https://brapi.dev/favicon.svg",
+        "sector": "Retail Trade"
+      },
+      "idUser": 1,
+      "id": 5
+    },
+    {
+      "stock": {
+        "stock": "RAIZ4",
+        "name": "RAIZEN PN",
+        "close": 3.38,
+        "change": -2.59365994,
+        "volume": 37198300,
+        "market_cap": 35923208170,
+        "logo": "https://s3-symbol-logo.tradingview.com/raizen--big.svg",
+        "sector": "Distribution Services"
+      },
+      "idUser": 1,
+      "id": 6
+    },
+    {
+      "stock": {
+        "stock": "MRVE3",
+        "name": "MRV",
+        "close": 9.09,
+        "change": -3.60551432,
+        "volume": 37066000,
+        "market_cap": 5299369513,
+        "logo": "https://s3-symbol-logo.tradingview.com/mrv--big.svg",
+        "sector": "Finance"
+      },
+      "idUser": 1,
+      "id": 7
+    },
+    {
+      "stock": {
+        "stock": "PETR4",
+        "name": "PETROBRAS PN",
+        "close": 32.73,
+        "change": 0.33721951,
+        "volume": 35342000,
+        "market_cap": 447828538558,
+        "logo": "https://s3-symbol-logo.tradingview.com/brasileiro-petrobras--big.svg",
+        "sector": "Energy Minerals"
+      },
+      "idUser": 1,
+      "id": 8
+    },
+    {
+      "stock": {
+        "stock": "ABEV3",
+        "name": "AMBEV S/A",
+        "close": 12.89,
+        "change": -2.42240727,
+        "volume": 31497000,
+        "market_cap": 208051347114,
+        "logo": "https://s3-symbol-logo.tradingview.com/ambev--big.svg",
+        "sector": "Consumer Non-Durables"
+      },
+      "idUser": 1,
+      "id": 9
+    },
+    {
+      "stock": {
+        "stock": "ITUB4",
+        "name": "ITAUUNIBANCOPN",
+        "close": 27.639999,
+        "change": 1.58030142,
+        "volume": 28635400,
+        "market_cap": 245385088775,
+        "logo": "https://s3-symbol-logo.tradingview.com/itau-unibanco--big.svg",
+        "sector": "Finance"
+      },
+      "idUser": 1,
+      "id": 10
+    },
+    {
+      "stock": {
+        "stock": "OIBR3",
+        "name": "OI",
+        "close": 0.67,
+        "change": 15.51724138,
+        "volume": 27538100,
+        "market_cap": 27223190,
+        "logo": "https://s3-symbol-logo.tradingview.com/oi--big.svg",
+        "sector": "Communications"
+      },
+      "idUser": 1,
+      "id": 11
+    }
+>>>>>>> maste
   ]
 }

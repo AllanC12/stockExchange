@@ -1,13 +1,9 @@
 
 const getTickets = async (url) => {
-  try {
-    const response = await fetch(url)
-      .then((resp) => resp.json())
-      .catch((err) => err);
-    return response;
-  } catch (error) {
-    console.log(error);
-  }
+  
+  const response = await fetch(url).then((resp) => resp.json())
+  return response;
+
 };
 
 
@@ -26,11 +22,11 @@ const sendDataUser = async (url, data) => {
 };
 
 
-const sendTicketUser = async (urlFavorite,favorite,idUser) => {
+const sendTicketUser = async (urlTicket,ticket,idUser) => {
   try {
-    await fetch(urlFavorite,{
+    await fetch(urlTicket,{
       method: 'POST',
-      body: JSON.stringify(favorite,idUser),
+      body: JSON.stringify(ticket,idUser),
       headers: {
         "content-type" : "application/json"
       }
@@ -39,7 +35,6 @@ const sendTicketUser = async (urlFavorite,favorite,idUser) => {
     console.log(error)
   }
 } 
-
 
 const getData = {
   getTickets,
