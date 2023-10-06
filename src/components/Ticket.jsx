@@ -4,6 +4,8 @@ import { ContextTicketUser } from "../context/ContextTickets";
 
 import { useState,useEffect } from "react";
 
+import { ContextDataUser } from "../context/ContextDataUser";
+
 import {
   FaPlus,
   FaStar,
@@ -14,24 +16,32 @@ import {
 } from "react-icons/fa";
 
 const Ticket = ({isSaveInFavorite,stock }) => {
+  const {idUser}  = ContextDataUser()
   const { methods, states, setLists } = ContextTicketUser();
-  const { bagByUser, savedByUser, favoritesByUser } = states;
   const { addFunction, removeFunction } = methods;
+  const { bagByUser, savedByUser, favoritesByUser } = states;
+  const {setFavoriteByUser} = setLists
   const { bag, saves, favorites } = states;
   const { setBag, setSaves, setFavorites } = setLists;
   const [confirmFavorite,setConfirmFavorite] = useState()
+
   
   const verifyFavorite = async () => {
     const resp = await isSaveInFavorite
-    setConfirmFavorite(resp)
-    console.log(confirmFavorite)
+    await setConfirmFavorite(resp)
     return resp
   }
 
    useEffect(() => {
-    verifyFavorite()
-   },[favorites])
- 
+      const awaitFavorite = async () => {
+       await verifyFavorite()
+      }
+
+      awaitFavorite()
+   },[isSaveInFavorite])
+
+   console.log(confirmFavorite)
+
   return (
     <div className="ticket">
       <div className="header-ticket">

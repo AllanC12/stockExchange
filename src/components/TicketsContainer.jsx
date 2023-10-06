@@ -15,6 +15,7 @@ const TicketsContainer = () => {
   const url = import.meta.env.VITE_URL_API;
   const dispatch = useDispatch();
   const [data, setData] = useState(null);
+  let countFavorite = 0;
 
   const { states } = ContextTicketUser();
   const { bagByUser, savedByUser, favoritesByUser } = states;
@@ -29,26 +30,32 @@ const TicketsContainer = () => {
   }, [url]);
 
   const verifyTicketFavorite = async (stock) => {
-
     const respFavorite = await Promise.all(favoritesByUser).then((response) => {
-      let verifyFavorite = false
+      let verifyFavorite = false;
 
-      for(const favorite of response){
-        if(favorite.stock.stock === stock.stock){
-          verifyFavorite = true
-          break;
+      console.log(response);
+
+      for (const favorite of response) {
+        if (countFavorite < response.length) {
+          if (favorite.stock.stock === stock.stock) {
+            verifyFavorite = true;
+            countFavorite += 1;
+            break;
+          } else {
+            return;
+          }
         }
       }
-
-      return verifyFavorite
-    })
-   return respFavorite
-  }
+      return verifyFavorite;
+    });
+    return respFavorite;
+  };
 
   return (
     <div className="tickets_container">
       {data ? (
-        data.payload.stocks.map((stock, index) => (
+
+        data.payload.stocks.slice(0,20).map((stock, index) => (
           <Ticket key={index} stock={stock} isSaveInFavorite={verifyTicketFavorite(stock)}/>
         ))
       ) : (
