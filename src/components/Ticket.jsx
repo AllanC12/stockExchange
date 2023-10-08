@@ -2,7 +2,7 @@ import "./sass_components/Ticket.scss";
 
 import { ContextTicketUser } from "../context/ContextTickets";
 
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import { ContextDataUser } from "../context/ContextDataUser";
 
@@ -15,49 +15,30 @@ import {
   FaCheck,
 } from "react-icons/fa";
 
-const Ticket = ({stock }) => {
-  const {idUser}  = ContextDataUser()
+const Ticket = ({ stock }) => {
+  const { idUser } = ContextDataUser();
   const { methods, states, setLists } = ContextTicketUser();
   const { addFunction, removeFunction } = methods;
   const { bagByUser, savedByUser, favoritesByUser } = states;
-  const {setFavoriteByUser} = setLists
+  const { setFavoriteByUser } = setLists;
   const { bag, saves, favorites } = states;
   const { setBag, setSaves, setFavorites } = setLists;
-  const [confirmFavorite,setConfirmFavorite] = useState()
+  const [confirmFavorite, setConfirmFavorite] = useState(false);
 
-  const verifyTicketFavorite = async (stock) => {
-    let verifyFavorite = false
-
-    const respFavorite = await Promise.all(favoritesByUser).then((response) => {
-  
-      for(const favorite of response){
-        if(favorite.stock.stock === stock.stock){
-          verifyFavorite = true
-          break
+  useEffect(() => {
+    const verifyTicketFavorite = (stock) => {
+      for (let i = 0; i < favoritesByUser.length; i++) {
+        if (favoritesByUser[i].stock.stock === stock.stock) {
+          setConfirmFavorite(true);
+          break;
+        } else {
+          setConfirmFavorite(false);
         }
       }
-      
-      return verifyFavorite
-    })
+    };
 
-   return respFavorite
-  }
-
-  
-  const verifyFavorite = async () => {
-    const resp = await verifyTicketFavorite(stock)
-    console.log(resp)
-    await setConfirmFavorite(resp)
-  }
-
-   useEffect(() => {
-      const awaitFavorite = async () => {
-       await verifyFavorite()
-      }
-      awaitFavorite()
-   })
-
-
+    verifyTicketFavorite(stock);
+  }, [favoritesByUser]);
 
   return (
     <div className="ticket">
