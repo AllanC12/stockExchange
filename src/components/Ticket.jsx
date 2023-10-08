@@ -23,40 +23,38 @@ const Ticket = ({stock }) => {
   const {setFavoriteByUser} = setLists
   const { bag, saves, favorites } = states;
   const { setBag, setSaves, setFavorites } = setLists;
-  const [confirmFavorite,setConfirmFavorite] = useState()
+  const [confirmFavorite,setConfirmFavorite] = useState(false)
 
   const verifyTicketFavorite = async (stock) => {
     let verifyFavorite = false
 
-    const respFavorite = await Promise.all(favoritesByUser).then((response) => {
+    const respFavorite =  Promise.all(favoritesByUser).then((response) => {
   
-      for(const favorite of response){
-        if(favorite.stock.stock === stock.stock){
+      for(let i = 0; i < response.length; i++){
+        if(response[i].stock.stock === stock.stock){
           verifyFavorite = true
           break
         }
       }
       
-      return verifyFavorite
+      setConfirmFavorite(verifyFavorite)
     })
 
-   return respFavorite
+    return respFavorite
   }
 
-  
   const verifyFavorite = async () => {
     const resp = await verifyTicketFavorite(stock)
     console.log(resp)
-    await setConfirmFavorite(resp)
+    setConfirmFavorite(resp)
   }
 
    useEffect(() => {
       const awaitFavorite = async () => {
-       await verifyFavorite()
+        verifyFavorite()
       }
       awaitFavorite()
    })
-
 
 
   return (
