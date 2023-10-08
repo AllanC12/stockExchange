@@ -4,8 +4,6 @@ import { ContextTicketUser } from "../context/ContextTickets";
 
 import { useState, useEffect } from "react";
 
-import { ContextDataUser } from "../context/ContextDataUser";
-
 import {
   FaPlus,
   FaStar,

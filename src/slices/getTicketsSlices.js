@@ -6,13 +6,13 @@ const initialState = {
   error: null,
   success: false,
   loading: false,
- };
+};
 
 export const getTickets = createAsyncThunk(
   "tickets/getTickets",
   async (url) => {
-    const data = await getData.getTickets(url)
-    return data
+    const data = await getData.getTickets(url);
+    return data;
   }
 );
 
@@ -25,10 +25,10 @@ export const sendDataUser = createAsyncThunk(
 
 export const sendTicketUserSlice = createAsyncThunk(
   "tickets/sendTicketUser",
-   async({url,stock,idUser}) => {
-     await getData.sendTicketUser(url,{stock,idUser})
-   }
-)
+  async ({ url, stock, idUser }) => {
+    await getData.sendTicketUser(url, { stock, idUser });
+  }
+);
 
 export const ticketsSlice = createSlice({
   name: "tickets",
@@ -41,47 +41,41 @@ export const ticketsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getTickets.pending, (state) => {
-        state.loading = true,
-        state.success = false;
+        (state.loading = true), (state.success = false);
       })
       .addCase(getTickets.fulfilled, (state, action) => {
         state.tickets = action.payload;
-        state.success = true,
-        state.error = false
-        state.loading = false
-       })
+        (state.success = true), (state.error = false);
+        state.loading = false;
+      })
       .addCase(getTickets.rejected, (state) => {
-        state.loading = false,
-        state.error = true
-       })
+        (state.loading = false), (state.error = true);
+      })
       .addCase(sendDataUser.pending, (state) => {
-        state.loading = true,
-        state.success = false;
-       })
+        (state.loading = true), (state.success = false);
+      })
       .addCase(sendDataUser.fulfilled, (state, action) => {
         state.tickets = action.payload;
-        state.success = true,
-        state.error = false,
-        state.loading = false          
+        (state.success = true), (state.error = false), (state.loading = false);
       })
       .addCase(sendDataUser.rejected, (state) => {
-        state.loading = false,
-        state.error = true
+        (state.loading = false), (state.error = true);
       })
-      .addCase(sendTicketUserSlice.fulfilled,(state) =>{
-        state.success = true
-        state.error = false
-        state.loading = false
-      }).addCase(sendTicketUserSlice.rejected,(state) => {
-        state.error = true
-        state.success = false
-        state.loading = false
+      .addCase(sendTicketUserSlice.fulfilled, (state) => {
+        state.success = true;
+        state.error = false;
+        state.loading = false;
       })
-      .addCase(sendTicketUserSlice.pending,(state) => {
-        state.error = false
-        state.success = false
-        state.loading = true
+      .addCase(sendTicketUserSlice.rejected, (state) => {
+        state.error = true;
+        state.success = false;
+        state.loading = false;
       })
+      .addCase(sendTicketUserSlice.pending, (state) => {
+        state.error = false;
+        state.success = false;
+        state.loading = true;
+      });
   },
 });
 

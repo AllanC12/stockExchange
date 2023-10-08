@@ -1,11 +1,7 @@
-
 const getTickets = async (url) => {
-  
-  const response = await fetch(url).then((resp) => resp.json())
+  const response = await fetch(url).then((resp) => resp.json());
   return response;
-
 };
-
 
 const sendDataUser = async (url, data) => {
   try {
@@ -14,32 +10,31 @@ const sendDataUser = async (url, data) => {
       body: JSON.stringify(data),
       headers: {
         "content-type": "application/json",
-      }
-    })
+      },
+    });
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 };
 
-
-const sendTicketUser = async (urlTicket,ticket,idUser) => {
+const sendTicketUser = async (urlTicket, ticket, idUser) => {
   try {
-    await fetch(urlTicket,{
-      method: 'POST',
-      body: JSON.stringify(ticket,idUser),
+    await fetch(urlTicket, {
+      method: "POST",
+      body: JSON.stringify(ticket, idUser),
       headers: {
-        "content-type" : "application/json"
-      }
-    })
+        "content-type": "application/json",
+      },
+    });
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-} 
+};
 
 const getData = {
   getTickets,
   sendDataUser,
-  sendTicketUser
+  sendTicketUser,
 };
 
 export default getData;

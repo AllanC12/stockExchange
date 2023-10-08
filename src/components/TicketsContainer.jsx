@@ -17,7 +17,6 @@ const TicketsContainer = () => {
   const [data, setData] = useState(null);
 
   const { states } = ContextTicketUser();
-  const { bagByUser, savedByUser, favoritesByUser } = states;
 
   const searchTickets = async () => {
     let response = await dispatch(getTickets(url));

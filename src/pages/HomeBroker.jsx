@@ -3,11 +3,10 @@ import Aside from "../components/Aside";
 import TicketsContainer from "../components/TicketsContainer";
 
 const HomeBroker = () => {
-  
   return (
     <div className="container_ticket">
       <Aside />
-      <TicketsContainer/>
+      <TicketsContainer />
     </div>
   );
 };

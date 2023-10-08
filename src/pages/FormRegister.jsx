@@ -26,7 +26,7 @@ const FormRegister = () => {
     confirmPassword,
     ticketsPortfolio: [],
     ticketsFavorites: [],
-    ticketsSaves: []
+    ticketsSaves: [],
   };
 
   const dataRequest = {
@@ -44,9 +44,9 @@ const FormRegister = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    let userRegistered = await verifyUserRegister(dataRegister,setMessage);
+    let userRegistered = await verifyUserRegister(dataRegister, setMessage);
     let validatedUser = validateUserRegister(dataRegister);
- 
+
     if (userRegistered) {
       userRegistered = false;
       return;
@@ -110,4 +110,3 @@ const FormRegister = () => {
 };
 
 export default FormRegister;
- 
