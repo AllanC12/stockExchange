@@ -15,7 +15,7 @@ import {
   FaCheck,
 } from "react-icons/fa";
 
-const Ticket = ({isSaveInFavorite,stock }) => {
+const Ticket = ({stock }) => {
   const {idUser}  = ContextDataUser()
   const { methods, states, setLists } = ContextTicketUser();
   const { addFunction, removeFunction } = methods;
@@ -25,22 +25,39 @@ const Ticket = ({isSaveInFavorite,stock }) => {
   const { setBag, setSaves, setFavorites } = setLists;
   const [confirmFavorite,setConfirmFavorite] = useState()
 
+  const verifyTicketFavorite = async (stock) => {
+    let verifyFavorite = false
+
+    const respFavorite = await Promise.all(favoritesByUser).then((response) => {
+  
+      for(const favorite of response){
+        if(favorite.stock.stock === stock.stock){
+          verifyFavorite = true
+          break
+        }
+      }
+      
+      return verifyFavorite
+    })
+
+   return respFavorite
+  }
+
   
   const verifyFavorite = async () => {
-    const resp = await isSaveInFavorite
+    const resp = await verifyTicketFavorite(stock)
+    console.log(resp)
     await setConfirmFavorite(resp)
-    return resp
   }
 
    useEffect(() => {
       const awaitFavorite = async () => {
        await verifyFavorite()
       }
-
       awaitFavorite()
-   },[isSaveInFavorite])
+   })
 
-   console.log(confirmFavorite)
+
 
   return (
     <div className="ticket">
@@ -80,7 +97,7 @@ const Ticket = ({isSaveInFavorite,stock }) => {
           />
         )}
 
-        { confirmFavorite ? (
+        {confirmFavorite ? (
           <FaStar
             onClick={() => removeFunction(stock, setFavorites)}
             title="Remover investimento"
