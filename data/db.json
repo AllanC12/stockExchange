@@ -83,6 +83,19 @@
     }
   ],
   "tickets_favorites": [
-
+    {
+      "stock": {
+        "stock": "BHIA3",
+        "name": "CASAS BAHIA",
+        "close": 0.61,
+        "change": 8.92857143,
+        "volume": 103762700,
+        "market_cap": 1449836150,
+        "logo": "https://brapi.dev/favicon.svg",
+        "sector": "Retail Trade"
+      },
+      "idUser": 1,
+      "id": 1
+    }
   ]
 }

@@ -2,7 +2,7 @@ import "./sass_components/Ticket.scss";
 
 import { ContextTicketUser } from "../context/ContextTickets";
 
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import { ContextDataUser } from "../context/ContextDataUser";
 
@@ -15,14 +15,15 @@ import {
   FaCheck,
 } from "react-icons/fa";
 
-const Ticket = ({stock }) => {
-  const {idUser}  = ContextDataUser()
+const Ticket = ({ stock }) => {
+  const { idUser } = ContextDataUser();
   const { methods, states, setLists } = ContextTicketUser();
   const { addFunction, removeFunction } = methods;
   const { bagByUser, savedByUser, favoritesByUser } = states;
-  const {setFavoriteByUser} = setLists
+  const { setFavoriteByUser } = setLists;
   const { bag, saves, favorites } = states;
   const { setBag, setSaves, setFavorites } = setLists;
+<<<<<<< HEAD
   const [confirmFavorite,setConfirmFavorite] = useState(false)
 
   const verifyTicketFavorite = async (stock) => {
@@ -57,6 +58,25 @@ const Ticket = ({stock }) => {
    })
 
 
+=======
+  const [confirmFavorite, setConfirmFavorite] = useState(false);
+
+  useEffect(() => {
+    const verifyTicketFavorite = (stock) => {
+      for (let i = 0; i < favoritesByUser.length; i++) {
+        if (favoritesByUser[i].stock.stock === stock.stock) {
+          setConfirmFavorite(true);
+          break;
+        } else {
+          setConfirmFavorite(false);
+        }
+      }
+    };
+
+    verifyTicketFavorite(stock);
+  }, [favoritesByUser]);
+
+>>>>>>> testing
   return (
     <div className="ticket">
       <div className="header-ticket">
