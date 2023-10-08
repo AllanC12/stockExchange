@@ -25,6 +25,8 @@ const Ticket = ({ stock }) => {
   const { setBag, setSaves, setFavorites } = setLists;
   const [confirmFavorite, setConfirmFavorite] = useState(false);
 
+  
+
   useEffect(() => {
     const verifyTicketFavorite = (stock) => {
       for (let i = 0; i < favoritesByUser.length; i++) {
