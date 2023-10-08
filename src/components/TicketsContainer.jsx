@@ -28,28 +28,13 @@ const TicketsContainer = () => {
     searchTickets();
   }, [url]);
 
-  const verifyTicketFavorite = async (stock) => {
 
-    const respFavorite = await Promise.all(favoritesByUser).then((response) => {
-      let verifyFavorite = false
-
-      for(const favorite of response){
-        if(favorite.stock.stock === stock.stock){
-          verifyFavorite = true
-          break;
-        }
-      }
-
-      return verifyFavorite
-    })
-   return respFavorite
-  }
 
   return (
     <div className="tickets_container">
       {data ? (
-        data.payload.stocks.map((stock, index) => (
-          <Ticket key={index} stock={stock} isSaveInFavorite={verifyTicketFavorite(stock)}/>
+        data.payload.stocks.slice(0,20).map((stock, index) => (
+          <Ticket key={index} stock={stock} />
         ))
       ) : (
         <p className="load-ticket">Carregando...</p>

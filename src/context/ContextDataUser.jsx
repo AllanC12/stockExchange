@@ -7,8 +7,6 @@ export const ContextUserDataProvider = ({children}) => {
   const [idUser,setIdUser] = useState(null)
 
   const [userLogged,setUserLogged] = useState(false)
-
-  console.log(userLogged)
    
   const setUserId = (id) => {
     setIdUser(id)
