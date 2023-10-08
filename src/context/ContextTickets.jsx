@@ -38,13 +38,14 @@ export const ContextTicketsDataProvider = ({ children }) => {
 
   const getTicketByUser = async (url, setListTicket) => {
     let response = await dispatch(getTickets(url));
-    setListTicket(response.payload);
+    await setListTicket(response.payload);
   };
 
-useEffect(() => {
-  getTicketByUser(urlBagUser, setBagByUser);
-  getTicketByUser(urlSaveUser, setSavedByUser);
-  getTicketByUser(urlFavoriteUser, setFavoritesByUser);
+
+ useEffect(() => {
+    getTicketByUser(urlBagUser, setBagByUser);
+    getTicketByUser(urlSaveUser, setSavedByUser);
+    getTicketByUser(urlFavoriteUser, setFavoritesByUser);
   },[userLogged])
 
   const addFunction = async (stock, setStockAdd) => {
@@ -52,6 +53,7 @@ useEffect(() => {
       Array.from(new Set([...prevStockAdded, stock]))
     );
   };
+
 
   const removeFunction = (stock, setListStock) => {
     setListStock((prevList) =>
@@ -102,6 +104,7 @@ useEffect(() => {
     }
   };
 
+
   useEffect(() => {
     sendTicketFromServer(urlPortfolio, bag);
     getTicketByUser(urlBagUser, setBagByUser);
@@ -117,7 +120,8 @@ useEffect(() => {
     getTicketByUser(urlFavoriteUser, setFavoritesByUser);
    }, [favorites]);
 
-  return (
+
+   return (
     <TicketsUser.Provider value={TicketsUserValue}>
       {children}
     </TicketsUser.Provider>

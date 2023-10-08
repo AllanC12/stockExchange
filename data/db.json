@@ -85,18 +85,59 @@
   "tickets_favorites": [
     {
       "stock": {
+        "stock": "FNAM11",
+        "name": "FINAM CI *",
+        "close": 0.36,
+        "change": 2.85714286,
+        "volume": 594368000,
+        "market_cap": null,
+        "logo": "https://s3-symbol-logo.tradingview.com/amazonia-on-es--big.svg",
+        "sector": null
+      },
+      "idUser": 1,
+      "id": 1
+    },
+    {
+      "stock": {
+        "stock": "HAPV3",
+        "name": "HAPVIDA ATZ",
+        "close": 4.04,
+        "change": -2.88461538,
+        "volume": 136725100,
+        "market_cap": 30438742545,
+        "logo": "https://s3-symbol-logo.tradingview.com/hapvida--big.svg",
+        "sector": "Health Services"
+      },
+      "idUser": 1,
+      "id": 2
+    },
+    {
+      "stock": {
         "stock": "MGLU3",
         "name": "MAGAZINE LUIZA",
-        "close": 1.81,
-        "change": -4.23280423,
-        "volume": 81112600,
-        "market_cap": 12621121823,
+        "close": 1.78,
+        "change": -1.65745856,
+        "volume": 123425800,
+        "market_cap": 11886559077,
         "logo": "https://s3-symbol-logo.tradingview.com/magaz-luiza-on-nm--big.svg",
         "sector": "Retail Trade"
       },
       "idUser": 1,
-      "id": 1
-
+      "id": 3
+    },
+    {
+      "stock": {
+        "stock": "BHIA3",
+        "name": "CASAS BAHIA",
+        "close": 0.61,
+        "change": 8.92857143,
+        "volume": 103762700,
+        "market_cap": 1449836150,
+        "logo": "https://brapi.dev/favicon.svg",
+        "sector": "Retail Trade"
+      },
+      "idUser": 1,
+      "id": 4
     }
   ]
 }
