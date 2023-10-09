@@ -4,8 +4,6 @@ import { ContextTicketUser } from "../context/ContextTickets";
 
 import { useState, useEffect } from "react";
 
-import { ContextDataUser } from "../context/ContextDataUser";
-
 import {
   FaPlus,
   FaStar,
@@ -16,28 +14,36 @@ import {
 } from "react-icons/fa";
 
 const Ticket = ({ stock }) => {
-  const { idUser } = ContextDataUser();
   const { methods, states, setLists } = ContextTicketUser();
   const { addFunction, removeFunction } = methods;
   const { bagByUser, savedByUser, favoritesByUser } = states;
-  const { setFavoriteByUser } = setLists;
-  const { bag, saves, favorites } = states;
   const { setBag, setSaves, setFavorites } = setLists;
+  
+  const [confirmBag,setconfirmBag] = useState(false)
+  const [confirmSaves,setConfirmSave] = useState(false)
   const [confirmFavorite, setConfirmFavorite] = useState(false);
 
-  useEffect(() => {
-    const verifyTicketFavorite = (stock) => {
-      for (let i = 0; i < favoritesByUser.length; i++) {
-        if (favoritesByUser[i].stock.stock === stock.stock) {
-          setConfirmFavorite(true);
-          break;
-        } else {
-          setConfirmFavorite(false);
-        }
+  const verifyTicketForUser = (stock,ticketsForUser,setConfirmTicket) => {
+    for (let i = 0; i < ticketsForUser.length; i++) {
+      if (ticketsForUser[i].stock.stock === stock.stock) {
+        setConfirmTicket(true);
+        break;
+      } else {
+        setConfirmTicket(false);
       }
-    };
+    }
+  };
+  
+  useEffect(() => {
+    verifyTicketForUser(stock,bagByUser,setconfirmBag)
+  },[bagByUser])
+  
+  useEffect(() => {
+    verifyTicketForUser(stock,savedByUser,setConfirmSave)
+  },[savedByUser])
 
-    verifyTicketFavorite(stock);
+  useEffect(() => {
+    verifyTicketForUser(stock,favoritesByUser,setConfirmFavorite);
   }, [favoritesByUser]);
 
   return (
@@ -54,7 +60,7 @@ const Ticket = ({ stock }) => {
       </div>
 
       <div className="footer-ticket">
-        {bagByUser.some((item) => item.stock === stock) ? (
+        {confirmBag ? (
           <FaCheck
             onClick={() => removeFunction(stock, setBag)}
             title="Remover investimento"
@@ -66,7 +72,7 @@ const Ticket = ({ stock }) => {
           />
         )}
 
-        {savedByUser.some((item) => item.stock === stock) ? (
+        {confirmSaves ? (
           <FaBookmark
             onClick={() => removeFunction(stock, setSaves)}
             title="Remover investimento"

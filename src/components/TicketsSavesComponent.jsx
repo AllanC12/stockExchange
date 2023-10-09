@@ -1,11 +1,10 @@
 import { ContextTicketUser } from "../context/ContextTickets";
 import Ticket from "./Ticket";
 
-import "./sass_components/TicketsContainer.scss"
+import "./sass_components/TicketsContainer.scss";
 
 const TicketsSavesComponent = () => {
-    
-  const {states} = ContextTicketUser()
+  const { states } = ContextTicketUser();
   const { savedByUser } = states;
 
   return (

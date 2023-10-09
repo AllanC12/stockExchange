@@ -1,10 +1,10 @@
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 
 import { createContext, useContext, useState } from "react";
 
 import { useDispatch } from "react-redux";
 
-import { sendTicketUserSlice, getTickets } from "../slices/getTicketsSlices";
+import { sendTicketUserSlice, handleTickets } from "../slices/getTicketsSlices";
 
 import { ContextDataUser } from "./ContextDataUser";
 
@@ -20,7 +20,8 @@ export const ContextTicketsDataProvider = ({ children }) => {
   const [savedByUser, setSavedByUser] = useState([]);
   const [favoritesByUser, setFavoritesByUser] = useState([]);
 
-  const { userLogged,idUser } = ContextDataUser();
+  const { userLogged } = ContextDataUser();
+  const idUser = localStorage.getItem('userId')
 
   const urlPortfolio = import.meta.env.VITE_URL_TICKETS_PORTFOLIO;
   const urlSaves = import.meta.env.VITE_URL_TICKETS_SAVES;
@@ -37,16 +38,15 @@ export const ContextTicketsDataProvider = ({ children }) => {
   };
 
   const getTicketByUser = async (url, setListTicket) => {
-    let response = await dispatch(getTickets(url));
-     setListTicket(response.payload);
+    let response =  await dispatch(handleTickets(url,'GET'));
+    setListTicket(response.payload);
   };
 
-
- useEffect(() => {
+  useEffect(() => {
     getTicketByUser(urlBagUser, setBagByUser);
     getTicketByUser(urlSaveUser, setSavedByUser);
     getTicketByUser(urlFavoriteUser, setFavoritesByUser);
-  },[])
+  }, [userLogged]);
 
   const addFunction = async (stock, setStockAdd) => {
     setStockAdd((prevStockAdded) =>
@@ -103,32 +103,31 @@ export const ContextTicketsDataProvider = ({ children }) => {
     }
   };
 
-
-
-
-
   useEffect(() => {
-    sendTicketFromServer(urlPortfolio, bag);
-    getTicketByUser(urlBagUser, setBagByUser);
+    const updatePortfolio = async () => {
+      await sendTicketFromServer(urlPortfolio, bag);
+      await getTicketByUser(urlBagUser, setBagByUser);
+    };
+    updatePortfolio();
   }, [bag]);
 
   useEffect(() => {
-    sendTicketFromServer(urlSaves, saves);
-    getTicketByUser(urlSaveUser, setSavedByUser);
+    const updateSaves = async () => {
+      await sendTicketFromServer(urlSaves, saves);
+      await getTicketByUser(urlSaveUser, setSavedByUser);
+    };
+    updateSaves();
   }, [saves]);
 
   useEffect(() => {
     const updateFavorites = async () => {
       await sendTicketFromServer(urlFavorite, favorites);
       await getTicketByUser(urlFavoriteUser, setFavoritesByUser);
+    };
+    updateFavorites();
+  }, [favorites]);
 
-    }
-    updateFavorites()
-    console.log('executado')
-   }, [favorites]);
-
-
-   return (
+  return (
     <TicketsUser.Provider value={TicketsUserValue}>
       {children}
     </TicketsUser.Provider>

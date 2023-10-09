@@ -1,23 +1,26 @@
-import { createContext,useContext,useState } from "react";
+import { createContext, useContext, useState } from "react";
 
-export const ContextUser = createContext()
+export const ContextUser = createContext();
 
-export const ContextUserDataProvider = ({children}) => {
-  
-  const [idUser,setIdUser] = useState(null)
+export const ContextUserDataProvider = ({ children }) => {
+  const [idUser, setIdUser] = useState(null);
 
-  const [userLogged,setUserLogged] = useState(false)
-   
+  const [userLogged, setUserLogged] = useState(false);
+
   const setUserId = (id) => {
-    setIdUser(id)
-  }
+    setIdUser(id);
+    localStorage.setItem('userId',id)
+  };
 
-  return <ContextUser.Provider value={{setUserId,idUser,setUserLogged,userLogged}}>
-    {children}
-  </ContextUser.Provider>
-
-}
+  return (
+    <ContextUser.Provider
+      value={{ setUserId, idUser, setUserLogged, userLogged }}
+    >
+      {children}
+    </ContextUser.Provider>
+  );
+};
 
 export const ContextDataUser = () => {
-    return useContext(ContextUser)
-}
+  return useContext(ContextUser);
+};

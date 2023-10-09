@@ -1,11 +1,11 @@
-import "./sass_components/Footer.scss"
+import "./sass_components/Footer.scss";
 
 const Footer = () => {
   return (
-     <footer>
+    <footer>
       <p>Todos os direitos reservados</p>
     </footer>
-   )
-}
+  );
+};
 
-export default Footer
+export default Footer;

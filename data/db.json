@@ -6,19 +6,26 @@
       "password": "allan",
       "confirmPassword": "allan",
       "id": 1
+    },
+    {
+      "name": "jose",
+      "email": "jose@gmail.com",
+      "password": "jose1212",
+      "confirmPassword": "jose1212",
+      "id": 2
     }
   ],
   "tickets_portfolio": [
     {
       "stock": {
-        "stock": "BHIA3",
-        "name": "CASAS BAHIA",
-        "close": 0.63,
-        "change": 0,
-        "volume": 58270200,
-        "market_cap": 1497371715,
-        "logo": "https://brapi.dev/favicon.svg",
-        "sector": "Retail Trade"
+        "stock": "HAPV3",
+        "name": "HAPVIDA ATZ",
+        "close": 4.04,
+        "change": -2.88461538,
+        "volume": 136725100,
+        "market_cap": 30438742545,
+        "logo": "https://s3-symbol-logo.tradingview.com/hapvida--big.svg",
+        "sector": "Health Services"
       },
       "idUser": 1,
       "id": 1
@@ -27,72 +34,30 @@
   "tickets_saves": [
     {
       "stock": {
-        "stock": "MGLU3",
-        "name": "MAGAZINE LUIZA",
-        "close": 2.01,
-        "change": -5.18867925,
-        "volume": 91688200,
-        "market_cap": 14157024880,
-        "logo": "https://s3-symbol-logo.tradingview.com/magaz-luiza-on-nm--big.svg",
-        "sector": "Retail Trade"
+        "stock": "HAPV3",
+        "name": "HAPVIDA ATZ",
+        "close": 4.04,
+        "change": -2.88461538,
+        "volume": 136725100,
+        "market_cap": 30438742545,
+        "logo": "https://s3-symbol-logo.tradingview.com/hapvida--big.svg",
+        "sector": "Health Services"
       },
       "idUser": 1,
       "id": 1
-    },
-    {
-      "stock": {
-        "stock": "BHIA3",
-        "name": "CASAS BAHIA",
-        "close": 0.63,
-        "change": 0,
-        "volume": 58270200,
-        "market_cap": 1497371715,
-        "logo": "https://brapi.dev/favicon.svg",
-        "sector": "Retail Trade"
-      },
-      "idUser": 1,
-      "id": 2
-    },
-    {
-      "stock": {
-        "stock": "BHIA3",
-        "name": "CASAS BAHIA",
-        "close": 0.63,
-        "change": 0,
-        "volume": 58270200,
-        "market_cap": 1497371715,
-        "logo": "https://brapi.dev/favicon.svg",
-        "sector": "Retail Trade"
-      },
-      "idUser": 1,
-      "id": 3
-    },
-    {
-      "stock": {
-        "stock": "BHIA3",
-        "name": "CASAS BAHIA",
-        "close": 0.63,
-        "change": 0,
-        "volume": 58270200,
-        "market_cap": 1497371715,
-        "logo": "https://brapi.dev/favicon.svg",
-        "sector": "Retail Trade"
-      },
-      "idUser": 1,
-      "id": 4
     }
   ],
   "tickets_favorites": [
     {
       "stock": {
-        "stock": "BHIA3",
-        "name": "CASAS BAHIA",
-        "close": 0.61,
-        "change": 8.92857143,
-        "volume": 103762700,
-        "market_cap": 1449836150,
-        "logo": "https://brapi.dev/favicon.svg",
-        "sector": "Retail Trade"
+        "stock": "FNAM11",
+        "name": "FINAM CI *",
+        "close": 0.36,
+        "change": 2.85714286,
+        "volume": 594368000,
+        "market_cap": null,
+        "logo": "https://s3-symbol-logo.tradingview.com/amazonia-on-es--big.svg",
+        "sector": null
       },
       "idUser": 1,
       "id": 1
