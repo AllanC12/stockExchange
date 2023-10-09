@@ -18,6 +18,7 @@ const Ticket = ({ stock }) => {
   const { addFunction, removeFunction } = methods;
   const { bagByUser, savedByUser, favoritesByUser } = states;
   const { setBag, setSaves, setFavorites } = setLists;
+  
   const [confirmBag,setconfirmBag] = useState(false)
   const [confirmSaves,setConfirmSave] = useState(false)
   const [confirmFavorite, setConfirmFavorite] = useState(false);

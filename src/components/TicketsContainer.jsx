@@ -2,7 +2,7 @@ import React from "react";
 
 import "./sass_components/TicketsContainer.scss";
 
-import { getTickets } from "../slices/getTicketsSlices";
+import { handleTickets } from "../slices/getTicketsSlices";
 
 import Ticket from "./Ticket";
 
@@ -15,7 +15,7 @@ const TicketsContainer = () => {
   const [data, setData] = useState(null);
 
   const searchTickets = async () => {
-    let response = await dispatch(getTickets(url));
+    let response = await dispatch(handleTickets(url,'GET'));
     setData(response);
   };
 

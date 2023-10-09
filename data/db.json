@@ -6,6 +6,13 @@
       "password": "allan",
       "confirmPassword": "allan",
       "id": 1
+    },
+    {
+      "name": "jose",
+      "email": "jose@gmail.com",
+      "password": "jose1212",
+      "confirmPassword": "jose1212",
+      "id": 2
     }
   ],
   "tickets_portfolio": [

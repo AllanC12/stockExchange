@@ -8,10 +8,10 @@ const initialState = {
   loading: false,
 };
 
-export const getTickets = createAsyncThunk(
+export const handleTickets = createAsyncThunk(
   "tickets/getTickets",
   async (url) => {
-    const data = await getData.getTickets(url);
+    const data = await getData.handleTickets(url,'GET');
     return data;
   }
 );
@@ -19,14 +19,14 @@ export const getTickets = createAsyncThunk(
 export const sendDataUser = createAsyncThunk(
   "tickets/sendDataUser",
   async ({ url, dataUser }) => {
-    await getData.sendDataUser(url, dataUser);
+    await getData.sendDataFromServer(url, dataUser);
   }
 );
 
 export const sendTicketUserSlice = createAsyncThunk(
   "tickets/sendTicketUser",
   async ({ url, stock, idUser }) => {
-    await getData.sendTicketUser(url, { stock, idUser });
+    await getData.sendDataFromServer(url, { stock, idUser });
   }
 );
 
@@ -40,15 +40,15 @@ export const ticketsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(getTickets.pending, (state) => {
+      .addCase(handleTickets.pending, (state) => {
         (state.loading = true), (state.success = false);
       })
-      .addCase(getTickets.fulfilled, (state, action) => {
+      .addCase(handleTickets.fulfilled, (state, action) => {
         state.tickets = action.payload;
         (state.success = true), (state.error = false);
         state.loading = false;
       })
-      .addCase(getTickets.rejected, (state) => {
+      .addCase(handleTickets.rejected, (state) => {
         (state.loading = false), (state.error = true);
       })
       .addCase(sendDataUser.pending, (state) => {

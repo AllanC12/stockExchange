@@ -4,7 +4,7 @@ import { createContext, useContext, useState } from "react";
 
 import { useDispatch } from "react-redux";
 
-import { sendTicketUserSlice, getTickets } from "../slices/getTicketsSlices";
+import { sendTicketUserSlice, handleTickets } from "../slices/getTicketsSlices";
 
 import { ContextDataUser } from "./ContextDataUser";
 
@@ -38,7 +38,7 @@ export const ContextTicketsDataProvider = ({ children }) => {
   };
 
   const getTicketByUser = async (url, setListTicket) => {
-    let response = await dispatch(getTickets(url));
+    let response =  await dispatch(handleTickets(url,'GET'));
     setListTicket(response.payload);
   };
 
