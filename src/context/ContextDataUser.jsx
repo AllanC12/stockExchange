@@ -9,6 +9,7 @@ export const ContextUserDataProvider = ({ children }) => {
 
   const setUserId = (id) => {
     setIdUser(id);
+    localStorage.setItem('userId',id)
   };
 
   return (

@@ -9,14 +9,10 @@ import Ticket from "./Ticket";
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 
-import { ContextTicketUser } from "../context/ContextTickets";
-
 const TicketsContainer = () => {
   const url = import.meta.env.VITE_URL_API;
   const dispatch = useDispatch();
   const [data, setData] = useState(null);
-
-  const { states } = ContextTicketUser();
 
   const searchTickets = async () => {
     let response = await dispatch(getTickets(url));
@@ -26,8 +22,6 @@ const TicketsContainer = () => {
   useEffect(() => {
     searchTickets();
   }, [url]);
-
-
 
   return (
     <div className="tickets_container">

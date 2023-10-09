@@ -20,7 +20,8 @@ export const ContextTicketsDataProvider = ({ children }) => {
   const [savedByUser, setSavedByUser] = useState([]);
   const [favoritesByUser, setFavoritesByUser] = useState([]);
 
-  const { userLogged, idUser } = ContextDataUser();
+  const { userLogged } = ContextDataUser();
+  const idUser = localStorage.getItem('userId')
 
   const urlPortfolio = import.meta.env.VITE_URL_TICKETS_PORTFOLIO;
   const urlSaves = import.meta.env.VITE_URL_TICKETS_SAVES;
