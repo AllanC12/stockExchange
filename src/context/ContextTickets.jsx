@@ -43,11 +43,11 @@ export const ContextTicketsDataProvider = ({ children }) => {
     setListTicket(response.payload);
   };
   
-  const deleteTicketInServer = async (stock) => {
+  // const deleteTicketInServer = async (stock) => {
     // const response = await fetch(urlFavoriteUser/1).then(resp => resp.json())
     // console.log(response)
     // await dispatch(handleTickets(urlFavorite,'DELETE',stock.id))
-  }
+  // }
 
   const addFunction = (stock, setStockAdd) => {
     setStockAdd((prevStockAdded) =>
