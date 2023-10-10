@@ -15,46 +15,16 @@
       "id": 2
     }
   ],
-  "tickets_portfolio": [
-    {
-      "stock": {
-        "stock": "HAPV3",
-        "name": "HAPVIDA ATZ",
-        "close": 4.04,
-        "change": -2.88461538,
-        "volume": 136725100,
-        "market_cap": 30438742545,
-        "logo": "https://s3-symbol-logo.tradingview.com/hapvida--big.svg",
-        "sector": "Health Services"
-      },
-      "idUser": 1,
-      "id": 1
-    }
-  ],
-  "tickets_saves": [
-    {
-      "stock": {
-        "stock": "HAPV3",
-        "name": "HAPVIDA ATZ",
-        "close": 4.04,
-        "change": -2.88461538,
-        "volume": 136725100,
-        "market_cap": 30438742545,
-        "logo": "https://s3-symbol-logo.tradingview.com/hapvida--big.svg",
-        "sector": "Health Services"
-      },
-      "idUser": 1,
-      "id": 1
-    }
-  ],
+  "tickets_portfolio": [],
+  "tickets_saves": [],
   "tickets_favorites": [
     {
       "stock": {
         "stock": "FNAM11",
         "name": "FINAM CI *",
-        "close": 0.36,
-        "change": 2.85714286,
-        "volume": 594368000,
+        "close": 0.34,
+        "change": -5.55555556,
+        "volume": 230585000,
         "market_cap": null,
         "logo": "https://s3-symbol-logo.tradingview.com/amazonia-on-es--big.svg",
         "sector": null
