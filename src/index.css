@@ -5,16 +5,16 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   width: 15px;
 }
 
-::-webkit-scrollbar-track{
+::-webkit-scrollbar-track {
   background-color: rgb(24, 22, 41);
   border-radius: 5px;
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
   background-color: #fff;
   border-radius: 2px;
 }
@@ -27,7 +27,7 @@ body {
   background-position: center;
 }
 
-.message{
+.message {
   cursor: pointer;
   width: 100%;
   max-width: 300px;
@@ -38,10 +38,10 @@ body {
   border: 1px solid #ccc;
   text-align: center;
   border-radius: 10px;
-  transition: .5s;
+  transition: 0.5s;
 }
 
-.message:hover{
+.message:hover {
   background-color: #b8b3b3;
   color: #000;
 }
@@ -54,8 +54,6 @@ body {
   background-position: center;
 }
 
-.active{
+.active {
   border-bottom: 1px solid #fff;
 }
-
- 

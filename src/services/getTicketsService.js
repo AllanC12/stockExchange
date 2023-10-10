@@ -1,45 +1,38 @@
+const handleTickets = async (url,method,id = null) => {
+  let response;
 
-const getTickets = async (url) => {
-  
-  const response = await fetch(url).then((resp) => resp.json())
+  if(method === 'GET'){
+     response = await fetch(url).then((resp) => resp.json())
+  }else if(method === 'DELETE'){
+    response = await fetch(`${url}/${id}`,{
+      method: 'DELETE',
+      headers: {
+        'Content-type': 'application/json'
+      }
+    }).then(resp => resp.json())
+  }
   return response;
 
 };
 
-
-const sendDataUser = async (url, data) => {
-  try {
-    await fetch(url, {
-      method: "POST",
-      body: JSON.stringify(data),
+const sendDataFromServer = async (url,data) => {
+  try{
+    await fetch(url,{
+      method:'POST',
       headers: {
-        "content-type": "application/json",
-      }
+        'Content-Type': 'application/json'  
+      },
+      body: JSON.stringify(data)
     })
-  } catch (error) {
-    console.log(error)
+  }catch(err){
+    console.log(err)
   }
-};
+}
 
-
-const sendTicketUser = async (urlTicket,ticket,idUser) => {
-  try {
-    await fetch(urlTicket,{
-      method: 'POST',
-      body: JSON.stringify(ticket,idUser),
-      headers: {
-        "content-type" : "application/json"
-      }
-    })
-  } catch (error) {
-    console.log(error)
-  }
-} 
 
 const getData = {
-  getTickets,
-  sendDataUser,
-  sendTicketUser
+  handleTickets,
+  sendDataFromServer
 };
 
 export default getData;

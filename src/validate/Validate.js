@@ -5,7 +5,7 @@ export const getUserRegister = async (dataUser) => {
   return resp;
 };
 
-export const makeLogin = async (dataUser, setMessage,name) => {
+export const makeLogin = async (dataUser, setMessage, name) => {
   const respRegister = await getUserRegister(dataUser);
 
   if (dataUser.email === respRegister[0].email) {
@@ -22,10 +22,10 @@ export const makeLogin = async (dataUser, setMessage,name) => {
 
 export const verifyUserRegister = async (dataUser, setMessage) => {
   const respRegister = await getUserRegister(dataUser);
-  const existEmail = respRegister.some(item => item.email === dataUser.email);
+  const existEmail = respRegister.some((item) => item.email === dataUser.email);
 
   if (existEmail) {
-    setMessage("Usuário ja cadastrado")
+    setMessage("Usuário ja cadastrado");
     return true;
   } else {
     return false;

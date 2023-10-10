@@ -2,9 +2,7 @@ import "./sass_components/Ticket.scss";
 
 import { ContextTicketUser } from "../context/ContextTickets";
 
-import { useState,useEffect } from "react";
-
-import { ContextDataUser } from "../context/ContextDataUser";
+import { useState, useEffect } from "react";
 
 import {
   FaPlus,
@@ -15,49 +13,38 @@ import {
   FaCheck,
 } from "react-icons/fa";
 
-const Ticket = ({stock }) => {
-  const {idUser}  = ContextDataUser()
+const Ticket = ({ stock }) => {
   const { methods, states, setLists } = ContextTicketUser();
   const { addFunction, removeFunction } = methods;
   const { bagByUser, savedByUser, favoritesByUser } = states;
-  const {setFavoriteByUser} = setLists
-  const { bag, saves, favorites } = states;
   const { setBag, setSaves, setFavorites } = setLists;
-  const [confirmFavorite,setConfirmFavorite] = useState()
-
-  const verifyTicketFavorite = async (stock) => {
-    let verifyFavorite = false
-
-    const respFavorite = await Promise.all(favoritesByUser).then((response) => {
   
-      for(const favorite of response){
-        if(favorite.stock.stock === stock.stock){
-          verifyFavorite = true
-          break
-        }
+  const [confirmBag,setconfirmBag] = useState(false)
+  const [confirmSaves,setConfirmSave] = useState(false)
+  const [confirmFavorite, setConfirmFavorite] = useState(false);
+
+  const verifyTicketForUser = (stock,ticketsForUser,setConfirmTicket) => {
+    for (let i = 0; i < ticketsForUser.length; i++) {
+      if (ticketsForUser[i].stock.stock === stock.stock) {
+        setConfirmTicket(true);
+        break;
+      } else {
+        setConfirmTicket(false);
       }
-      
-      return verifyFavorite
-    })
-
-   return respFavorite
-  }
-
+    }
+  };
   
-  const verifyFavorite = async () => {
-    const resp = await verifyTicketFavorite(stock)
-    console.log(resp)
-    await setConfirmFavorite(resp)
-  }
+  useEffect(() => {
+    verifyTicketForUser(stock,bagByUser,setconfirmBag)
+  },[bagByUser])
+  
+  useEffect(() => {
+    verifyTicketForUser(stock,savedByUser,setConfirmSave)
+  },[savedByUser])
 
-   useEffect(() => {
-      const awaitFavorite = async () => {
-       await verifyFavorite()
-      }
-      awaitFavorite()
-   })
-
-
+  useEffect(() => {
+    verifyTicketForUser(stock,favoritesByUser,setConfirmFavorite);
+  }, [favoritesByUser]);
 
   return (
     <div className="ticket">
@@ -73,7 +60,7 @@ const Ticket = ({stock }) => {
       </div>
 
       <div className="footer-ticket">
-        {bagByUser.some((item) => item.stock === stock) ? (
+        {confirmBag ? (
           <FaCheck
             onClick={() => removeFunction(stock, setBag)}
             title="Remover investimento"
@@ -85,7 +72,7 @@ const Ticket = ({stock }) => {
           />
         )}
 
-        {savedByUser.some((item) => item.stock === stock) ? (
+        {confirmSaves ? (
           <FaBookmark
             onClick={() => removeFunction(stock, setSaves)}
             title="Remover investimento"

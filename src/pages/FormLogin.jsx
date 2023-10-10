@@ -1,49 +1,49 @@
 import { useState } from "react";
 
-import { Link,useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import "./sass_pages/Form.scss";
 
-import { makeLogin,getUserRegister } from "../validate/Validate";
+import { makeLogin, getUserRegister } from "../validate/Validate";
 import { ContextDataUser } from "../context/ContextDataUser";
 
 const FormLogin = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [message,setMessage] = useState('')
+  const [message, setMessage] = useState("");
 
   const dataUser = {
     email,
     password,
   };
 
-  const {setUserId} = ContextDataUser()
+  const { setUserId } = ContextDataUser();
 
-  const {setUserLogged} = ContextDataUser()
+  const { setUserLogged } = ContextDataUser();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const respRegister = await getUserRegister(dataUser)
-    const name = respRegister.length > 0 ? respRegister[0].name : ""
-    const {id} = respRegister.length > 0 ? respRegister[0] : 0 
+    const respRegister = await getUserRegister(dataUser);
+    const name = respRegister.length > 0 ? respRegister[0].name : "";
+    const { id } = respRegister.length > 0 ? respRegister[0] : 0;
 
-    setUserId(id)
+    setUserId(id);
 
-    if(!id){
-      setMessage("Usuário sem cadastro")
-      return
+    if (!id) {
+      setMessage("Usuário sem cadastro");
+      return;
     }
 
-    makeLogin(dataUser,setMessage,name)
+    makeLogin(dataUser, setMessage, name);
 
-    setUserLogged(true)
-    
+    setUserLogged(true);
+
     setTimeout(() => {
-      navigate('/home_broker')
-    },2000)
+      navigate("/home_broker");
+    }, 2000);
   };
 
   return (

@@ -2,33 +2,26 @@ import React from "react";
 
 import "./sass_components/TicketsContainer.scss";
 
-import { getTickets } from "../slices/getTicketsSlices";
+import { handleTickets } from "../slices/getTicketsSlices";
 
 import Ticket from "./Ticket";
 
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 
-import { ContextTicketUser } from "../context/ContextTickets";
-
 const TicketsContainer = () => {
   const url = import.meta.env.VITE_URL_API;
   const dispatch = useDispatch();
   const [data, setData] = useState(null);
 
-  const { states } = ContextTicketUser();
-  const { bagByUser, savedByUser, favoritesByUser } = states;
-
   const searchTickets = async () => {
-    let response = await dispatch(getTickets(url));
+    let response = await dispatch(handleTickets(url,'GET'));
     setData(response);
   };
 
   useEffect(() => {
     searchTickets();
   }, [url]);
-
-
 
   return (
     <div className="tickets_container">

@@ -24,9 +24,6 @@ const FormRegister = () => {
     email,
     password,
     confirmPassword,
-    ticketsPortfolio: [],
-    ticketsFavorites: [],
-    ticketsSaves: []
   };
 
   const dataRequest = {
@@ -59,7 +56,7 @@ const FormRegister = () => {
       setMessage(`Seja bem vindo(a) ${dataRegister.name}`);
     }
 
-    await dispatch(sendDataUser(dataRequest));
+     await dispatch(sendDataUser(dataRequest));
 
     resetInputs();
 
