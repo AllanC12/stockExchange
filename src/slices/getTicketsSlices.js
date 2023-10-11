@@ -11,10 +11,14 @@ const initialState = {
 export const handleTickets = createAsyncThunk(
   "tickets/getTickets",
   async (url) => {
-    const data = await getData.handleTickets(url,'GET');
+    const data = await getData.handleTickets(url, "GET");
     return data;
   }
 );
+export const dellTickets = createAsyncThunk("deleteTickets", async (url,id) => {
+  const data = await getData.deleteTickets(url,id)
+  return data
+});
 
 export const sendDataUser = createAsyncThunk(
   "tickets/sendDataUser",

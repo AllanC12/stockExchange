@@ -3,17 +3,21 @@ const handleTickets = async (url,method,id = null) => {
 
   if(method === 'GET'){
      response = await fetch(url).then((resp) => resp.json())
-  }else if(method === 'DELETE'){
-    response = await fetch(`${url}/${id}`,{
-      method: 'DELETE',
-      headers: {
-        'Content-type': 'application/json'
-      }
-    }).then(resp => resp.json())
   }
   return response;
 
 };
+
+const deleteTickets = async (url,id) => {
+ const response = await fetch(`${url}/${id}`,{
+    method: 'DELETE',
+    headers: {
+      'Content-type': 'application/json'
+    }
+  }).then(resp => resp.json())
+
+  return response
+}
 
 const sendDataFromServer = async (url,data) => {
   try{
@@ -32,7 +36,8 @@ const sendDataFromServer = async (url,data) => {
 
 const getData = {
   handleTickets,
-  sendDataFromServer
+  sendDataFromServer,
+  deleteTickets
 };
 
 export default getData;
