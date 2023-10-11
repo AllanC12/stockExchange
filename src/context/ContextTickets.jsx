@@ -4,7 +4,7 @@ import { createContext, useContext, useState } from "react";
 
 import { useDispatch } from "react-redux";
 
-import { sendTicketUserSlice, handleTickets } from "../slices/getTicketsSlices";
+import { sendTicketUserSlice, handleTickets,dellTickets } from "../slices/getTicketsSlices";
 
 import { ContextDataUser } from "./ContextDataUser";
 
@@ -31,23 +31,24 @@ export const ContextTicketsDataProvider = ({ children }) => {
   const urlBagUser = `${urlPortfolio}?idUser=${idUser}`;
   const urlSaveUser = `${urlSaves}?idUser=${idUser}`;
   const urlFavoriteUser = `${urlFavorite}?idUser=${idUser}`;
-
+  
   const dataRequest = {
     url: "",
     stock: null,
     idUser,
   };
-
+  
   const getTicketByUser = async (url, setListTicket) => {
     let response =  await dispatch(handleTickets(url,'GET'));
     setListTicket(response.payload);
   };
   
-  // const deleteTicketInServer = async (stock) => {
-    // const response = await fetch(urlFavoriteUser/1).then(resp => resp.json())
+  const deleteTicketInServer = async (stock) => {
+    // const response = await fetch(urlFavoriteUser).then(resp => resp.json())
     // console.log(response)
-    // await dispatch(handleTickets(urlFavorite,'DELETE',stock.id))
-  // }
+    await dispatch(dellTickets(urlFavorite,id))
+    console.log('executado')
+  }
 
   const addFunction = (stock, setStockAdd) => {
     setStockAdd((prevStockAdded) =>
@@ -60,7 +61,7 @@ export const ContextTicketsDataProvider = ({ children }) => {
     setListStock((prevList) =>{
       return prevList.filter((item) => item.stock !== stock.stock)
     });
-    //  await deleteTicketInServer(stock)
+     await deleteTicketInServer(stock)
   };
 
   const sendTicketFromServer = async (url, arrayStock) => {
