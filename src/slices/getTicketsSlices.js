@@ -15,8 +15,8 @@ export const handleTickets = createAsyncThunk(
     return data;
   }
 );
-export const dellTickets = createAsyncThunk("deleteTickets", async (url,id) => {
-  const data = await getData.deleteTickets(url,id)
+export const delTickets = createAsyncThunk("deleteTickets", async (url) => {
+  const data = await getData.deleteTickets(url)
   return data
 });
 
