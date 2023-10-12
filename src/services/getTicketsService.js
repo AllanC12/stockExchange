@@ -8,8 +8,8 @@ const handleTickets = async (url,method,id = null) => {
 
 };
 
-const deleteTickets = async (url,id) => {
- const response = await fetch(`${url}/${id}`,{
+const deleteTickets = async (url) => {
+ const response = await fetch(url,{
     method: 'DELETE',
     headers: {
       'Content-type': 'application/json'
