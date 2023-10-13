@@ -17,6 +17,7 @@
   ],
   "tickets_portfolio": [],
   "tickets_saves": [],
+<<<<<<< HEAD
   "tickets_favorites": [
     {
       "stock": {
@@ -48,4 +49,7 @@
     }
   ]
 
+=======
+  "tickets_favorites": []
+>>>>>>> master
 }
