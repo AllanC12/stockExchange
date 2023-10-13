@@ -15,9 +15,8 @@ export const handleTickets = createAsyncThunk(
     return data;
   }
 );
-export const delTickets = createAsyncThunk("deleteTickets", async (url) => {
-  const data = await getData.deleteTickets(url)
-  return data
+export const delTickets = createAsyncThunk("tickets/deleteTickets", async (url) => {
+  await getData.deleteTickets(url)
 });
 
 export const sendDataUser = createAsyncThunk(
@@ -45,25 +44,43 @@ export const ticketsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(handleTickets.pending, (state) => {
-        (state.loading = true), (state.success = false);
+        state.loading = true
+        state.success = false;
       })
       .addCase(handleTickets.fulfilled, (state, action) => {
         state.tickets = action.payload;
-        (state.success = true), (state.error = false);
+        state.success = true
+        state.error = false;
         state.loading = false;
       })
       .addCase(handleTickets.rejected, (state) => {
         (state.loading = false), (state.error = true);
+      }).addCase(delTickets.pending, (state) => {
+        state.loading = true;
+        state.success = false;
+        state.error = false
+      }).addCase(delTickets.rejected, (state) => {
+        state.error = true
+        state.loading = false
+        state.success = false
+      }).addCase(delTickets.fulfilled, (state,action) => {
+        state.tickets = action.payload
+        state.error = false
+        state.success = true
       })
       .addCase(sendDataUser.pending, (state) => {
-        (state.loading = true), (state.success = false);
+        state.loading = true
+        state.success = false;
       })
       .addCase(sendDataUser.fulfilled, (state, action) => {
         state.tickets = action.payload;
-        (state.success = true), (state.error = false), (state.loading = false);
+        state.success = true
+        state.error = false
+        state.loading = false
       })
       .addCase(sendDataUser.rejected, (state) => {
-        (state.loading = false), (state.error = true);
+        state.loading = false
+        state.error = true
       })
       .addCase(sendTicketUserSlice.fulfilled, (state) => {
         state.success = true;

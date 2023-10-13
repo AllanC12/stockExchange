@@ -20,7 +20,6 @@ export const ContextTicketsDataProvider = ({ children }) => {
   const [savedByUser, setSavedByUser] = useState([]);
   const [favoritesByUser, setFavoritesByUser] = useState([]);
 
-  const { userLogged } = ContextDataUser();
   const idStorage = localStorage.getItem('userId')
   const idUser = JSON.parse(idStorage)
 
@@ -44,9 +43,9 @@ export const ContextTicketsDataProvider = ({ children }) => {
   };
   
   const deleteTicketInServer = async (stock) => {
-    // const response = await fetch(`${urlFavoriteUser}&stock.stock=${stock.stock}`).then(resp => resp.json())
-    // console.log(response)
-    await dispatch(delTickets(`${urlFavoriteUser}&stock.stock=${stock.stock}`))
+   const response =  await fetch(`${urlFavoriteUser}&stock.stock=${stock.stock}`).then(resp => resp.json())
+   const id = response.length > 0 ? response[0].id : null
+   dispatch(delTickets(`${urlFavorite}/${id}`))
   }
   
   const addFunction = (stock, setStockAdd) => {
@@ -56,11 +55,12 @@ export const ContextTicketsDataProvider = ({ children }) => {
   };
   
   const removeFunction = async (stock, setListStock) => {
-    setListStock((prevList) =>{
+   await setListStock((prevList) =>{
       return prevList.filter((item) => item.stock !== stock.stock)
     });
      await deleteTicketInServer(stock)
   };
+
 
   const sendTicketFromServer = async (url, arrayStock) => {
     if (arrayStock.length > 0) {
@@ -73,14 +73,19 @@ export const ContextTicketsDataProvider = ({ children }) => {
 
       await dispatch(sendTicketUserSlice(dataRequest));
     }
+
   };
-
-
+  
+  
   useEffect(() => {
-    getTicketByUser(urlBagUser, setBagByUser);
-    getTicketByUser(urlSaveUser, setSavedByUser);
-    getTicketByUser(urlFavoriteUser, setFavoritesByUser);
-  }, [userLogged]);
+    const updateTicketsForUser = async () => {
+     await getTicketByUser(urlBagUser, setBagByUser);
+     await getTicketByUser(urlSaveUser, setSavedByUser);
+     await getTicketByUser(urlFavoriteUser, setFavoritesByUser)
+    }
+    updateTicketsForUser()
+  }, []);
+  
 
   useEffect(() => {
     const updatePortfolio = async () => {
