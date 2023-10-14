@@ -1,9 +1,5 @@
-const handleTickets = async (url, method, id = null) => {
-  let response;
-
-  if (method === "GET") {
-    response = await fetch(url).then((resp) => resp.json());
-  }
+const handleTickets = async (url) => {
+  let response = await fetch(url).then((resp) => resp.json());
   return response;
 };
 
@@ -16,7 +12,7 @@ const deleteTickets = async (url) => {
       },
     }).then((resp) => resp.json());
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 };
 
@@ -32,8 +28,6 @@ const sendDataFromServer = async (url, data) => {
   } catch (err) {
     console.log(err);
   }
-
-  
 };
 
 const getData = {

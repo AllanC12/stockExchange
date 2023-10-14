@@ -46,7 +46,6 @@ const Ticket = ({ stock }) => {
   
   useEffect(() => {
     verifyTicketForUser(stock,favoritesByUser,setConfirmFavorite)
-    console.log('ok')
   }, [favoritesByUser]);
   
 
