@@ -24,6 +24,7 @@ const Ticket = ({ stock }) => {
   const [confirmFavorite, setConfirmFavorite] = useState(false);
 
   const verifyTicketForUser = (stock,ticketsForUser,setConfirmTicket) => {
+    
     for (let i = 0; i < ticketsForUser.length; i++) {
       if (ticketsForUser[i].stock.stock === stock.stock) {
         setConfirmTicket(true);
@@ -33,6 +34,7 @@ const Ticket = ({ stock }) => {
       }
     }
   };
+
   
   useEffect(() => {
     verifyTicketForUser(stock,bagByUser,setconfirmBag)
@@ -41,10 +43,11 @@ const Ticket = ({ stock }) => {
   useEffect(() => {
     verifyTicketForUser(stock,savedByUser,setConfirmSave)
   },[savedByUser])
-
+  
   useEffect(() => {
-    verifyTicketForUser(stock,favoritesByUser,setConfirmFavorite);
+    verifyTicketForUser(stock,favoritesByUser,setConfirmFavorite)
   }, [favoritesByUser]);
+  
 
   return (
     <div className="ticket">

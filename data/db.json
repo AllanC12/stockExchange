@@ -22,29 +22,15 @@
       "stock": {
         "stock": "MGLU3",
         "name": "MAGAZINE LUIZA",
-        "close": 1.91,
-        "change": -4.0201005,
-        "volume": 126686500,
-        "market_cap": 13288906211,
+        "close": 1.82,
+        "change": -4.71204188,
+        "volume": 67624500,
+        "market_cap": 12754679338,
         "logo": "https://s3-symbol-logo.tradingview.com/magaz-luiza-on-nm--big.svg",
         "sector": "Retail Trade"
       },
       "idUser": 1,
-      "id": 1
-    },
-    {
-      "stock": {
-        "stock": "BHIA3",
-        "name": "CASAS BAHIA",
-        "close": 0.61,
-        "change": 0,
-        "volume": 65828600,
-        "market_cap": 1449836150,
-        "logo": "https://brapi.dev/favicon.svg",
-        "sector": "Retail Trade"
-      },
-      "idUser": 1,
-      "id": 2
+      "id": 3
     }
   ]
 }

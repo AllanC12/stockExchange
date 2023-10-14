@@ -6,12 +6,18 @@ import { useDispatch } from "react-redux";
 
 import { sendTicketUserSlice, handleTickets,delTickets } from "../slices/getTicketsSlices";
 
-import { ContextDataUser } from "./ContextDataUser";
+import {ContextDataUser} from "../context/ContextDataUser"
 
 export const TicketsUser = createContext();
 
 export const ContextTicketsDataProvider = ({ children }) => {
   const dispatch = useDispatch();
+
+  const [itemAdded,setItemAdded] = useState(false)
+  const [itemRemoved,setItemRemoved] = useState(false)
+
+  const {userLogged} = ContextDataUser()
+
   const [bag, setBag] = useState([]);
   const [saves, setSaves] = useState([]);
   const [favorites, setFavorites] = useState([]);
@@ -20,7 +26,6 @@ export const ContextTicketsDataProvider = ({ children }) => {
   const [savedByUser, setSavedByUser] = useState([]);
   const [favoritesByUser, setFavoritesByUser] = useState([]);
 
-  const { userLogged } = ContextDataUser();
   const idStorage = localStorage.getItem('userId')
   const idUser = JSON.parse(idStorage)
 
@@ -37,30 +42,34 @@ export const ContextTicketsDataProvider = ({ children }) => {
     stock: null,
     idUser,
   };
+
+  const deleteTicketInServer = async (stock) => {
+    const response =  await fetch(`${urlFavoriteUser}&stock.stock=${stock.stock}`).then(resp => resp.json())
+    const id = response.length > 0 ? response[0].id : null
+    dispatch(delTickets(`${urlFavorite}/${id}`))
+    setItemRemoved(true)
+   }
+
+   const addFunction = (stock, setStockAdd) => {
+    setStockAdd((prevStockAdded) =>
+    Array.from(new Set([...prevStockAdded, stock]))
+    );
+    setItemAdded(true)
+  };
+  
+  const removeFunction = async (stock, setListStock) => {
+   await setListStock((prevList) =>{
+      console.log(prevList)
+      return prevList.filter((item) => item.stock !== stock.stock)
+    });
+     await deleteTicketInServer(stock)
+  };
   
   const getTicketByUser = async (url, setListTicket) => {
     let response =  await dispatch(handleTickets(url,'GET'));
     setListTicket(response.payload);
   };
   
-  const deleteTicketInServer = async (stock) => {
-    // const response = await fetch(`${urlFavoriteUser}&stock.stock=${stock.stock}`).then(resp => resp.json())
-    // console.log(response)
-    await dispatch(delTickets(`${urlFavoriteUser}&stock.stock=${stock.stock}`))
-  }
-  
-  const addFunction = (stock, setStockAdd) => {
-    setStockAdd((prevStockAdded) =>
-    Array.from(new Set([...prevStockAdded, stock]))
-    );
-  };
-  
-  const removeFunction = async (stock, setListStock) => {
-    setListStock((prevList) =>{
-      return prevList.filter((item) => item.stock !== stock.stock)
-    });
-     await deleteTicketInServer(stock)
-  };
 
   const sendTicketFromServer = async (url, arrayStock) => {
     if (arrayStock.length > 0) {
@@ -74,13 +83,13 @@ export const ContextTicketsDataProvider = ({ children }) => {
       await dispatch(sendTicketUserSlice(dataRequest));
     }
   };
-
-
+  
   useEffect(() => {
-    getTicketByUser(urlBagUser, setBagByUser);
-    getTicketByUser(urlSaveUser, setSavedByUser);
-    getTicketByUser(urlFavoriteUser, setFavoritesByUser);
-  }, [userLogged]);
+      getTicketByUser(urlBagUser, setBagByUser);
+      getTicketByUser(urlSaveUser, setSavedByUser);
+      getTicketByUser(urlFavoriteUser, setFavoritesByUser)
+  },[]);
+  
 
   useEffect(() => {
     const updatePortfolio = async () => {
@@ -100,7 +109,10 @@ export const ContextTicketsDataProvider = ({ children }) => {
 
   useEffect(() => {
     const updateFavorites = async () => {
-      await sendTicketFromServer(urlFavorite, favorites);
+      if(itemAdded){
+        await sendTicketFromServer(urlFavorite, favorites);
+        setItemAdded(false)
+      }
       await getTicketByUser(urlFavoriteUser, setFavoritesByUser);
     };
     updateFavorites();
@@ -120,6 +132,7 @@ export const ContextTicketsDataProvider = ({ children }) => {
     setBagByUser,
     setSavedByUser,
     setFavoritesByUser,
+    setItemRemoved
   };
 
   const states = {
@@ -129,6 +142,8 @@ export const ContextTicketsDataProvider = ({ children }) => {
     bagByUser,
     savedByUser,
     favoritesByUser,
+    itemRemoved
+    
   };
 
   const TicketsUserValue = {
