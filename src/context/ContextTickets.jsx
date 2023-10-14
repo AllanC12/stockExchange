@@ -14,6 +14,7 @@ export const ContextTicketsDataProvider = ({ children }) => {
   const dispatch = useDispatch();
 
   const [itemAdded,setItemAdded] = useState(false)
+  const [itemRemoved,setItemRemoved] = useState(false)
 
   const {userLogged} = ContextDataUser()
 
@@ -46,6 +47,7 @@ export const ContextTicketsDataProvider = ({ children }) => {
     const response =  await fetch(`${urlFavoriteUser}&stock.stock=${stock.stock}`).then(resp => resp.json())
     const id = response.length > 0 ? response[0].id : null
     dispatch(delTickets(`${urlFavorite}/${id}`))
+    setItemRemoved(true)
    }
 
    const addFunction = (stock, setStockAdd) => {
@@ -109,9 +111,9 @@ export const ContextTicketsDataProvider = ({ children }) => {
     const updateFavorites = async () => {
       if(itemAdded){
         await sendTicketFromServer(urlFavorite, favorites);
-        await getTicketByUser(urlFavoriteUser, setFavoritesByUser);
         setItemAdded(false)
       }
+      await getTicketByUser(urlFavoriteUser, setFavoritesByUser);
     };
     updateFavorites();
   }, [favorites]);
@@ -130,6 +132,7 @@ export const ContextTicketsDataProvider = ({ children }) => {
     setBagByUser,
     setSavedByUser,
     setFavoritesByUser,
+    setItemRemoved
   };
 
   const states = {
@@ -139,6 +142,8 @@ export const ContextTicketsDataProvider = ({ children }) => {
     bagByUser,
     savedByUser,
     favoritesByUser,
+    itemRemoved
+    
   };
 
   const TicketsUserValue = {
