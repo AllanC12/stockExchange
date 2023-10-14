@@ -6,12 +6,17 @@ import { useDispatch } from "react-redux";
 
 import { sendTicketUserSlice, handleTickets,delTickets } from "../slices/getTicketsSlices";
 
-import { ContextDataUser } from "./ContextDataUser";
+import {ContextDataUser} from "../context/ContextDataUser"
 
 export const TicketsUser = createContext();
 
 export const ContextTicketsDataProvider = ({ children }) => {
   const dispatch = useDispatch();
+
+  const [itemAdded,setItemAdded] = useState(false)
+
+  const {userLogged} = ContextDataUser()
+
   const [bag, setBag] = useState([]);
   const [saves, setSaves] = useState([]);
   const [favorites, setFavorites] = useState([]);
@@ -36,31 +41,33 @@ export const ContextTicketsDataProvider = ({ children }) => {
     stock: null,
     idUser,
   };
+
+  const deleteTicketInServer = async (stock) => {
+    const response =  await fetch(`${urlFavoriteUser}&stock.stock=${stock.stock}`).then(resp => resp.json())
+    const id = response.length > 0 ? response[0].id : null
+    dispatch(delTickets(`${urlFavorite}/${id}`))
+   }
+
+   const addFunction = (stock, setStockAdd) => {
+    setStockAdd((prevStockAdded) =>
+    Array.from(new Set([...prevStockAdded, stock]))
+    );
+    setItemAdded(true)
+  };
+  
+  const removeFunction = async (stock, setListStock) => {
+   await setListStock((prevList) =>{
+      console.log(prevList)
+      return prevList.filter((item) => item.stock !== stock.stock)
+    });
+     await deleteTicketInServer(stock)
+  };
   
   const getTicketByUser = async (url, setListTicket) => {
     let response =  await dispatch(handleTickets(url,'GET'));
     setListTicket(response.payload);
   };
   
-  const deleteTicketInServer = async (stock) => {
-   const response =  await fetch(`${urlFavoriteUser}&stock.stock=${stock.stock}`).then(resp => resp.json())
-   const id = response.length > 0 ? response[0].id : null
-   dispatch(delTickets(`${urlFavorite}/${id}`))
-  }
-  
-  const addFunction = (stock, setStockAdd) => {
-    setStockAdd((prevStockAdded) =>
-    Array.from(new Set([...prevStockAdded, stock]))
-    );
-  };
-  
-  const removeFunction = async (stock, setListStock) => {
-   await setListStock((prevList) =>{
-      return prevList.filter((item) => item.stock !== stock.stock)
-    });
-     await deleteTicketInServer(stock)
-  };
-
 
   const sendTicketFromServer = async (url, arrayStock) => {
     if (arrayStock.length > 0) {
@@ -73,18 +80,13 @@ export const ContextTicketsDataProvider = ({ children }) => {
 
       await dispatch(sendTicketUserSlice(dataRequest));
     }
-
   };
   
-  
   useEffect(() => {
-    const updateTicketsForUser = async () => {
-     await getTicketByUser(urlBagUser, setBagByUser);
-     await getTicketByUser(urlSaveUser, setSavedByUser);
-     await getTicketByUser(urlFavoriteUser, setFavoritesByUser)
-    }
-    updateTicketsForUser()
-  }, []);
+      getTicketByUser(urlBagUser, setBagByUser);
+      getTicketByUser(urlSaveUser, setSavedByUser);
+      getTicketByUser(urlFavoriteUser, setFavoritesByUser)
+  },[]);
   
 
   useEffect(() => {
@@ -105,8 +107,11 @@ export const ContextTicketsDataProvider = ({ children }) => {
 
   useEffect(() => {
     const updateFavorites = async () => {
-      await sendTicketFromServer(urlFavorite, favorites);
-      await getTicketByUser(urlFavoriteUser, setFavoritesByUser);
+      if(itemAdded){
+        await sendTicketFromServer(urlFavorite, favorites);
+        await getTicketByUser(urlFavoriteUser, setFavoritesByUser);
+        setItemAdded(false)
+      }
     };
     updateFavorites();
   }, [favorites]);
