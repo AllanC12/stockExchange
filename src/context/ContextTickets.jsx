@@ -44,11 +44,12 @@ export const ContextTicketsDataProvider = ({ children }) => {
   };
 
   const deleteTicketInServer = async (stock) => {
-    const response =  await fetch(`${urlFavoriteUser}&stock.stock=${stock.stock}`).then(resp => resp.json())
-    const id = response.length > 0 ? response[0].id : null
+    const response = await dispatch(handleTickets(`${urlFavoriteUser}&stock.stock=${stock.stock}`))
+    const id = await response.payload.length > 0 ? response.payload[0].id : null
     dispatch(delTickets(`${urlFavorite}/${id}`))
-    setItemRemoved(true)
+    await setItemRemoved(true)
    }
+
 
    const addFunction = (stock, setStockAdd) => {
     setStockAdd((prevStockAdded) =>
@@ -59,7 +60,6 @@ export const ContextTicketsDataProvider = ({ children }) => {
   
   const removeFunction = async (stock, setListStock) => {
    await setListStock((prevList) =>{
-      console.log(prevList)
       return prevList.filter((item) => item.stock !== stock.stock)
     });
      await deleteTicketInServer(stock)
