@@ -14,7 +14,7 @@ export const ContextTicketsDataProvider = ({ children }) => {
   const dispatch = useDispatch();
 
   const [itemAdded,setItemAdded] = useState(false)
-  const [itemRemoved,setItemRemoved] = useState(false)
+  const [ticketsHome,setTicketsHome] = useState(null)
 
   const {userLogged} = ContextDataUser()
 
@@ -29,6 +29,7 @@ export const ContextTicketsDataProvider = ({ children }) => {
   const idStorage = localStorage.getItem('userId')
   const idUser = JSON.parse(idStorage)
 
+  const urlHome = import.meta.env.VITE_URL_API;
   const urlPortfolio = import.meta.env.VITE_URL_TICKETS_PORTFOLIO;
   const urlSaves = import.meta.env.VITE_URL_TICKETS_SAVES;
   const urlFavorite = import.meta.env.VITE_URL_TICKETS_FAVORITES;
@@ -65,7 +66,7 @@ export const ContextTicketsDataProvider = ({ children }) => {
   };
   
   const getTicketByUser = async (url, setListTicket) => {
-    let response =  await dispatch(handleTickets(url,'GET'));
+    let response =  await dispatch(handleTickets(url));
     setListTicket(response.payload);
   };
   
@@ -82,11 +83,20 @@ export const ContextTicketsDataProvider = ({ children }) => {
       await dispatch(sendTicketUserSlice(dataRequest));
     }
   };
+
+  const getTicketByHome = async () => {
+    let response = await dispatch(handleTickets(urlHome))
+    setTicketsHome(response)
+  }
   
   useEffect(() => {
-      getTicketByUser(urlBagUser, setBagByUser);
-      getTicketByUser(urlSaveUser, setSavedByUser);
-      getTicketByUser(urlFavoriteUser, setFavoritesByUser)
+      const updateTickets = async () => {
+        await getTicketByHome()
+        await getTicketByUser(urlBagUser, setBagByUser);
+        await getTicketByUser(urlSaveUser, setSavedByUser);
+        await getTicketByUser(urlFavoriteUser, setFavoritesByUser)
+      }
+      updateTickets()
   },[]);
   
 
@@ -146,7 +156,7 @@ export const ContextTicketsDataProvider = ({ children }) => {
     bagByUser,
     savedByUser,
     favoritesByUser,
-    
+    ticketsHome
   };
 
   const TicketsUserValue = {

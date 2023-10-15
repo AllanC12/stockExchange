@@ -32,7 +32,6 @@ const Ticket = ({ stock }) => {
   const urlSaveUser = `${urlSaves}?idUser=${idUser}`;
   const urlFavoriteUser = `${urlFavorite}?idUser=${idUser}`;
   
-
   const verifyTicketForUser = (stock,ticketsForUser,setConfirmTicket) => {
     
     for (let i = 0; i < ticketsForUser.length; i++) {
