@@ -19,7 +19,7 @@ const Ticket = ({ stock }) => {
   const { bagByUser, savedByUser, favoritesByUser } = states;
   const { setBag, setSaves, setFavorites } = setLists;
   
-  const [confirmBag,setconfirmBag] = useState(false)
+  const [confirmBag,setConfirmBag] = useState(false)
   const [confirmSaves,setConfirmSave] = useState(false)
   const [confirmFavorite, setConfirmFavorite] = useState(false);
 
@@ -34,10 +34,9 @@ const Ticket = ({ stock }) => {
       }
     }
   };
-
   
   useEffect(() => {
-    verifyTicketForUser(stock,bagByUser,setconfirmBag)
+    verifyTicketForUser(stock,bagByUser,setConfirmBag)
   },[bagByUser])
   
   useEffect(() => {

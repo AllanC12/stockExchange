@@ -18,23 +18,23 @@ const TicketsContainer = () => {
   const { states } = ContextTicketUser();
   const { setLists } = ContextTicketUser();
   const { itemRemoved } = states;
-  const { setItemRemoved } = setLists;
 
   const searchTickets = async () => {
     let response = await dispatch(handleTickets(url, "GET"));
     setData(response);
   };
 
+
+
   useEffect(() => {
     const getTickets = async () => {
-      if(itemRemoved){
-        await searchTickets();
-        setItemRemoved(false);
-      }
+      await searchTickets();
     };
+    getTickets();
+  }, []);
 
-     getTickets();
-  }, [url]);
+
+  console.log('executado')
 
   return (
     <div className="tickets_container">
