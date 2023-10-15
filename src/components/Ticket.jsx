@@ -19,9 +19,19 @@ const Ticket = ({ stock }) => {
   const { bagByUser, savedByUser, favoritesByUser } = states;
   const { setBag, setSaves, setFavorites } = setLists;
   
-  const [confirmBag,setconfirmBag] = useState(false)
+  const [confirmBag,setConfirmBag] = useState(false)
   const [confirmSaves,setConfirmSave] = useState(false)
   const [confirmFavorite, setConfirmFavorite] = useState(false);
+
+  const idStorage = localStorage.getItem('userId')
+  const idUser = JSON.parse(idStorage)
+  const urlPortfolio = import.meta.env.VITE_URL_TICKETS_PORTFOLIO;
+  const urlSaves = import.meta.env.VITE_URL_TICKETS_SAVES;
+  const urlFavorite = import.meta.env.VITE_URL_TICKETS_FAVORITES;
+  const urlBagUser = `${urlPortfolio}?idUser=${idUser}`;
+  const urlSaveUser = `${urlSaves}?idUser=${idUser}`;
+  const urlFavoriteUser = `${urlFavorite}?idUser=${idUser}`;
+  
 
   const verifyTicketForUser = (stock,ticketsForUser,setConfirmTicket) => {
     
@@ -34,10 +44,9 @@ const Ticket = ({ stock }) => {
       }
     }
   };
-
   
   useEffect(() => {
-    verifyTicketForUser(stock,bagByUser,setconfirmBag)
+    verifyTicketForUser(stock,bagByUser,setConfirmBag)
   },[bagByUser])
   
   useEffect(() => {
@@ -65,7 +74,7 @@ const Ticket = ({ stock }) => {
       <div className="footer-ticket">
         {confirmBag ? (
           <FaCheck
-            onClick={() => removeFunction(stock, setBag)}
+            onClick={() => removeFunction(stock, setBag,urlPortfolio,urlBagUser)}
             title="Remover investimento"
           />
         ) : (
@@ -77,7 +86,7 @@ const Ticket = ({ stock }) => {
 
         {confirmSaves ? (
           <FaBookmark
-            onClick={() => removeFunction(stock, setSaves)}
+            onClick={() => removeFunction(stock, setSaves,urlSaves,urlSaveUser)}
             title="Remover investimento"
           />
         ) : (
@@ -89,7 +98,7 @@ const Ticket = ({ stock }) => {
 
         {confirmFavorite ? (
           <FaStar
-            onClick={() => removeFunction(stock, setFavorites)}
+            onClick={() => removeFunction(stock, setFavorites,urlFavorite,urlFavoriteUser)}
             title="Remover investimento"
           />
         ) : (

@@ -17,20 +17,5 @@
   ],
   "tickets_portfolio": [],
   "tickets_saves": [],
-  "tickets_favorites": [
-    {
-      "stock": {
-        "stock": "MGLU3",
-        "name": "MAGAZINE LUIZA",
-        "close": 1.82,
-        "change": -4.71204188,
-        "volume": 67624500,
-        "market_cap": 12754679338,
-        "logo": "https://s3-symbol-logo.tradingview.com/magaz-luiza-on-nm--big.svg",
-        "sector": "Retail Trade"
-      },
-      "idUser": 1,
-      "id": 3
-    }
-  ]
+  "tickets_favorites": []
 }

@@ -43,12 +43,12 @@ export const ContextTicketsDataProvider = ({ children }) => {
     idUser,
   };
 
-  const deleteTicketInServer = async (stock) => {
-    const response =  await fetch(`${urlFavoriteUser}&stock.stock=${stock.stock}`).then(resp => resp.json())
-    const id = response.length > 0 ? response[0].id : null
-    dispatch(delTickets(`${urlFavorite}/${id}`))
-    setItemRemoved(true)
+  const deleteTicketInServer = async (stock,url,urlForUser) => {
+    const response = await dispatch(handleTickets(`${urlForUser}&stock.stock=${stock.stock}`))
+    const id = await response.payload.length > 0 ? response.payload[0].id : null
+    dispatch(delTickets(`${url}/${id}`))
    }
+
 
    const addFunction = (stock, setStockAdd) => {
     setStockAdd((prevStockAdded) =>
@@ -57,12 +57,11 @@ export const ContextTicketsDataProvider = ({ children }) => {
     setItemAdded(true)
   };
   
-  const removeFunction = async (stock, setListStock) => {
+  const removeFunction = async (stock, setListStock,url,urlForUser) => {
    await setListStock((prevList) =>{
-      console.log(prevList)
       return prevList.filter((item) => item.stock !== stock.stock)
     });
-     await deleteTicketInServer(stock)
+     await deleteTicketInServer(stock,url,urlForUser)
   };
   
   const getTicketByUser = async (url, setListTicket) => {
@@ -93,7 +92,10 @@ export const ContextTicketsDataProvider = ({ children }) => {
 
   useEffect(() => {
     const updatePortfolio = async () => {
-      await sendTicketFromServer(urlPortfolio, bag);
+      if(itemAdded){
+        await sendTicketFromServer(urlPortfolio, bag);
+        setItemAdded(false)
+      }
       await getTicketByUser(urlBagUser, setBagByUser);
     };
     updatePortfolio();
@@ -101,7 +103,10 @@ export const ContextTicketsDataProvider = ({ children }) => {
 
   useEffect(() => {
     const updateSaves = async () => {
-      await sendTicketFromServer(urlSaves, saves);
+      if(itemAdded){
+        await sendTicketFromServer(urlSaves, saves);
+        setItemAdded(false)
+      }
       await getTicketByUser(urlSaveUser, setSavedByUser);
     };
     updateSaves();
@@ -132,7 +137,6 @@ export const ContextTicketsDataProvider = ({ children }) => {
     setBagByUser,
     setSavedByUser,
     setFavoritesByUser,
-    setItemRemoved
   };
 
   const states = {
@@ -142,7 +146,6 @@ export const ContextTicketsDataProvider = ({ children }) => {
     bagByUser,
     savedByUser,
     favoritesByUser,
-    itemRemoved
     
   };
 
