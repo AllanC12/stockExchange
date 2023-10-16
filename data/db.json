@@ -17,34 +17,5 @@
   ],
   "tickets_portfolio": [],
   "tickets_saves": [],
-  "tickets_favorites": [
-    {
-      "stock": {
-        "stock": "FNAM11",
-        "name": "FINAM CI *",
-        "close": 0.37,
-        "change": 0,
-        "volume": 107945000,
-        "market_cap": null,
-        "logo": "https://s3-symbol-logo.tradingview.com/amazonia-on-es--big.svg",
-        "sector": null
-      },
-      "idUser": 1,
-      "id": 1
-    },
-    {
-      "stock": {
-        "stock": "BHIA3",
-        "name": "CASAS BAHIA",
-        "close": 0.56,
-        "change": -8.19672131,
-        "volume": 73799700,
-        "market_cap": 1330997096,
-        "logo": "https://brapi.dev/favicon.svg",
-        "sector": "Retail Trade"
-      },
-      "idUser": 1,
-      "id": 2
-    }
-  ]
+  "tickets_favorites": []
 }
