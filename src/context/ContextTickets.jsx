@@ -6,17 +6,13 @@ import { useDispatch } from "react-redux";
 
 import { sendTicketUserSlice, handleTickets,delTickets } from "../slices/getTicketsSlices";
 
-import {ContextDataUser} from "../context/ContextDataUser"
-
 export const TicketsUser = createContext();
 
 export const ContextTicketsDataProvider = ({ children }) => {
   const dispatch = useDispatch();
 
   const [itemAdded,setItemAdded] = useState(false)
-  const [itemRemoved,setItemRemoved] = useState(false)
-
-  const {userLogged} = ContextDataUser()
+  const [ticketsHome,setTicketsHome] = useState(null)
 
   const [bag, setBag] = useState([]);
   const [saves, setSaves] = useState([]);
@@ -29,6 +25,7 @@ export const ContextTicketsDataProvider = ({ children }) => {
   const idStorage = localStorage.getItem('userId')
   const idUser = JSON.parse(idStorage)
 
+  const urlHome = import.meta.env.VITE_URL_API;
   const urlPortfolio = import.meta.env.VITE_URL_TICKETS_PORTFOLIO;
   const urlSaves = import.meta.env.VITE_URL_TICKETS_SAVES;
   const urlFavorite = import.meta.env.VITE_URL_TICKETS_FAVORITES;
@@ -43,12 +40,16 @@ export const ContextTicketsDataProvider = ({ children }) => {
     idUser,
   };
 
+  const getTicketByHome = async () => {
+    let response = await dispatch(handleTickets(urlHome))
+    setTicketsHome(response)
+  }
+
   const deleteTicketInServer = async (stock,url,urlForUser) => {
     const response = await dispatch(handleTickets(`${urlForUser}&stock.stock=${stock.stock}`))
     const id = await response.payload.length > 0 ? response.payload[0].id : null
     dispatch(delTickets(`${url}/${id}`))
-   }
-
+  }
 
    const addFunction = (stock, setStockAdd) => {
     setStockAdd((prevStockAdded) =>
@@ -65,7 +66,7 @@ export const ContextTicketsDataProvider = ({ children }) => {
   };
   
   const getTicketByUser = async (url, setListTicket) => {
-    let response =  await dispatch(handleTickets(url,'GET'));
+    let response =  await dispatch(handleTickets(url));
     setListTicket(response.payload);
   };
   
@@ -82,11 +83,12 @@ export const ContextTicketsDataProvider = ({ children }) => {
       await dispatch(sendTicketUserSlice(dataRequest));
     }
   };
-  
+
   useEffect(() => {
-      getTicketByUser(urlBagUser, setBagByUser);
-      getTicketByUser(urlSaveUser, setSavedByUser);
-      getTicketByUser(urlFavoriteUser, setFavoritesByUser)
+    getTicketByHome()
+    getTicketByUser(urlBagUser, setBagByUser);
+    getTicketByUser(urlSaveUser, setSavedByUser);
+    getTicketByUser(urlFavoriteUser, setFavoritesByUser)
   },[]);
   
 
@@ -112,6 +114,10 @@ export const ContextTicketsDataProvider = ({ children }) => {
     updateSaves();
   }, [saves]);
 
+  console.log(favoritesByUser)
+  console.log(favorites)
+
+
   useEffect(() => {
     const updateFavorites = async () => {
       if(itemAdded){
@@ -128,6 +134,7 @@ export const ContextTicketsDataProvider = ({ children }) => {
     addFunction,
     removeFunction,
     getTicketByUser,
+
   };
 
   const setLists = {
@@ -137,7 +144,7 @@ export const ContextTicketsDataProvider = ({ children }) => {
     setBagByUser,
     setSavedByUser,
     setFavoritesByUser,
-  };
+   };
 
   const states = {
     bag,
@@ -146,8 +153,8 @@ export const ContextTicketsDataProvider = ({ children }) => {
     bagByUser,
     savedByUser,
     favoritesByUser,
-    
-  };
+    ticketsHome,
+   };
 
   const TicketsUserValue = {
     methods,

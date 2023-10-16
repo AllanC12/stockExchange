@@ -15,16 +15,17 @@ import {
 
 const Ticket = ({ stock }) => {
   const { methods, states, setLists } = ContextTicketUser();
-  const { addFunction, removeFunction } = methods;
-  const { bagByUser, savedByUser, favoritesByUser } = states;
+  const { addFunction, removeFunction} = methods;
+  const { bagByUser, savedByUser, favoritesByUser,favorites } = states;
   const { setBag, setSaves, setFavorites } = setLists;
-  
+
+  const idStorage = localStorage.getItem('userId')
+  const idUser = JSON.parse(idStorage)
+
   const [confirmBag,setConfirmBag] = useState(false)
   const [confirmSaves,setConfirmSave] = useState(false)
   const [confirmFavorite, setConfirmFavorite] = useState(false);
 
-  const idStorage = localStorage.getItem('userId')
-  const idUser = JSON.parse(idStorage)
   const urlPortfolio = import.meta.env.VITE_URL_TICKETS_PORTFOLIO;
   const urlSaves = import.meta.env.VITE_URL_TICKETS_SAVES;
   const urlFavorite = import.meta.env.VITE_URL_TICKETS_FAVORITES;
@@ -32,7 +33,6 @@ const Ticket = ({ stock }) => {
   const urlSaveUser = `${urlSaves}?idUser=${idUser}`;
   const urlFavoriteUser = `${urlFavorite}?idUser=${idUser}`;
   
-
   const verifyTicketForUser = (stock,ticketsForUser,setConfirmTicket) => {
     
     for (let i = 0; i < ticketsForUser.length; i++) {
@@ -43,8 +43,9 @@ const Ticket = ({ stock }) => {
         setConfirmTicket(false);
       }
     }
+
   };
-  
+
   useEffect(() => {
     verifyTicketForUser(stock,bagByUser,setConfirmBag)
   },[bagByUser])
@@ -56,7 +57,6 @@ const Ticket = ({ stock }) => {
   useEffect(() => {
     verifyTicketForUser(stock,favoritesByUser,setConfirmFavorite)
   }, [favoritesByUser]);
-  
 
   return (
     <div className="ticket">
