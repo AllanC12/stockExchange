@@ -2,8 +2,6 @@ import React from "react";
 
 import "./sass_components/TicketsContainer.scss";
 
-import { handleTickets } from "../slices/getTicketsSlices";
-
 import Ticket from "./Ticket";
 
 import { ContextTicketUser } from "../context/ContextTickets";
@@ -11,7 +9,7 @@ import { ContextTicketUser } from "../context/ContextTickets";
 const TicketsContainer = () => {
   const { states } = ContextTicketUser();
   const { ticketsHome } = states;
-  
+
   return (
     <div className="tickets_container">
       {ticketsHome ? (
