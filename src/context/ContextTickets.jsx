@@ -89,7 +89,8 @@ export const ContextTicketsDataProvider = ({ children }) => {
     getTicketByUser(urlBagUser, setBagByUser);
     getTicketByUser(urlSaveUser, setSavedByUser);
     getTicketByUser(urlFavoriteUser, setFavoritesByUser)
-  },[]);
+    console.log('executado')
+  },[bag,saves,favorites]);
   
 
   useEffect(() => {
@@ -114,7 +115,7 @@ export const ContextTicketsDataProvider = ({ children }) => {
     updateSaves();
   }, [saves]);
 
-  console.log(favoritesByUser)
+  console.log(favoritesByUser ,'Fuser')
   console.log(favorites)
 
 
