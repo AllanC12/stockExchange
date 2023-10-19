@@ -1,18 +1,19 @@
 import "./sass_components/NavBar.scss";
 
-import { useState } from "react";
-
 import logo from "../assets/logo.png";
 
 const NavBar = () => {
-  const [statusUser, setStatusUser] = useState(false);
+  const statusLogin = localStorage.getItem('userLogged')
+  const userName = localStorage.getItem('userName')
 
+  console.log(userName)
   return (
     <nav className="navbar">
       <div className="logo">
         <img src={logo} alt="logotipo" />
       </div>
-      {statusUser ? <p>Logado</p> : <h2>StockExchange</h2>}
+      {statusLogin && <span>Seja bem vindo {userName}</span> }
+      <h2 className="title">StockExchange</h2>
     </nav>
   );
 };

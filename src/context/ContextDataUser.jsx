@@ -4,17 +4,23 @@ export const ContextUser = createContext();
 
 export const ContextUserDataProvider = ({ children }) => {
   const [idUser, setIdUser] = useState(null);
-
   const [userLogged, setUserLogged] = useState(false);
+  const [userName,setUserName] = useState('')
 
   const setUserId = (id) => {
     setIdUser(id);
     localStorage.setItem('userId',JSON.stringify(id))
   };
 
+  console.log(userName)
+
+  localStorage.setItem('userLogged',JSON.stringify(userLogged))
+  localStorage.setItem('userName',JSON.stringify(userName))
+
+  
   return (
     <ContextUser.Provider
-      value={{ setUserId, idUser, setUserLogged, userLogged }}
+      value={{ idUser,setUserId,userLogged,setUserLogged,setUserName}}
     >
       {children}
     </ContextUser.Provider>
