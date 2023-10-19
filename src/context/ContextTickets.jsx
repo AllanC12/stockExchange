@@ -12,6 +12,7 @@ export const ContextTicketsDataProvider = ({ children }) => {
   const dispatch = useDispatch();
 
   const [itemAdded,setItemAdded] = useState(false)
+  const [itemDeleted,setItemDeleted] = useState(0)
   const [ticketsHome,setTicketsHome] = useState(null)
 
   const [bag, setBag] = useState([]);
@@ -49,6 +50,7 @@ export const ContextTicketsDataProvider = ({ children }) => {
     const response = await dispatch(handleTickets(`${urlForUser}&stock.stock=${stock.stock}`))
     const id = await response.payload.length > 0 ? response.payload[0].id : null
     dispatch(delTickets(`${url}/${id}`))
+    setItemDeleted(prevItem => prevItem + 1)
   }
 
    const addFunction = (stock, setStockAdd) => {
@@ -89,8 +91,7 @@ export const ContextTicketsDataProvider = ({ children }) => {
     getTicketByUser(urlBagUser, setBagByUser);
     getTicketByUser(urlSaveUser, setSavedByUser);
     getTicketByUser(urlFavoriteUser, setFavoritesByUser)
-    console.log('executado')
-  },[bag,saves,favorites]);
+  },[bag,saves,favorites,itemDeleted]);
   
 
   useEffect(() => {
@@ -114,10 +115,6 @@ export const ContextTicketsDataProvider = ({ children }) => {
     };
     updateSaves();
   }, [saves]);
-
-  console.log(favoritesByUser ,'Fuser')
-  console.log(favorites)
-
 
   useEffect(() => {
     const updateFavorites = async () => {

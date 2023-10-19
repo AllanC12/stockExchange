@@ -15,15 +15,15 @@ import {
 
 const Ticket = ({ stock }) => {
   const { methods, states, setLists } = ContextTicketUser();
-  const { addFunction, removeFunction} = methods;
-  const { bagByUser, savedByUser, favoritesByUser,favorites } = states;
+  const { addFunction, removeFunction } = methods;
+  const { bagByUser, savedByUser, favoritesByUser, favorites } = states;
   const { setBag, setSaves, setFavorites } = setLists;
 
-  const idStorage = localStorage.getItem('userId')
-  const idUser = JSON.parse(idStorage)
+  const idStorage = localStorage.getItem("userId");
+  const idUser = JSON.parse(idStorage);
 
-  const [confirmBag,setConfirmBag] = useState(false)
-  const [confirmSaves,setConfirmSave] = useState(false)
+  const [confirmBag, setConfirmBag] = useState(false);
+  const [confirmSaves, setConfirmSave] = useState(false);
   const [confirmFavorite, setConfirmFavorite] = useState(false);
 
   const urlPortfolio = import.meta.env.VITE_URL_TICKETS_PORTFOLIO;
@@ -32,9 +32,8 @@ const Ticket = ({ stock }) => {
   const urlBagUser = `${urlPortfolio}?idUser=${idUser}`;
   const urlSaveUser = `${urlSaves}?idUser=${idUser}`;
   const urlFavoriteUser = `${urlFavorite}?idUser=${idUser}`;
-  
-  const verifyTicketForUser = (stock,ticketsForUser,setConfirmTicket) => {
-    
+
+  const verifyTicketForUser = (stock, ticketsForUser, setConfirmTicket) => {
     for (let i = 0; i < ticketsForUser.length; i++) {
       if (ticketsForUser[i].stock.stock === stock.stock) {
         setConfirmTicket(true);
@@ -43,19 +42,18 @@ const Ticket = ({ stock }) => {
         setConfirmTicket(false);
       }
     }
-
   };
 
   useEffect(() => {
-    verifyTicketForUser(stock,bagByUser,setConfirmBag)
-  },[bagByUser])
-  
+    verifyTicketForUser(stock, bagByUser, setConfirmBag);
+  }, [bagByUser]);
+
   useEffect(() => {
-    verifyTicketForUser(stock,savedByUser,setConfirmSave)
-  },[savedByUser])
-  
+    verifyTicketForUser(stock, savedByUser, setConfirmSave);
+  }, [savedByUser]);
+
   useEffect(() => {
-    verifyTicketForUser(stock,favoritesByUser,setConfirmFavorite)
+    verifyTicketForUser(stock, favoritesByUser, setConfirmFavorite);
   }, [favoritesByUser]);
 
   return (
@@ -74,7 +72,9 @@ const Ticket = ({ stock }) => {
       <div className="footer-ticket">
         {confirmBag ? (
           <FaCheck
-            onClick={() => removeFunction(stock, setBag,urlPortfolio,urlBagUser)}
+            onClick={() =>
+              removeFunction(stock, setBag, urlPortfolio, urlBagUser)
+            }
             title="Remover investimento"
           />
         ) : (
@@ -86,7 +86,9 @@ const Ticket = ({ stock }) => {
 
         {confirmSaves ? (
           <FaBookmark
-            onClick={() => removeFunction(stock, setSaves,urlSaves,urlSaveUser)}
+            onClick={() =>
+              removeFunction(stock, setSaves, urlSaves, urlSaveUser)
+            }
             title="Remover investimento"
           />
         ) : (
@@ -98,7 +100,9 @@ const Ticket = ({ stock }) => {
 
         {confirmFavorite ? (
           <FaStar
-            onClick={() => removeFunction(stock, setFavorites,urlFavorite,urlFavoriteUser)}
+            onClick={() =>
+              removeFunction(stock, setFavorites, urlFavorite, urlFavoriteUser)
+            }
             title="Remover investimento"
           />
         ) : (
