@@ -19,27 +19,29 @@ const FormLogin = () => {
     password,
   };
 
-  const { setUserId } = ContextDataUser();
+  const { setUserId,setUserLogged,setUserName } = ContextDataUser();
 
-  const { setUserLogged } = ContextDataUser();
+  const handleDatUser = (name,id) => {
+    setUserName(name)
+    setUserId(id)
+    setUserLogged(true)
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const respRegister = await getUserRegister(dataUser);
-    const name = respRegister.length > 0 ? respRegister[0].name : "";
+    const {name} = respRegister.length > 0 ? respRegister[0] : "";
     const { id } = respRegister.length > 0 ? respRegister[0] : 0;
-
-    setUserId(id);
 
     if (!id) {
       setMessage("Usuário sem cadastro");
       return;
     }
 
-    makeLogin(dataUser, setMessage, name);
+    handleDatUser(name,id)
 
-    setUserLogged(true);
+    makeLogin(dataUser, setMessage, name);
 
     setTimeout(() => {
       navigate("/home_broker");

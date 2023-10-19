@@ -4,7 +4,11 @@
   padding: 10px 2%;
   background-color: #363f72;
   @include define_flex(flex-start,center);
-  gap: 42%;
+  gap: 10%;
+
+  .title{
+    margin-left: 14%;
+  }
 
   .logo{
     width: 40px;
