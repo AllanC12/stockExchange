@@ -34,6 +34,11 @@ const Ticket = ({ stock }) => {
   const urlFavoriteUser = `${urlFavorite}?idUser=${idUser}`;
 
   const verifyTicketForUser = (stock, ticketsForUser, setConfirmTicket) => {
+    if(ticketsForUser.length === 0){
+      setConfirmTicket(false)
+      return
+    }
+
     for (let i = 0; i < ticketsForUser.length; i++) {
       if (ticketsForUser[i].stock.stock === stock.stock) {
         setConfirmTicket(true);
@@ -42,7 +47,9 @@ const Ticket = ({ stock }) => {
         setConfirmTicket(false);
       }
     }
+    
   };
+
 
   useEffect(() => {
     verifyTicketForUser(stock, bagByUser, setConfirmBag);
