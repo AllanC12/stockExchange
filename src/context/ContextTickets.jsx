@@ -62,6 +62,7 @@ export const ContextTicketsDataProvider = ({ children }) => {
   
   const removeFunction = async (stock, setListStock,url,urlForUser) => {
    await setListStock((prevList) =>{
+      console.log(prevList)
       return prevList.filter((item) => item.stock !== stock.stock)
     });
      await deleteTicketInServer(stock,url,urlForUser)
@@ -91,7 +92,7 @@ export const ContextTicketsDataProvider = ({ children }) => {
     getTicketByUser(urlBagUser, setBagByUser);
     getTicketByUser(urlSaveUser, setSavedByUser);
     getTicketByUser(urlFavoriteUser, setFavoritesByUser)
-  },[bag,saves,favorites,itemDeleted]);
+  },[itemDeleted]);
   
 
   useEffect(() => {
