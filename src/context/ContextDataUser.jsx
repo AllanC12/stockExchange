@@ -9,18 +9,11 @@ export const ContextUserDataProvider = ({ children }) => {
 
   const setUserId = (id) => {
     setIdUser(id);
-    localStorage.setItem('userId',JSON.stringify(id))
   };
-
-  console.log(userName)
-
-  localStorage.setItem('userLogged',JSON.stringify(userLogged))
-  localStorage.setItem('userName',JSON.stringify(userName))
-
   
   return (
     <ContextUser.Provider
-      value={{ idUser,setUserId,userLogged,setUserLogged,setUserName}}
+      value={{ idUser,setUserId,userLogged,setUserLogged,userName,setUserName}}
     >
       {children}
     </ContextUser.Provider>

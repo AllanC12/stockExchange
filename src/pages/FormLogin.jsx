@@ -22,9 +22,9 @@ const FormLogin = () => {
   const { setUserId,setUserLogged,setUserName } = ContextDataUser();
 
   const handleDatUser = (name,id) => {
+    setUserLogged(true)
     setUserName(name)
     setUserId(id)
-    setUserLogged(true)
   }
 
   const handleSubmit = async (e) => {
