@@ -2,17 +2,20 @@ import "./sass_components/NavBar.scss";
 
 import logo from "../assets/logo.png";
 
-const NavBar = () => {
-  const statusLogin = localStorage.getItem('userLogged')
-  const userName = localStorage.getItem('userName')
+import { useState } from "react";
 
-  console.log(userName)
+import { ContextDataUser } from "../context/ContextDataUser";
+
+const NavBar = () => {
+  const {userLogged} = ContextDataUser()
+  const [userName] = useState(JSON.parse(localStorage.getItem('userName')))
+
   return (
     <nav className="navbar">
       <div className="logo">
         <img src={logo} alt="logotipo" />
       </div>
-      {statusLogin && <span>Seja bem vindo {userName}</span> }
+      {userLogged ? (<span>Seja bem vindo {userName}</span>) : (<span></span>) }
       <h2 className="title">StockExchange</h2>
     </nav>
   );
