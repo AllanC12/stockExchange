@@ -17,5 +17,48 @@
   ],
   "tickets_portfolio": [],
   "tickets_saves": [],
-  "tickets_favorites": []
+  "tickets_favorites": [
+    {
+      "stock": {
+        "stock": "MGLU3",
+        "name": "MAGAZINE LUIZA",
+        "close": 1.54,
+        "change": -4.34782609,
+        "volume": 158390600,
+        "market_cap": 10283876864,
+        "logo": "https://s3-symbol-logo.tradingview.com/magaz-luiza-on-nm--big.svg",
+        "sector": "Retail Trade"
+      },
+      "idUser": null,
+      "id": 1
+    },
+    {
+      "stock": {
+        "stock": "MGLU3",
+        "name": "MAGAZINE LUIZA",
+        "close": 1.54,
+        "change": -4.34782609,
+        "volume": 158390600,
+        "market_cap": 10283876864,
+        "logo": "https://s3-symbol-logo.tradingview.com/magaz-luiza-on-nm--big.svg",
+        "sector": "Retail Trade"
+      },
+      "idUser": null,
+      "id": 2
+    },
+    {
+      "stock": {
+        "stock": "MGLU3",
+        "name": "MAGAZINE LUIZA",
+        "close": 1.54,
+        "change": -4.34782609,
+        "volume": 158390600,
+        "market_cap": 10283876864,
+        "logo": "https://s3-symbol-logo.tradingview.com/magaz-luiza-on-nm--big.svg",
+        "sector": "Retail Trade"
+      },
+      "idUser": null,
+      "id": 3
+    }
+  ]
 }
