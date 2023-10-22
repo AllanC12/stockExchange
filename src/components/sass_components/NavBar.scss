@@ -1,14 +1,11 @@
 @import "../../sass_mixins/mixin.scss";
 
-.navbar{
+nav{
   padding: 10px 2%;
   background-color: #363f72;
   @include define_flex(flex-start,center);
-  gap: 10%;
+  text-align: center;
 
-  .title{
-    margin-left: 14%;
-  }
 
   .logo{
     width: 40px;
@@ -20,5 +17,6 @@
 
   h2,span{
     color: #fff;
+    margin: 0 auto;
   }
 }

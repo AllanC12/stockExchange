@@ -5,15 +5,15 @@ export const ContextUser = createContext();
 export const ContextUserDataProvider = ({ children }) => {
   const [idUser, setIdUser] = useState(null);
   const [userLogged, setUserLogged] = useState(false);
-  const [userName,setUserName] = useState('')
-
-  const setUserId = (id) => {
-    setIdUser(id);
-  };
   
+  if(idUser){
+    localStorage.setItem('idUser',JSON.stringify(idUser))
+  }
+
+
   return (
     <ContextUser.Provider
-      value={{ idUser,setUserId,userLogged,setUserLogged,userName,setUserName}}
+      value={{ idUser,setIdUser,userLogged,setUserLogged}}
     >
       {children}
     </ContextUser.Provider>

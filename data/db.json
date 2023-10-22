@@ -20,31 +20,45 @@
   "tickets_favorites": [
     {
       "stock": {
-        "stock": "MGLU3",
-        "name": "MAGAZINE LUIZA",
-        "close": 1.54,
-        "change": -4.34782609,
-        "volume": 158390600,
-        "market_cap": 10283876864,
-        "logo": "https://s3-symbol-logo.tradingview.com/magaz-luiza-on-nm--big.svg",
+        "stock": "BHIA3",
+        "name": "CASAS BAHIA",
+        "close": 0.52,
+        "change": 4,
+        "volume": 70334300,
+        "market_cap": 1235925824,
+        "logo": "https://brapi.dev/favicon.svg",
         "sector": "Retail Trade"
       },
-      "idUser": null,
+      "idUser": 1,
       "id": 1
     },
     {
       "stock": {
-        "stock": "MGLU3",
-        "name": "MAGAZINE LUIZA",
-        "close": 1.54,
-        "change": -4.34782609,
-        "volume": 158390600,
-        "market_cap": 10283876864,
-        "logo": "https://s3-symbol-logo.tradingview.com/magaz-luiza-on-nm--big.svg",
-        "sector": "Retail Trade"
+        "stock": "CIEL3",
+        "name": "CIELO",
+        "close": 3.63,
+        "change": -3.2,
+        "volume": 66972700,
+        "market_cap": 9807743637,
+        "logo": "https://s3-symbol-logo.tradingview.com/cielo--big.svg",
+        "sector": "Commercial Services"
       },
-      "idUser": null,
+      "idUser": 1,
       "id": 2
+    },
+    {
+      "stock": {
+        "stock": "PETR4",
+        "name": "PETROBRAS PN",
+        "close": 37.849998,
+        "change": -1.27804382,
+        "volume": 66242400,
+        "market_cap": 515752039587,
+        "logo": "https://s3-symbol-logo.tradingview.com/brasileiro-petrobras--big.svg",
+        "sector": "Energy Minerals"
+      },
+      "idUser": 1,
+      "id": 3
     },
     {
       "stock": {
@@ -57,8 +71,8 @@
         "logo": "https://s3-symbol-logo.tradingview.com/magaz-luiza-on-nm--big.svg",
         "sector": "Retail Trade"
       },
-      "idUser": null,
-      "id": 3
+      "idUser": 1,
+      "id": 4
     }
   ]
 }
