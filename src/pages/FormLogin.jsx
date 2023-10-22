@@ -19,19 +19,18 @@ const FormLogin = () => {
     password,
   };
 
-  const { setUserId,setUserLogged,setUserName } = ContextDataUser();
+  const { setIdUser, setUserLogged } = ContextDataUser();
 
-  const handleDatUser = (name,id) => {
-    setUserLogged(true)
-    setUserName(name)
-    setUserId(id)
-  }
+  const handleDatUser = (id) => {
+    setUserLogged(true);
+    setIdUser(id);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const respRegister = await getUserRegister(dataUser);
-    const {name} = respRegister.length > 0 ? respRegister[0] : "";
+    const { name } = respRegister.length > 0 ? respRegister[0] : "";
     const { id } = respRegister.length > 0 ? respRegister[0] : 0;
 
     if (!id) {
@@ -39,7 +38,7 @@ const FormLogin = () => {
       return;
     }
 
-    handleDatUser(name,id)
+    handleDatUser(id);
 
     makeLogin(dataUser, setMessage, name);
 
