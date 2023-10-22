@@ -10,6 +10,10 @@ export const ContextUserDataProvider = ({ children }) => {
     localStorage.setItem('idUser',JSON.stringify(idUser))
   }
 
+  if(userLogged){
+    localStorage.setItem('userLogged',JSON.stringify(userLogged))
+  }
+
 
   return (
     <ContextUser.Provider

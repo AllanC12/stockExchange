@@ -8,35 +8,44 @@ import App from "../App";
 
 import { createBrowserRouter } from "react-router-dom";
 
-export const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    children: [
+import { useState } from "react";
+
+
+const MyRouter = () => {
+  return createBrowserRouter(
+    [
       {
         path: "/",
-        element: <FormLogin />,
+        element: <App />,
+        children: [
+          {
+            path: "/",
+            element:<FormLogin /> ,
+          },
+          {
+            path: "/register",
+            element: <FormRegister />,
+          },
+          {
+            path: "/home_broker",
+            element: <HomeBroker />,
+          },
+          {
+            path: "/saves",
+            element: <TicketsSaves />,
+          },
+          {
+            path: "/favorites",
+            element: <TicketsFavorites/>,
+          },
+          {
+            path: "/portfolio",
+            element: <TicketsPortfolio/>,
+          },
+        ],
       },
-      {
-        path: "/register",
-        element: <FormRegister />,
-      },
-      {
-        path: "/home_broker",
-        element: <HomeBroker />,
-      },
-      {
-        path: "/saves",
-        element: <TicketsSaves />,
-      },
-      {
-        path: "/favorites",
-        element: <TicketsFavorites/>,
-      },
-      {
-        path: "/portfolio",
-        element: <TicketsPortfolio/>,
-      },
-    ],
-  },
-]);
+    ]
+  )
+}
+
+export default MyRouter
