@@ -33,8 +33,8 @@ function App() {
               <Route path="/register" element={<FormRegister/>} />
               <Route path="/home_broker" element={userLogged ? <HomeBroker/> : <FormLogin/>}/>
               <Route path="/portfolio" element={userLogged ? <TicketsPortfolio/> : <FormLogin/>}/>
-              <Route path="/tickets_saves" element={userLogged ? <TicketsSaves/> : <FormLogin/>}/>
-              <Route path="/tickets_favorites"element={userLogged ? <TicketsFavorites/> : <FormLogin/>}/>
+              <Route path="/saves" element={userLogged ? <TicketsSaves/> : <FormLogin/>}/>
+              <Route path="/favorites"element={userLogged ? <TicketsFavorites/> : <FormLogin/>}/>
             </Routes>
           </BrowserRouter>
 
