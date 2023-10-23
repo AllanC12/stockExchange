@@ -1,6 +1,6 @@
 @import "../../sass_mixins/mixin.scss";
 
-nav{
+header{
   padding: 10px 2%;
   background-color: #363f72;
   @include define_flex(flex-start,center);

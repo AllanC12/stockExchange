@@ -1,20 +1,26 @@
 @import "../../sass_mixins/mixin.scss";
 
-.tickets_container{
-  width: 100%;
-  max-width: 1100px;
-  max-height: 74vh;
-  margin-top: 5vh;
-  padding: 10px;
-  overflow-y: auto ;
-  @include define_flex(space-evenly,center);
-  flex-wrap: wrap;
-  gap: 20px;
+.container {
+  @include define_flex(center, center);
+  flex-direction: column;
 
+  .tickets_container {
+    width: 100%;
+    max-height: 78vh;
+    padding: 10px;
+    overflow-y: auto;
+    @include define_flex(space-evenly, center);
+    flex-wrap: wrap;
+    gap: 20px;
+    text-align: center;
 
+    p.load-ticket {
+      font-size: 22px;
+      color: #fff;
+    }
   }
 
- p.load-ticket{
-    font-size: 22px;
-    color: #fff;
+  button {
+    margin: 1% 0
   }
+}

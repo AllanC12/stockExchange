@@ -2,15 +2,19 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
+import { ContextTicketsDataProvider } from "./context/ContextTickets";
+import { ContextUserDataProvider } from "./context/ContextDataUser";
 import { Provider } from "react-redux";
 import { store } from "./store.js";
 
-import { RouterProvider } from "react-router-dom";
-
-import MyRouter from "./routes/Routes.jsx";
+import App from "./App";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
-    <RouterProvider router={<MyRouter/>} />
+    <ContextUserDataProvider>
+      <ContextTicketsDataProvider>
+        <App />
+      </ContextTicketsDataProvider>
+    </ContextUserDataProvider>
   </Provider>
 );

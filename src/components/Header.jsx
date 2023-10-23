@@ -6,12 +6,12 @@ import logo from "../assets/logo.png";
 const NavBar = () => {
 
   return (
-    <nav>
+    <header>
       <div className="logo">
         <img src={logo} alt="logotipo" />
       </div>
       <h2 className="title">StockExchange</h2>
-    </nav>
+    </header>
   );
 };
 
