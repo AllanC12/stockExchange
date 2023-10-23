@@ -73,6 +73,20 @@
       },
       "idUser": 1,
       "id": 4
+    },
+    {
+      "stock": {
+        "stock": "HAPV3",
+        "name": "HAPVIDA",
+        "close": 3.87,
+        "change": 1.30890052,
+        "volume": 79400900,
+        "market_cap": 29157903781,
+        "logo": "https://s3-symbol-logo.tradingview.com/hapvida--big.svg",
+        "sector": "Health Services"
+      },
+      "idUser": 1,
+      "id": 5
     }
   ]
 }
