@@ -1,11 +1,12 @@
 import "./App.css";
 import { Outlet } from "react-router-dom";
 
+import { useState } from "react";
+
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-import { ContextTicketsDataProvider } from "./context/ContextTickets";
-import { ContextUserDataProvider } from "./context/ContextDataUser";
+import { ContextDataUser } from "./context/ContextDataUser";
 
 import FormRegister from "./pages/FormRegister";
 import FormLogin from "./pages/FormLogin";
@@ -17,24 +18,26 @@ import TicketsPortfolio from "./pages/TicketsPortfolio";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
+
+  const {userLogged} = ContextDataUser()
+
   return (
     <div className="App">
-      <ContextUserDataProvider>
-        <ContextTicketsDataProvider>
+
           <Header />
             <Outlet />
           <Footer />
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<FormLogin />} />
-              <Route path="/home_broker" element={<HomeBroker/>}/>
-              <Route path="/portfolio" element={<TicketsPortfolio/>}/>
-              <Route path="/tickets_saves" element={<TicketsSaves/>}/>
-              <Route path="/tickets_favorites"element={<TicketsFavorites/>}/>
+              <Route path="/register" element={<FormRegister/>} />
+              <Route path="/home_broker" element={userLogged ? <HomeBroker/> : <FormLogin/>}/>
+              <Route path="/portfolio" element={userLogged ? <TicketsPortfolio/> : <FormLogin/>}/>
+              <Route path="/tickets_saves" element={userLogged ? <TicketsSaves/> : <FormLogin/>}/>
+              <Route path="/tickets_favorites"element={userLogged ? <TicketsFavorites/> : <FormLogin/>}/>
             </Routes>
           </BrowserRouter>
-        </ContextTicketsDataProvider>
-      </ContextUserDataProvider>
+
     </div>
   );
 }
