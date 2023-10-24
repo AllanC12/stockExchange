@@ -30,6 +30,7 @@ export const ContextTicketsDataProvider = ({ children }) => {
   const urlSaves = import.meta.env.VITE_URL_TICKETS_SAVES;
   const urlFavorite = import.meta.env.VITE_URL_TICKETS_FAVORITES;
 
+  
   const urlBagUser = `${urlPortfolio}?idUser=${idUser}`;
   const urlSaveUser = `${urlSaves}?idUser=${idUser}`;
   const urlFavoriteUser = `${urlFavorite}?idUser=${idUser}`;

@@ -19,8 +19,8 @@ const Ticket = ({ stock }) => {
   const { bagByUser, savedByUser, favoritesByUser, favorites } = states;
   const { setBag, setSaves, setFavorites } = setLists;
 
-  const idStorage = localStorage.getItem("userId");
-  const idUser = JSON.parse(idStorage);
+  const [idUser] = useState(JSON.parse(localStorage.getItem('idUser')))
+
 
   const [confirmBag, setConfirmBag] = useState(false);
   const [confirmSaves, setConfirmSave] = useState(false);
@@ -32,6 +32,7 @@ const Ticket = ({ stock }) => {
   const urlBagUser = `${urlPortfolio}?idUser=${idUser}`;
   const urlSaveUser = `${urlSaves}?idUser=${idUser}`;
   const urlFavoriteUser = `${urlFavorite}?idUser=${idUser}`;
+
 
   const verifyTicketForUser = (stock, ticketsForUser, setConfirmTicket) => {
     if(ticketsForUser.length === 0){
@@ -71,7 +72,7 @@ const Ticket = ({ stock }) => {
       </div>
 
       <div className="content-ticket">
-        <h4>Preço: R${stock.close}</h4>
+        <h4>Preço: R${stock.close.toFixed(2)}</h4>
         <h4>Ticket: {stock.stock}</h4>
         <h4>Setor: {stock.sector}</h4>
       </div>
