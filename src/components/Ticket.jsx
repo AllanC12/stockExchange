@@ -33,8 +33,6 @@ const Ticket = ({ stock }) => {
   const urlSaveUser = `${urlSaves}?idUser=${idUser}`;
   const urlFavoriteUser = `${urlFavorite}?idUser=${idUser}`;
 
-  console.log(urlFavoriteUser)
-
 
   const verifyTicketForUser = (stock, ticketsForUser, setConfirmTicket) => {
     if(ticketsForUser.length === 0){
@@ -74,7 +72,7 @@ const Ticket = ({ stock }) => {
       </div>
 
       <div className="content-ticket">
-        <h4>Preço: R${stock.close}</h4>
+        <h4>Preço: R${stock.close.toFixed(2)}</h4>
         <h4>Ticket: {stock.stock}</h4>
         <h4>Setor: {stock.sector}</h4>
       </div>
