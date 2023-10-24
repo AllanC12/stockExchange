@@ -19,8 +19,8 @@ const Ticket = ({ stock }) => {
   const { bagByUser, savedByUser, favoritesByUser, favorites } = states;
   const { setBag, setSaves, setFavorites } = setLists;
 
-  const idStorage = localStorage.getItem("userId");
-  const idUser = JSON.parse(idStorage);
+  const [idUser] = useState(JSON.parse(localStorage.getItem('idUser')))
+
 
   const [confirmBag, setConfirmBag] = useState(false);
   const [confirmSaves, setConfirmSave] = useState(false);
@@ -32,6 +32,9 @@ const Ticket = ({ stock }) => {
   const urlBagUser = `${urlPortfolio}?idUser=${idUser}`;
   const urlSaveUser = `${urlSaves}?idUser=${idUser}`;
   const urlFavoriteUser = `${urlFavorite}?idUser=${idUser}`;
+
+  console.log(urlFavoriteUser)
+
 
   const verifyTicketForUser = (stock, ticketsForUser, setConfirmTicket) => {
     if(ticketsForUser.length === 0){

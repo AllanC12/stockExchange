@@ -4,23 +4,29 @@
   @include define_flex(center, center);
   flex-direction: column;
 
-  .tickets_container {
-    width: 100%;
-    max-height: 78vh;
-    padding: 10px;
-    overflow-y: auto;
-    @include define_flex(space-evenly, center);
-    flex-wrap: wrap;
-    gap: 20px;
-    text-align: center;
+}
 
-    p.load-ticket {
-      font-size: 22px;
-      color: #fff;
-    }
-  }
+.tickets_container {
+  width: 100%;
+  max-height: 78vh;
+  padding: 10px;
+  overflow-y: auto;
+  @include define_flex(space-evenly, center);
+  flex-wrap: wrap;
+  gap: 20px;
+  text-align: center;
+
+
+}
+
+.load-ticket {
+  font-size: 22px;
+  color: #fff;
+}
+
+
 
   button {
-    margin: 1% 0
+    margin: 1% 0;
+    padding: 4px 8px;
   }
-}
