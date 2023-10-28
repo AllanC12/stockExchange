@@ -26,7 +26,6 @@ export const ContextTicketsDataProvider = ({ children }) => {
  const [idUser] = useState(JSON.parse(localStorage.getItem('idUser')))
 
   const urlHome = import.meta.env.VITE_URL_API;
-  const urlCrypto = import.meta.env.VITE_URL_CRYPTO
   const urlPortfolio = import.meta.env.VITE_URL_TICKETS_PORTFOLIO;
   const urlSaves = import.meta.env.VITE_URL_TICKETS_SAVES;
   const urlFavorite = import.meta.env.VITE_URL_TICKETS_FAVORITES;
