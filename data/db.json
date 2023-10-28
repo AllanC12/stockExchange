@@ -15,8 +15,7 @@
       "id": 2
     }
   ],
-  "tickets_portfolio": [],
-  "tickets_saves": [
+  "tickets_portfolio": [
     {
       "stock": {
         "stock": "FNAM11",
@@ -44,7 +43,50 @@
       },
       "idUser": 1,
       "id": 2
+    },
+    {
+      "stock": {
+        "stock": "HAPV3",
+        "name": "HAPVIDA",
+        "close": 3.74,
+        "change": -4.34782609,
+        "volume": 110735200,
+        "market_cap": 28178440218,
+        "logo": "https://s3-symbol-logo.tradingview.com/hapvida--big.svg",
+        "sector": "Health Services"
+      },
+      "idUser": 1,
+      "id": 3
+    },
+    {
+      "stock": {
+        "stock": "BHIA3",
+        "name": "CASAS BAHIA",
+        "close": 0.48,
+        "change": -4,
+        "volume": 65935100,
+        "market_cap": 1140854623,
+        "logo": "https://brapi.dev/favicon.svg",
+        "sector": "Retail Trade"
+      },
+      "idUser": 1,
+      "id": 4
+    },
+    {
+      "stock": {
+        "stock": "VALE3",
+        "name": "VALE",
+        "close": 67.57,
+        "change": 3.47625865,
+        "volume": 47989100,
+        "market_cap": 290448918649,
+        "logo": "https://s3-symbol-logo.tradingview.com/vale--big.svg",
+        "sector": "Non-Energy Minerals"
+      },
+      "idUser": 1,
+      "id": 5
     }
   ],
+  "tickets_saves": [],
   "tickets_favorites": []
 }
