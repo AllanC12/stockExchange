@@ -4,6 +4,8 @@ import { createContext, useContext, useState } from "react";
 
 import { useDispatch } from "react-redux";
 
+import { ContextDataUser } from "./ContextDataUser";
+
 import { sendTicketUserSlice, handleTickets,delTickets } from "../slices/getTicketsSlices";
 
 export const TicketsUser = createContext();
@@ -23,10 +25,13 @@ export const ContextTicketsDataProvider = ({ children }) => {
   const [savedByUser, setSavedByUser] = useState([]);
   const [favoritesByUser, setFavoritesByUser] = useState([]);
 
- const [idUser] = useState(JSON.parse(localStorage.getItem('idUser')))
+  const {idUser} = ContextDataUser()
+
+  console.log(idUser)
+
+//  const [idUser] = useState(JSON.parse(localStorage.getItem('idUser')))
 
   const urlHome = import.meta.env.VITE_URL_API;
-  const urlCrypto = import.meta.env.VITE_URL_CRYPTO
   const urlPortfolio = import.meta.env.VITE_URL_TICKETS_PORTFOLIO;
   const urlSaves = import.meta.env.VITE_URL_TICKETS_SAVES;
   const urlFavorite = import.meta.env.VITE_URL_TICKETS_FAVORITES;
@@ -93,7 +98,7 @@ export const ContextTicketsDataProvider = ({ children }) => {
     getTicketByUser(urlBagUser, setBagByUser);
     getTicketByUser(urlSaveUser, setSavedByUser);
     getTicketByUser(urlFavoriteUser, setFavoritesByUser)
-  },[itemDeleted]);
+  },[itemDeleted,idUser]);
   
 
   useEffect(() => {

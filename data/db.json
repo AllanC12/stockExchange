@@ -16,6 +16,35 @@
     }
   ],
   "tickets_portfolio": [],
-  "tickets_saves": [],
+  "tickets_saves": [
+    {
+      "stock": {
+        "stock": "FNAM11",
+        "name": "FINAM CI *",
+        "close": 0.37,
+        "change": 0,
+        "volume": 267007000,
+        "market_cap": null,
+        "logo": "https://s3-symbol-logo.tradingview.com/amazonia-on-es--big.svg",
+        "sector": null
+      },
+      "idUser": 1,
+      "id": 1
+    },
+    {
+      "stock": {
+        "stock": "MGLU3",
+        "name": "MAGAZINE LUIZA",
+        "close": 1.46,
+        "change": -0.68027211,
+        "volume": 157559900,
+        "market_cap": 9749649991,
+        "logo": "https://s3-symbol-logo.tradingview.com/magaz-luiza-on-nm--big.svg",
+        "sector": "Retail Trade"
+      },
+      "idUser": 1,
+      "id": 2
+    }
+  ],
   "tickets_favorites": []
 }
