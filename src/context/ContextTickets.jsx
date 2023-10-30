@@ -27,10 +27,6 @@ export const ContextTicketsDataProvider = ({ children }) => {
 
   const {idUser} = ContextDataUser()
 
-  console.log(idUser)
-
-//  const [idUser] = useState(JSON.parse(localStorage.getItem('idUser')))
-
   const urlHome = import.meta.env.VITE_URL_API;
   const urlPortfolio = import.meta.env.VITE_URL_TICKETS_PORTFOLIO;
   const urlSaves = import.meta.env.VITE_URL_TICKETS_SAVES;
