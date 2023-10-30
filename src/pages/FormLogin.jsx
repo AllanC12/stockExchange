@@ -32,6 +32,8 @@ const FormLogin = () => {
     const respRegister = await getUserRegister(dataUser);
     const { name } = respRegister.length > 0 ? respRegister[0] : "";
     const { id } = respRegister.length > 0 ? respRegister[0] : 0;
+    const authorizedLogin = await makeLogin(dataUser, setMessage, name);
+
 
     if (!id) {
       setMessage("Usuário sem cadastro");
@@ -40,11 +42,18 @@ const FormLogin = () => {
 
     handleDatUser(id);
 
-    makeLogin(dataUser, setMessage, name);
+    console.log(authorizedLogin)
 
+    if(authorizedLogin){
+      
     setTimeout(() => {
       navigate("/home_broker");
     }, 2000);
+    }else{
+      return false
+    }
+
+
   };
 
   return (

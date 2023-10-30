@@ -15,7 +15,6 @@ export const ContextUserDataProvider = ({ children }) => {
       localStorage.setItem('userLogged',JSON.stringify(userLogged))
     }
 
-    console.log('executado')
   }
 
   const logout = () => {
