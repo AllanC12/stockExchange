@@ -27,10 +27,10 @@ export const ContextTicketsDataProvider = ({ children }) => {
 
   const {idUser} = ContextDataUser()
 
-  const urlHome = import.meta.env.VITE_URL_API;
-  const urlPortfolio = import.meta.env.VITE_URL_TICKETS_PORTFOLIO;
-  const urlSaves = import.meta.env.VITE_URL_TICKETS_SAVES;
-  const urlFavorite = import.meta.env.VITE_URL_TICKETS_FAVORITES;
+  const urlHome = "https://brapi.dev/api/quote/list";
+  const urlPortfolio = "https://stock-exchange-api.vercel.app/tickets_portfolio";
+  const urlSaves = "https://stock-exchange-api.vercel.app/tickets_saves";
+  const urlFavorite = "https://stock-exchange-api.vercel.app/tickets_favorites";
 
   
   const urlBagUser = `${urlPortfolio}?idUser=${idUser}`;

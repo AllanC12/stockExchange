@@ -29,12 +29,12 @@ function App() {
           <Footer />
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<FormLogin />} />
-              <Route path="/register" element={<FormRegister/>} />
-              <Route path="/home_broker" element={userLogged ? <HomeBroker/> : <FormLogin/>}/>
-              <Route path="/portfolio" element={userLogged ? <TicketsPortfolio/> : <FormLogin/>}/>
-              <Route path="/saves" element={userLogged ? <TicketsSaves/> : <FormLogin/>}/>
-              <Route path="/favorites"element={userLogged ? <TicketsFavorites/> : <FormLogin/>}/>
+              <Route path="https://allanc12.github.io/stockExchange/" element={<FormLogin />} />
+              <Route path="https://allanc12.github.io/stockExchange/register" element={<FormRegister/>} />
+              <Route path="https://allanc12.github.io/stockExchange/home_broker" element={userLogged ? <HomeBroker/> : <FormLogin/>}/>
+              <Route path="https://allanc12.github.io/stockExchange/portfolio" element={userLogged ? <TicketsPortfolio/> : <FormLogin/>}/>
+              <Route path="https://allanc12.github.io/stockExchange/saves" element={userLogged ? <TicketsSaves/> : <FormLogin/>}/>
+              <Route path="https://allanc12.github.io/stockExchange/favorites"element={userLogged ? <TicketsFavorites/> : <FormLogin/>}/>
             </Routes>
           </BrowserRouter>
 

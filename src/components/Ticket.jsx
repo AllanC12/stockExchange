@@ -16,7 +16,7 @@ import {
 const Ticket = ({ stock }) => {
   const { methods, states, setLists } = ContextTicketUser();
   const { addFunction, removeFunction } = methods;
-  const { bagByUser, savedByUser, favoritesByUser, favorites } = states;
+  const { bagByUser, savedByUser, favoritesByUser } = states;
   const { setBag, setSaves, setFavorites } = setLists;
 
   const [idUser] = useState(JSON.parse(localStorage.getItem('idUser')))
@@ -26,9 +26,9 @@ const Ticket = ({ stock }) => {
   const [confirmSaves, setConfirmSave] = useState(false);
   const [confirmFavorite, setConfirmFavorite] = useState(false);
 
-  const urlPortfolio = import.meta.env.VITE_URL_TICKETS_PORTFOLIO;
-  const urlSaves = import.meta.env.VITE_URL_TICKETS_SAVES;
-  const urlFavorite = import.meta.env.VITE_URL_TICKETS_FAVORITES;
+  const urlPortfolio = "https://stock-exchange-api.vercel.app/tickets_portfolio";
+  const urlSaves = "https://stock-exchange-api.vercel.app/tickets_saves"
+  const urlFavorite = "https://stock-exchange-api.vercel.app/tickets_favorites";
   const urlBagUser = `${urlPortfolio}?idUser=${idUser}`;
   const urlSaveUser = `${urlSaves}?idUser=${idUser}`;
   const urlFavoriteUser = `${urlFavorite}?idUser=${idUser}`;
