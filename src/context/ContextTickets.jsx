@@ -28,9 +28,9 @@ export const ContextTicketsDataProvider = ({ children }) => {
   const {idUser} = ContextDataUser()
 
   const urlHome = "https://brapi.dev/api/quote/list";
-  const urlPortfolio = "https://stock-exchange-api.vercel.app/tickets_portfolio";
-  const urlSaves = "https://stock-exchange-api.vercel.app/tickets_saves";
-  const urlFavorite = "https://stock-exchange-api.vercel.app/tickets_favorites";
+  const urlPortfolio = "https://diligent-incredible-break.glitch.me/tickets_portfolio";
+  const urlSaves = "https://diligent-incredible-break.glitch.me/tickets_saves";
+  const urlFavorite = "https://diligent-incredible-break.glitch.me/tickets_favorites";
 
   
   const urlBagUser = `${urlPortfolio}?idUser=${idUser}`;

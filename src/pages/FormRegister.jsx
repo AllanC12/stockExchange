@@ -11,7 +11,7 @@ import "./sass_pages/Form.scss";
 
 const FormRegister = () => {
   const dispatch = useDispatch();
-  const urlServer = import.meta.env.VITE_URL_SERVER;
+  const urlServer = "https://diligent-incredible-break.glitch.me/clients";
   const [message, setMessage] = useState("");
 
   const [name, setName] = useState("");

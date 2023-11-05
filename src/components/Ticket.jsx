@@ -26,9 +26,9 @@ const Ticket = ({ stock }) => {
   const [confirmSaves, setConfirmSave] = useState(false);
   const [confirmFavorite, setConfirmFavorite] = useState(false);
 
-  const urlPortfolio = "https://stock-exchange-api.vercel.app/tickets_portfolio";
-  const urlSaves = "https://stock-exchange-api.vercel.app/tickets_saves"
-  const urlFavorite = "https://stock-exchange-api.vercel.app/tickets_favorites";
+  const urlPortfolio = "https://diligent-incredible-break.glitch.me/tickets_portfolio";
+  const urlSaves = "https://diligent-incredible-break.glitch.me/tickets_saves"
+  const urlFavorite = "https://diligent-incredible-break.glitch.me/tickets_favorites";
   const urlBagUser = `${urlPortfolio}?idUser=${idUser}`;
   const urlSaveUser = `${urlSaves}?idUser=${idUser}`;
   const urlFavoriteUser = `${urlFavorite}?idUser=${idUser}`;
