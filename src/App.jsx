@@ -25,7 +25,7 @@ function App() {
           <Header />
             <Outlet />
           <Footer />
-          <BrowserRouter>
+          <BrowserRouter basename="/app">
             <Routes>
               <Route path="https://allanc12.github.io/stockExchange/" element={<FormLogin />} />
               <Route path="https://allanc12.github.io/stockExchange/register" element={<FormRegister/>} />
