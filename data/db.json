@@ -85,8 +85,37 @@
       },
       "idUser": 1,
       "id": 5
+    },
+    {
+      "stock": {
+        "stock": "RCSL3",
+        "name": "RECRUSUL",
+        "close": 1.55,
+        "change": -4.90797546,
+        "volume": 4428500,
+        "market_cap": 154162143,
+        "logo": "https://s3-symbol-logo.tradingview.com/recrusul--big.svg",
+        "sector": "Producer Manufacturing"
+      },
+      "idUser": 1,
+      "id": 6
     }
   ],
-  "tickets_saves": [],
+  "tickets_saves": [
+    {
+      "stock": {
+        "stock": "MRFG3",
+        "name": "MARFRIG",
+        "close": 6.28,
+        "change": -1.56739812,
+        "volume": 4545800,
+        "market_cap": 5978612283,
+        "logo": "https://s3-symbol-logo.tradingview.com/marfrig-on-nm--big.svg",
+        "sector": "Consumer Non-Durables"
+      },
+      "idUser": 1,
+      "id": 1
+    }
+  ],
   "tickets_favorites": []
 }
