@@ -42,8 +42,6 @@ const FormLogin = () => {
 
     handleDatUser(id);
 
-    console.log(authorizedLogin)
-
     if(authorizedLogin){
       
     setTimeout(() => {
