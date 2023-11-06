@@ -64,7 +64,6 @@ export const ContextTicketsDataProvider = ({ children }) => {
   
   const removeFunction = async (stock, setListStock,url,urlForUser) => {
    await setListStock((prevList) =>{
-      console.log(prevList)
       return prevList.filter((item) => item.stock !== stock.stock)
     });
      await deleteTicketInServer(stock,url,urlForUser)
