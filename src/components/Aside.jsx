@@ -28,7 +28,7 @@ const Aside = () => {
         </NavLink>
       </div>
       <div className="container_link">
-        <NavLink to="https://allanc12.github.io/stockExchange/favorites">
+        <NavLink to="/favorites">
           <FaStar /> <br /> Meus favoritos
         </NavLink>
       </div>
