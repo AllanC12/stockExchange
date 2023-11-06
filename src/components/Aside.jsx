@@ -13,17 +13,17 @@ const Aside = () => {
   return (
     <aside>
       <div className="container_link">
-        <NavLink to="https://allanc12.github.io/stockExchange/home_broker">
+        <NavLink to="/home_broker">
           <FaHome /> <br /> Início
         </NavLink>
       </div>
       <div className="container_link">
-        <NavLink to="https://allanc12.github.io/stockExchange/portfolio">
+        <NavLink to="/portfolio">
           <FaWallet /> <br /> Minha Carteira
         </NavLink>
       </div>
       <div className="container_link">
-        <NavLink to="https://allanc12.github.io/stockExchange/saves">
+        <NavLink to="/saves">
           <FaSearch /> <br /> Investimentos salvos
         </NavLink>
       </div>
@@ -33,7 +33,7 @@ const Aside = () => {
         </NavLink>
       </div>
       <div className="container_link logout">
-        <NavLink onClick={logout} to="https://allanc12.github.io/stockExchange/">
+        <NavLink onClick={logout} to="/">
           <FaPowerOff /> <br /> Desconectar
         </NavLink>
       </div>
