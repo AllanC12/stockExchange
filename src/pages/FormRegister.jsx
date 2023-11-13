@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 
 import { useDispatch } from "react-redux";
 
@@ -10,6 +10,7 @@ import { sendDataUser } from "../slices/getTicketsSlices";
 import "./sass_pages/Form.scss";
 
 const FormRegister = () => {
+  const navigate = useNavigate()
   const dispatch = useDispatch();
   const urlServer = "https://diligent-incredible-break.glitch.me/clients";
   const [message, setMessage] = useState("");
@@ -62,7 +63,8 @@ const FormRegister = () => {
 
     setTimeout(() => {
       setMessage("");
-    }, 2000);
+      navigate('/')
+    }, 1500);
   };
 
   return (

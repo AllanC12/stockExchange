@@ -21,7 +21,6 @@ const Ticket = ({ stock }) => {
 
   const [idUser] = useState(JSON.parse(localStorage.getItem('idUser')))
 
-
   const [confirmBag, setConfirmBag] = useState(false);
   const [confirmSaves, setConfirmSave] = useState(false);
   const [confirmFavorite, setConfirmFavorite] = useState(false);
@@ -35,6 +34,7 @@ const Ticket = ({ stock }) => {
 
 
   const verifyTicketForUser = (stock, ticketsForUser, setConfirmTicket) => {
+
     if(ticketsForUser.length === 0){
       setConfirmTicket(false)
       return
@@ -43,13 +43,17 @@ const Ticket = ({ stock }) => {
     for (let i = 0; i < ticketsForUser.length; i++) {
       if (ticketsForUser[i].stock.stock === stock.stock) {
         setConfirmTicket(true);
-        break;
+        return
       } else {
         setConfirmTicket(false);
+        
       }
     }
     
   };
+
+  console.log(confirmSaves)
+
 
 
   useEffect(() => {

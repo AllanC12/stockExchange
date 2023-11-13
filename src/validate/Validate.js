@@ -7,8 +7,6 @@ export const getUserRegister = async (dataUser) => {
 
 export const makeLogin = async (dataUser, setMessage, name) => {
   const respRegister = await getUserRegister(dataUser);
-  console.log(respRegister)
-  console.log(dataUser)
   if (dataUser.email === respRegister[0].email) {
     if (dataUser.password === respRegister[0].password) {
       setMessage(`Seja bem vindo (a) ${name}`);
