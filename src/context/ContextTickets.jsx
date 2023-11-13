@@ -25,7 +25,7 @@ export const ContextTicketsDataProvider = ({ children }) => {
   const [savedByUser, setSavedByUser] = useState([]);
   const [favoritesByUser, setFavoritesByUser] = useState([]);
 
-  const {idUser} = ContextDataUser()
+  const [idUser] = useState(JSON.parse(localStorage.getItem('idUser')))
 
   const urlHome = "https://brapi.dev/api/quote/list";
   const urlPortfolio = "https://diligent-incredible-break.glitch.me/tickets_portfolio";
@@ -43,9 +43,9 @@ export const ContextTicketsDataProvider = ({ children }) => {
     idUser,
   };
 
-  const getTicketApi = async (url,setTickets) => {
+  const getTicketApi = async (url) => {
     let response = await dispatch(handleTickets(url))
-    setTickets(response)
+    setTicketsHome(response)
   }
 
   const deleteTicketInServer = async (stock,url,urlForUser) => {
@@ -54,6 +54,7 @@ export const ContextTicketsDataProvider = ({ children }) => {
     dispatch(delTickets(`${url}/${id}`))
     setItemDeleted(prevItem => prevItem + 1)
   }
+
 
    const addFunction = (stock, setStockAdd) => {
     setStockAdd((prevStockAdded) =>
@@ -89,7 +90,7 @@ export const ContextTicketsDataProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    getTicketApi(urlHome,setTicketsHome)
+    getTicketApi(urlHome)
     getTicketByUser(urlBagUser, setBagByUser);
     getTicketByUser(urlSaveUser, setSavedByUser);
     getTicketByUser(urlFavoriteUser, setFavoritesByUser)
