@@ -14,7 +14,7 @@ export const ContextTicketsDataProvider = ({ children }) => {
   const dispatch = useDispatch();
 
   const [itemAdded,setItemAdded] = useState(false)
-  const [itemDeleted,setItemDeleted] = useState(0)
+  const [itemDeleted,setItemDeleted] = useState(false)
   const [ticketsHome,setTicketsHome] = useState(null)
 
   const [bag, setBag] = useState([]);
@@ -42,18 +42,28 @@ export const ContextTicketsDataProvider = ({ children }) => {
     stock: null,
     idUser,
   };
+  const getTicketByUser = async (url, setListTicket) => {
+    let response =  await dispatch(handleTickets(url));
+    setListTicket(response.payload);
+  };
 
   const getTicketApi = async (url) => {
     let response = await dispatch(handleTickets(url))
     setTicketsHome(response)
   }
 
+  const getAllTicketsByUser = async () => {
+    await getTicketByUser(urlBagUser, setBagByUser);
+    await getTicketByUser(urlSaveUser, setSavedByUser);
+    await getTicketByUser(urlFavoriteUser, setFavoritesByUser)
+  }
+
   const deleteTicketInServer = async (stock,url,urlForUser) => {
     const response = await dispatch(handleTickets(`${urlForUser}&stock.stock=${stock.stock}`))
     const id = await response.payload.length > 0 ? response.payload[0].id : null
     dispatch(delTickets(`${url}/${id}`))
-    setItemDeleted(prevItem => prevItem + 1)
-  }
+    getAllTicketsByUser()
+  }    
 
 
    const addFunction = (stock, setStockAdd) => {
@@ -70,11 +80,6 @@ export const ContextTicketsDataProvider = ({ children }) => {
      await deleteTicketInServer(stock,url,urlForUser)
   };
   
-  const getTicketByUser = async (url, setListTicket) => {
-    let response =  await dispatch(handleTickets(url));
-    setListTicket(response.payload);
-  };
-  
 
   const sendTicketFromServer = async (url, arrayStock) => {
     if (arrayStock.length > 0) {
@@ -89,12 +94,12 @@ export const ContextTicketsDataProvider = ({ children }) => {
     }
   };
 
+
   useEffect(() => {
     getTicketApi(urlHome)
-    getTicketByUser(urlBagUser, setBagByUser);
-    getTicketByUser(urlSaveUser, setSavedByUser);
-    getTicketByUser(urlFavoriteUser, setFavoritesByUser)
-  },[itemDeleted,idUser]);
+    getAllTicketsByUser()
+  },[idUser]);
+
   
 
   useEffect(() => {

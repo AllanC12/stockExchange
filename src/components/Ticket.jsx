@@ -43,7 +43,7 @@ const Ticket = ({ stock }) => {
     for (let i = 0; i < ticketsForUser.length; i++) {
       if (ticketsForUser[i].stock.stock === stock.stock) {
         setConfirmTicket(true);
-        return
+        break
       } else {
         setConfirmTicket(false);
         
@@ -51,9 +51,6 @@ const Ticket = ({ stock }) => {
     }
     
   };
-
-  console.log(confirmSaves)
-
 
 
   useEffect(() => {
@@ -66,7 +63,8 @@ const Ticket = ({ stock }) => {
 
   useEffect(() => {
     verifyTicketForUser(stock, favoritesByUser, setConfirmFavorite);
-  }, [favoritesByUser]);
+  });
+
 
   return (
     <div className="ticket">
@@ -84,7 +82,7 @@ const Ticket = ({ stock }) => {
       <div className="footer-ticket">
         {confirmBag ? (
           <FaCheck
-            onClick={() =>
+            onClick={() => 
               removeFunction(stock, setBag, urlPortfolio, urlBagUser)
             }
             title="Remover investimento"
@@ -98,8 +96,10 @@ const Ticket = ({ stock }) => {
 
         {confirmSaves ? (
           <FaBookmark
-            onClick={() =>
+            onClick={() => {
               removeFunction(stock, setSaves, urlSaves, urlSaveUser)
+              console.log(confirmSaves)
+            }
             }
             title="Remover investimento"
           />
@@ -109,6 +109,7 @@ const Ticket = ({ stock }) => {
             title="Salvar investimento"
           />
         )}
+        
 
         {confirmFavorite ? (
           <FaStar
