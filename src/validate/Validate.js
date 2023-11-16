@@ -10,7 +10,6 @@ export const makeLogin = async (dataUser, setMessage, name) => {
   if (dataUser.email === respRegister[0].email) {
     if (dataUser.password === respRegister[0].password) {
       setMessage(`Seja bem vindo (a) ${name}`);
-      console.log('ok')
       return true
     } else {
       setMessage("Senha incorreta");
