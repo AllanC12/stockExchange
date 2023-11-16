@@ -63,7 +63,7 @@ const Ticket = ({ stock }) => {
 
   useEffect(() => {
     verifyTicketForUser(stock, favoritesByUser, setConfirmFavorite);
-  });
+  },[favoritesByUser]);
 
 
   return (
@@ -96,10 +96,8 @@ const Ticket = ({ stock }) => {
 
         {confirmSaves ? (
           <FaBookmark
-            onClick={() => {
+            onClick={() => 
               removeFunction(stock, setSaves, urlSaves, urlSaveUser)
-              console.log(confirmSaves)
-            }
             }
             title="Remover investimento"
           />

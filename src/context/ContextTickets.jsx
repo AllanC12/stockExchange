@@ -4,8 +4,6 @@ import { createContext, useContext, useState } from "react";
 
 import { useDispatch } from "react-redux";
 
-import { ContextDataUser } from "./ContextDataUser";
-
 import { sendTicketUserSlice, handleTickets,delTickets } from "../slices/getTicketsSlices";
 
 export const TicketsUser = createContext();
@@ -21,6 +19,7 @@ export const ContextTicketsDataProvider = ({ children }) => {
   const [saves, setSaves] = useState([]);
   const [favorites, setFavorites] = useState([]);
 
+  
   const [bagByUser, setBagByUser] = useState([]);
   const [savedByUser, setSavedByUser] = useState([]);
   const [favoritesByUser, setFavoritesByUser] = useState([]);
@@ -61,7 +60,7 @@ export const ContextTicketsDataProvider = ({ children }) => {
   const deleteTicketInServer = async (stock,url,urlForUser) => {
     const response = await dispatch(handleTickets(`${urlForUser}&stock.stock=${stock.stock}`))
     const id = await response.payload.length > 0 ? response.payload[0].id : null
-    dispatch(delTickets(`${url}/${id}`))
+    await dispatch(delTickets(`${url}/${id}`))
     getAllTicketsByUser()
   }    
 
@@ -89,7 +88,7 @@ export const ContextTicketsDataProvider = ({ children }) => {
           dataRequest.stock = stock;
         })
       );
-
+        
       await dispatch(sendTicketUserSlice(dataRequest));
     }
   };
