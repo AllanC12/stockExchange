@@ -61,7 +61,7 @@ export const ContextTicketsDataProvider = ({ children }) => {
   const deleteTicketInServer = async (stock,url,urlForUser) => {
     const response = await dispatch(handleTickets(`${urlForUser}&stock.stock=${stock.stock}`))
     const id = await response.payload.length > 0 ? response.payload[0].id : null
-    dispatch(delTickets(`${url}/${id}`))
+    await dispatch(delTickets(`${url}/${id}`))
     getAllTicketsByUser()
   }    
 
