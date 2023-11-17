@@ -89,7 +89,7 @@ const Ticket = ({ stock }) => {
           />
         ) : (
           <FaPlus
-            onClick={() => addFunction(stock, setBag)}
+            onClick={(e) => addFunction(stock, setBag,e.target)}
             title="Adicionar na carteira"
           />
         )}
@@ -103,7 +103,7 @@ const Ticket = ({ stock }) => {
           />
         ) : (
           <FaRegBookmark
-            onClick={() => addFunction(stock, setSaves)}
+            onClick={(e) => addFunction(stock, setSaves,e.target)}
             title="Salvar investimento"
           />
         )}
@@ -118,7 +118,7 @@ const Ticket = ({ stock }) => {
           />
         ) : (
           <FaRegStar
-            onClick={() => addFunction(stock, setFavorites)}
+            onClick={(e) => addFunction(stock, setFavorites,e.target)}
             title="Favoritar investimento"
           />
         )}
