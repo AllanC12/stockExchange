@@ -65,11 +65,18 @@ export const ContextTicketsDataProvider = ({ children }) => {
   }    
 
 
-   const addFunction = (stock, setStockAdd) => {
-    setStockAdd((prevStockAdded) =>
-    Array.from(new Set([...prevStockAdded, stock]))
-    );
-    setItemAdded(true)
+   const addFunction = (stock, setStockAdd,target) => {
+     let disabled = target.getAttribute('disabled')
+     if(disabled){
+      disabled = false
+      return
+     }
+     setStockAdd((prevStockAdded) =>
+     Array.from(new Set([...prevStockAdded, stock]))
+     );
+     setItemAdded(true)
+     target.setAttribute("disabled",true)
+
   };
   
   const removeFunction = async (stock, setListStock,url,urlForUser) => {
