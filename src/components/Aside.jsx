@@ -14,27 +14,27 @@ const Aside = () => {
     <aside>
       <div className="container_link">
         <NavLink to="/home_broker">
-          <FaHome /> <br /> Início
+          <FaHome /> 
         </NavLink>
       </div>
       <div className="container_link">
         <NavLink to="/portfolio">
-          <FaWallet /> <br /> Minha Carteira
+          <FaWallet /> <br />  
         </NavLink>
       </div>
       <div className="container_link">
         <NavLink to="/saves">
-          <FaSearch /> <br /> Investimentos salvos
+          <FaSearch /> <br /> 
         </NavLink>
       </div>
       <div className="container_link">
         <NavLink to="/favorites">
-          <FaStar /> <br /> Meus favoritos
+          <FaStar /> <br />  
         </NavLink>
       </div>
       <div className="container_link logout">
         <NavLink onClick={logout} to="/">
-          <FaPowerOff /> <br /> Desconectar
+          <FaPowerOff /> <br />  
         </NavLink>
       </div>
     </aside>

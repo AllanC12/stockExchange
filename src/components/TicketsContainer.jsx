@@ -30,7 +30,10 @@ const TicketsContainer = () => {
         <p className="load-ticket">Carregando...</p>
       )}
     </div>
-      <button onClick={showMoreTickets}>Exibir mais</button>
+    
+      <div className="view-more">
+        <button onClick={showMoreTickets}>Exibir mais</button>
+      </div>
     </div>
 
   );

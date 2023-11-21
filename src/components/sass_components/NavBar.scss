@@ -1,11 +1,14 @@
 @import "../../sass_mixins/mixin.scss";
 
 header{
-  padding: 10px 2%;
+  padding: 10px 1%;
   background-color: #363f72;
   @include define_flex(flex-start,center);
-  text-align: center;
 
+  .title{
+    position: relative;
+    left: -1.5vw;
+  };
 
   .logo{
     width: 40px;
