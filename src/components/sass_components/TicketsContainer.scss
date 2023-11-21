@@ -23,18 +23,33 @@
 .load-ticket {
   font-size: 22px;
   color: #fff;
+  position: absolute;
+  top: 13vh;
+  left: 0;
+  width: 100%;
 }
 
-  button {
-    margin: 1% 0;
-    padding: 10px 22px;
-    cursor: pointer;
-    min-width: 100px;
-    min-height: 30px;
-    border-radius: 10px;
-    border: none;
-    background-color: #363f72;
-    color: #fff;
-    font-size: 16px;
+.view-more{
+  @include define_flex(center, center);
+  position: absolute;
+  left: 0;
+  bottom: 18px;
+  width: 100%;
 
-  }
+
+}
+
+
+button {
+  margin: 1% 0;
+  padding: 10px 22px;
+  cursor: pointer;
+  min-width: 100px;
+  min-height: 2px;
+  border-radius: 10px;
+  border: none;
+  background-color: #363f72;
+  color: #fff;
+  font-size: 16px;
+
+}

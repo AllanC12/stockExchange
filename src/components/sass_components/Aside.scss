@@ -1,20 +1,38 @@
 @import "../../sass_mixins/mixin.scss";
 
 aside{
-     width: 100%;
-    max-width: 190px;
-    min-height: 92vh;
+    width: 100%;
+    max-width: 70px;
+    min-height: 90vh;
     background-color: rgba(24, 22, 41, 0.9);
-    padding: 35px;
-
+    padding: 35px 0;
+    z-index: 1;
+    
     .container_link{
       text-align: center;
       margin-bottom: 30px;
-
+      
       a{
         text-decoration: none;
         color: #fff;
+        position: relative;
         
+        
+        // span{
+        //   opacity: 0;
+        //   left: 0.5vw;
+        //   background-color: rgba(24, 22, 41, 0.9);
+        //   padding: 6px 10px;
+        //   position: absolute;
+        //   border-radius: 4px;
+        //   transition: 1s;
+        // }
+        
+        // span:hover{
+        //   opacity: 1;
+        //   right: -4.7vw;
+        // }
+
         svg{
           position: relative;
           top: 2px;
@@ -24,8 +42,9 @@ aside{
 
      .logout{
       position: absolute;
-      bottom: 0;
-      left: 3%;
+      cursor: pointer;
+      bottom: 1vh;
+      left: 1.7vw;
     }
 
 }
