@@ -4,88 +4,84 @@ import { createContext, useContext, useState } from "react";
 
 import { useDispatch } from "react-redux";
 
-import { sendTicketUserSlice, handleTickets,delTickets } from "../slices/getTicketsSlices";
+import {
+  sendTicketUserSlice,
+  handleTickets,
+  delTickets,
+} from "../slices/getTicketsSlices";
 
 export const TicketsUser = createContext();
 
 export const ContextTicketsDataProvider = ({ children }) => {
   const dispatch = useDispatch();
 
-  const [itemAdded,setItemAdded] = useState(false)
-  const [itemDeleted,setItemDeleted] = useState(false)
-  const [ticketsHome,setTicketsHome] = useState(null)
+  const [itemAdded, setItemAdded] = useState(false);
+  const [ticketsHome, setTicketsHome] = useState(null);
 
   const [bag, setBag] = useState([]);
   const [saves, setSaves] = useState([]);
-  const [favorites, setFavorites] = useState([]);
 
-  
   const [bagByUser, setBagByUser] = useState([]);
   const [savedByUser, setSavedByUser] = useState([]);
-  const [favoritesByUser, setFavoritesByUser] = useState([]);
 
-  const [idUser] = useState(JSON.parse(localStorage.getItem('idUser')))
+  const [idUser] = useState(JSON.parse(localStorage.getItem("idUser")));
 
   const urlHome = "https://brapi.dev/api/quote/list";
   const urlPortfolio = "https://diligent-incredible-break.glitch.me/tickets_portfolio";
   const urlSaves = "https://diligent-incredible-break.glitch.me/tickets_saves";
-  const urlFavorite = "https://diligent-incredible-break.glitch.me/tickets_favorites";
 
-  
   const urlBagUser = `${urlPortfolio}?idUser=${idUser}`;
   const urlSaveUser = `${urlSaves}?idUser=${idUser}`;
-  const urlFavoriteUser = `${urlFavorite}?idUser=${idUser}`;
-  
+
   const dataRequest = {
     url: "",
     stock: null,
     idUser,
   };
   const getTicketByUser = async (url, setListTicket) => {
-    let response =  await dispatch(handleTickets(url));
+    let response = await dispatch(handleTickets(url));
     setListTicket(response.payload);
   };
 
   const getTicketApi = async (url) => {
-    let response = await dispatch(handleTickets(url))
-    setTicketsHome(response)
-  }
+    let response = await dispatch(handleTickets(url));
+    setTicketsHome(response);
+  };
 
   const getAllTicketsByUser = async () => {
     await getTicketByUser(urlBagUser, setBagByUser);
     await getTicketByUser(urlSaveUser, setSavedByUser);
-    await getTicketByUser(urlFavoriteUser, setFavoritesByUser)
-  }
-
-  const deleteTicketInServer = async (stock,url,urlForUser) => {
-    const response = await dispatch(handleTickets(`${urlForUser}&stock.stock=${stock.stock}`))
-    const id = await response.payload.length > 0 ? response.payload[0].id : null
-    await dispatch(delTickets(`${url}/${id}`))
-    getAllTicketsByUser()
-  }    
-
-
-   const addFunction = (stock, setStockAdd,target) => {
-     let disabled = target.getAttribute('disabled')
-     if(disabled){
-      disabled = false
-      return
-     }
-     setStockAdd((prevStockAdded) =>
-     Array.from(new Set([...prevStockAdded, stock]))
-     );
-     setItemAdded(true)
-     target.setAttribute("disabled",true)
-
   };
-  
-  const removeFunction = async (stock, setListStock,url,urlForUser) => {
-   await setListStock((prevList) =>{
-      return prevList.filter((item) => item.stock !== stock.stock)
+
+  const deleteTicketInServer = async (stock, url, urlForUser) => {
+    const response = await dispatch(
+      handleTickets(`${urlForUser}&stock.stock=${stock.stock}`)
+    );
+    const id =
+      (await response.payload.length) > 0 ? response.payload[0].id : null;
+    await dispatch(delTickets(`${url}/${id}`));
+    getAllTicketsByUser();
+  };
+
+  const addFunction = (stock, setStockAdd, target) => {
+    let disabled = target.getAttribute("disabled");
+    if (disabled) {
+      disabled = false;
+      return;
+    }
+    setStockAdd((prevStockAdded) =>
+      Array.from(new Set([...prevStockAdded, stock]))
+    );
+    setItemAdded(true);
+    target.setAttribute("disabled", true);
+  };
+
+  const removeFunction = async (stock, setListStock, url, urlForUser) => {
+    await setListStock((prevList) => {
+      return prevList.filter((item) => item.stock !== stock.stock);
     });
-     await deleteTicketInServer(stock,url,urlForUser)
+    await deleteTicketInServer(stock, url, urlForUser);
   };
-  
 
   const sendTicketFromServer = async (url, arrayStock) => {
     if (arrayStock.length > 0) {
@@ -95,24 +91,21 @@ export const ContextTicketsDataProvider = ({ children }) => {
           dataRequest.stock = stock;
         })
       );
-        
+
       await dispatch(sendTicketUserSlice(dataRequest));
     }
   };
 
-
   useEffect(() => {
-    getTicketApi(urlHome)
-    getAllTicketsByUser()
-  },[idUser]);
-
-  
+    getTicketApi(urlHome);
+    getAllTicketsByUser();
+  }, [idUser]);
 
   useEffect(() => {
     const updatePortfolio = async () => {
-      if(itemAdded){
+      if (itemAdded) {
         await sendTicketFromServer(urlPortfolio, bag);
-        setItemAdded(false)
+        setItemAdded(false);
       }
       await getTicketByUser(urlBagUser, setBagByUser);
     };
@@ -121,52 +114,35 @@ export const ContextTicketsDataProvider = ({ children }) => {
 
   useEffect(() => {
     const updateSaves = async () => {
-      if(itemAdded){
+      if (itemAdded) {
         await sendTicketFromServer(urlSaves, saves);
-        setItemAdded(false)
+        setItemAdded(false);
       }
       await getTicketByUser(urlSaveUser, setSavedByUser);
     };
     updateSaves();
   }, [saves]);
 
-  useEffect(() => {
-    const updateFavorites = async () => {
-      if(itemAdded){
-        await sendTicketFromServer(urlFavorite, favorites);
-        setItemAdded(false)
-      }
-      await getTicketByUser(urlFavoriteUser, setFavoritesByUser);
-    };
-    updateFavorites();
-  }, [favorites]);
-
-
   const methods = {
     addFunction,
     removeFunction,
     getTicketByUser,
-
   };
 
   const setLists = {
     setBag,
     setSaves,
-    setFavorites,
     setBagByUser,
     setSavedByUser,
-    setFavoritesByUser,
-   };
+  };
 
   const states = {
     bag,
     saves,
-    favorites,
     bagByUser,
     savedByUser,
-    favoritesByUser,
     ticketsHome,
-   };
+  };
 
   const TicketsUserValue = {
     methods,
