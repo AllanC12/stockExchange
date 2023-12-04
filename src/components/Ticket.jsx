@@ -4,54 +4,40 @@ import { ContextTicketUser } from "../context/ContextTickets";
 
 import { useState, useEffect } from "react";
 
-import {
-  FaPlus,
-  FaStar,
-  FaRegStar,
-  FaRegBookmark,
-  FaBookmark,
-  FaCheck,
-} from "react-icons/fa";
+import { FaPlus, FaRegBookmark, FaBookmark, FaCheck } from "react-icons/fa";
 
 const Ticket = ({ stock }) => {
   const { methods, states, setLists } = ContextTicketUser();
   const { addFunction, removeFunction } = methods;
   const { bagByUser, savedByUser, favoritesByUser } = states;
-  const { setBag, setSaves, setFavorites } = setLists;
+  const { setBag, setSaves } = setLists;
 
-  const [idUser] = useState(JSON.parse(localStorage.getItem('idUser')))
+  const [idUser] = useState(JSON.parse(localStorage.getItem("idUser")));
 
   const [confirmBag, setConfirmBag] = useState(false);
   const [confirmSaves, setConfirmSave] = useState(false);
-  const [confirmFavorite, setConfirmFavorite] = useState(false);
 
-  const urlPortfolio = "https://diligent-incredible-break.glitch.me/tickets_portfolio";
-  const urlSaves = "https://diligent-incredible-break.glitch.me/tickets_saves"
-  const urlFavorite = "https://diligent-incredible-break.glitch.me/tickets_favorites";
+  const urlPortfolio =
+    "https://diligent-incredible-break.glitch.me/tickets_portfolio";
+  const urlSaves = "https://diligent-incredible-break.glitch.me/tickets_saves";
   const urlBagUser = `${urlPortfolio}?idUser=${idUser}`;
   const urlSaveUser = `${urlSaves}?idUser=${idUser}`;
-  const urlFavoriteUser = `${urlFavorite}?idUser=${idUser}`;
-
 
   const verifyTicketForUser = (stock, ticketsForUser, setConfirmTicket) => {
-
-    if(ticketsForUser.length === 0){
-      setConfirmTicket(false)
-      return
+    if (ticketsForUser.length === 0) {
+      setConfirmTicket(false);
+      return;
     }
 
     for (let i = 0; i < ticketsForUser.length; i++) {
       if (ticketsForUser[i].stock.stock === stock.stock) {
         setConfirmTicket(true);
-        break
+        break;
       } else {
         setConfirmTicket(false);
-        
       }
     }
-    
   };
-
 
   useEffect(() => {
     verifyTicketForUser(stock, bagByUser, setConfirmBag);
@@ -60,11 +46,6 @@ const Ticket = ({ stock }) => {
   useEffect(() => {
     verifyTicketForUser(stock, savedByUser, setConfirmSave);
   }, [savedByUser]);
-
-  useEffect(() => {
-    verifyTicketForUser(stock, favoritesByUser, setConfirmFavorite);
-  },[favoritesByUser]);
-
 
   return (
     <div className="ticket">
@@ -81,46 +62,41 @@ const Ticket = ({ stock }) => {
 
       <div className="footer-ticket">
         {confirmBag ? (
-          <FaCheck
-            onClick={() => 
+          <div
+            className="ticket-icon"
+            onClick={() =>
               removeFunction(stock, setBag, urlPortfolio, urlBagUser)
             }
-            title="Remover investimento"
-          />
+          >
+            <FaCheck title="Remover investimento" />
+          </div>
         ) : (
-          <FaPlus
-            onClick={(e) => addFunction(stock, setBag,e.target)}
-            title="Adicionar na carteira"
-          />
+          <div
+            className="ticket-icon"
+            onClick={(e) => addFunction(stock, setBag, e.target.childNodes[0])}
+          >
+            <FaPlus title="Adicionar na carteira" />
+          </div>
         )}
 
         {confirmSaves ? (
-          <FaBookmark
-            onClick={() => 
+          <div
+            className="ticket-icon"
+            onClick={() =>
               removeFunction(stock, setSaves, urlSaves, urlSaveUser)
             }
-            title="Remover investimento"
-          />
+          >
+            <FaBookmark title="Remover investimento" />
+          </div>
         ) : (
-          <FaRegBookmark
-            onClick={(e) => addFunction(stock, setSaves,e.target)}
-            title="Salvar investimento"
-          />
-        )}
-        
-
-        {confirmFavorite ? (
-          <FaStar
-            onClick={() =>
-              removeFunction(stock, setFavorites, urlFavorite, urlFavoriteUser)
+          <div
+            className="ticket-icon"
+            onClick={(e) =>
+              addFunction(stock, setSaves, e.target.childNodes[0])
             }
-            title="Remover investimento"
-          />
-        ) : (
-          <FaRegStar
-            onClick={(e) => addFunction(stock, setFavorites,e.target)}
-            title="Favoritar investimento"
-          />
+          >
+            <FaRegBookmark title="Salvar investimento" />
+          </div>
         )}
       </div>
     </div>

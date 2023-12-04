@@ -1,6 +1,6 @@
 import "./sass_components/Aside.scss";
 
-import { FaWallet, FaSearch, FaPowerOff, FaHome, FaStar } from "react-icons/fa";
+import { FaBookmark, FaCheck, FaPowerOff, FaHome} from "react-icons/fa";
 
 import { NavLink } from "react-router-dom";
 
@@ -13,23 +13,18 @@ const Aside = () => {
   return (
     <aside>
       <div className="container_link">
-        <NavLink to="/home_broker">
+        <NavLink to="/home_broker" title="Início" >
           <FaHome /> 
         </NavLink>
       </div>
       <div className="container_link">
-        <NavLink to="/portfolio">
-          <FaWallet /> <br />  
+        <NavLink to="/portfolio" title="Minha carteira">
+          <FaCheck /> <br />  
         </NavLink>
       </div>
       <div className="container_link">
-        <NavLink to="/saves">
-          <FaSearch /> <br /> 
-        </NavLink>
-      </div>
-      <div className="container_link">
-        <NavLink to="/favorites">
-          <FaStar /> <br />  
+        <NavLink to="/saves" title="Tickets salvos" >
+          <FaBookmark /> <br /> 
         </NavLink>
       </div>
       <div className="container_link logout">

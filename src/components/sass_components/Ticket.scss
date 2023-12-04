@@ -51,10 +51,22 @@
         cursor: pointer;
         font-size: 1.2em;
       }
+
+      .ticket-icon{
+        padding: 6px;
+        border-radius: 3px;
+        @include define_flex(center,center);
+        transition: .2s;
+        cursor: pointer;
+      }
     }
 
 }
 
 .ticket:hover{
   scale: 1.02;
+}
+
+.ticket-icon:hover{
+  background-color: rgb(66, 80, 136);
 }
