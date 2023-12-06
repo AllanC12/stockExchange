@@ -28,7 +28,7 @@ const Aside = () => {
         </NavLink>
       </div>
       <div className="container_link logout">
-        <NavLink onClick={logout} to="/">
+        <NavLink title="Desconectar" onClick={logout} to="/">
           <FaPowerOff /> <br />  
         </NavLink>
       </div>

@@ -73,7 +73,7 @@ const Ticket = ({ stock }) => {
         ) : (
           <div
             className="ticket-icon"
-            onClick={(e) => addFunction(stock, setBag, e.target.childNodes[0])}
+            onClick={(e) => addFunction(stock, setBag, e.target)}
           >
             <FaPlus title="Adicionar na carteira" />
           </div>
@@ -92,7 +92,7 @@ const Ticket = ({ stock }) => {
           <div
             className="ticket-icon"
             onClick={(e) =>
-              addFunction(stock, setSaves, e.target.childNodes[0])
+              addFunction(stock, setSaves, e.target)
             }
           >
             <FaRegBookmark title="Salvar investimento" />

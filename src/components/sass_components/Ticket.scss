@@ -3,7 +3,7 @@
 .ticket{
     border: 1px solid #fff;
     border-radius: 8px;
-    background-color: rgba(24, 22, 41, 0.9);
+    background-color: rgba(0, 0, 0, 0.7);
     width: 100%;
     min-height: 38vh;
     max-width: 240px;
@@ -40,12 +40,11 @@
       @include define_flex(center,center);
       width: 100%;
       text-align: center;
-      margin-top: 2vw;
       color: #fff;
       gap: 3vw;
       font-size: 25px;
       position: absolute;
-      bottom: 3vh;
+      bottom: 2px;
 
       svg{
         cursor: pointer;
@@ -65,8 +64,9 @@
 
 .ticket:hover{
   scale: 1.02;
+  background-color: rgba(0, 0, 0, 1);
 }
 
 .ticket-icon:hover{
-  background-color: rgb(66, 80, 136);
+  background-color: rgb(26, 25, 25);
 }
