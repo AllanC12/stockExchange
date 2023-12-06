@@ -4,7 +4,7 @@ aside{
     width: 100%;
     max-width: 70px;
     min-height: 90vh;
-    background-color: rgba(24, 22, 41, 0.9);
+    background-color: rgba(0, 0, 0, 0.7);
     padding: 35px 0;
     z-index: 1;
     
@@ -13,25 +13,14 @@ aside{
       margin-bottom: 30px;
       
       a{
+        padding: 4px;
+        width: 80%;
+        margin: 0 auto;
         text-decoration: none;
         color: #fff;
         position: relative;
-        
-        
-        // span{
-        //   opacity: 0;
-        //   left: 0.5vw;
-        //   background-color: rgba(24, 22, 41, 0.9);
-        //   padding: 6px 10px;
-        //   position: absolute;
-        //   border-radius: 4px;
-        //   transition: 1s;
-        // }
-        
-        // span:hover{
-        //   opacity: 1;
-        //   right: -4.7vw;
-        // }
+        display: block;
+        transition: .5s;    
 
         svg{
           position: relative;
@@ -41,11 +30,15 @@ aside{
     }
 
      .logout{
-      position: absolute;
-      cursor: pointer;
-      bottom: 1vh;
-      left: 1.7vw;
-    }
+        cursor: pointer;
+        position: relative;
+        top: 45vh;
+      }
 
 }
+
+a:hover{
+  background-color: rgb(0,0,0);
+}
+
 

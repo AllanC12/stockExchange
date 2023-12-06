@@ -10,31 +10,30 @@
 }
 
 ::-webkit-scrollbar-track {
-  background-color: rgb(24, 22, 41);
-  border-radius: 5px;
-}
+  background-color: rgba(0,0,0,1);
+ }
 
 ::-webkit-scrollbar-thumb {
   background-color: #fff;
   border-radius: 2px;
 }
 
-html,
 body {
-  height: 100%;
-  background-image: url("https://www.modalmais.com.br/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2022/03/bull_market_mercado_touro.jpg.webp");
-  background-size: contain;
+  padding-top: 60px;
+  background-image: url("../src/assets/bgstock.png");
+  background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 .message {
   cursor: pointer;
   width: 100%;
   max-width: 300px;
-  padding: 10px 15px;
+  padding: 8px 15px;
   background-color: #fff;
   color: #000;
-  margin: 10px auto;
+  margin: 8px auto;
   border: 1px solid #ccc;
   text-align: center;
   border-radius: 10px;
@@ -44,14 +43,6 @@ body {
 .message:hover {
   background-color: #b8b3b3;
   color: #000;
-}
-
-body {
-  min-height: 510px;
-  width: 100%;
-  background-image: url("https://www.modalmais.com.br/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2022/03/bull_market_mercado_touro.jpg.webp");
-  background-size: 100% 100%;
-  background-position: center;
 }
 
 .active {

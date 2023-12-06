@@ -3,7 +3,7 @@
 .ticket{
     border: 1px solid #fff;
     border-radius: 8px;
-    background-color: rgba(24, 22, 41, 0.9);
+    background-color: rgba(0, 0, 0, 0.7);
     width: 100%;
     min-height: 38vh;
     max-width: 240px;
@@ -65,6 +65,7 @@
 
 .ticket:hover{
   scale: 1.02;
+  background-color: rgba(0, 0, 0, 1);
 }
 
 .ticket-icon:hover{

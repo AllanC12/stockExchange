@@ -23,7 +23,6 @@ function App() {
 
           <Header />
             <Outlet />
-          <Footer />
           <BrowserRouter basename="/stockExchange">
             <Routes>
               <Route path="/" element={<FormLogin />} />
@@ -33,6 +32,7 @@ function App() {
               <Route path="/saves" element={userLogged ? <TicketsSaves/> : <FormLogin/>}/>
             </Routes>
           </BrowserRouter>
+          <Footer />
 
     </div>
   );

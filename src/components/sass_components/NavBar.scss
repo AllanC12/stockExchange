@@ -2,8 +2,12 @@
 
 header{
   padding: 10px 1%;
-  background-color: #363f72;
+  background-color: rgb(0,0,0);
   @include define_flex(flex-start,center);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 2;
 
   .title{
     position: relative;
