@@ -40,12 +40,11 @@
       @include define_flex(center,center);
       width: 100%;
       text-align: center;
-      margin-top: 2vw;
       color: #fff;
       gap: 3vw;
       font-size: 25px;
       position: absolute;
-      bottom: 3vh;
+      bottom: 2px;
 
       svg{
         cursor: pointer;
@@ -69,5 +68,5 @@
 }
 
 .ticket-icon:hover{
-  background-color: rgb(66, 80, 136);
+  background-color: rgb(26, 25, 25);
 }

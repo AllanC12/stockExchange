@@ -69,7 +69,6 @@ export const ContextTicketsDataProvider = ({ children }) => {
       disabled = false;
       return;
     }
-    console.log(target)
     setStockAdd((prevStockAdded) =>
       Array.from(new Set([...prevStockAdded, stock]))
     );
