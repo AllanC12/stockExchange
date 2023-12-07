@@ -1,16 +1,12 @@
 import "./sass_components/NavBar.scss";
 
-import logo from "../assets/logo.png";
-
+import { Link} from "react-router-dom";
 
 const NavBar = () => {
 
   return (
     <header>
-      <div className="logo">
-        <img src={logo} alt="logotipo" />
-      </div>
-      <h2 className="title">StockExchange</h2>
+      <Link to="/home_broker"className="title">StockExchange</Link>
     </header>
   );
 };
