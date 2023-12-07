@@ -4,7 +4,10 @@ aside{
     width: 100%;
     max-width: 70px;
     min-height: 90vh;
+    // background-color: red;
     background-color: rgba(0, 0, 0, 0.6);
+    position: relative;
+    top: -18px;
     padding: 35px 0;
     z-index: 1;
     
@@ -31,8 +34,9 @@ aside{
 
      .logout{
         cursor: pointer;
-        position: relative;
-        top: 45vh;
+        position: absolute;
+        bottom: 20px;
+        left: 1.5vw;
       }
 
 }
