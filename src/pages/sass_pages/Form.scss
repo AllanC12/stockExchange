@@ -14,7 +14,7 @@
   }
 
   .form-register, .form-login {
-    input [type="text"]{
+    input{
       width: 100%;
       max-width: 220px;
       display: block;
@@ -34,6 +34,7 @@
       height: 30px;
       cursor: pointer;
       transition: 0.5s;
+      color: #fff;
     }
 
     a{
