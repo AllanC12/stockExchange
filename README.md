@@ -2,9 +2,9 @@
 
  * Este projeto tem como finalidade te ajudar a gerenciar os investimentos que você ja possui em carteira, aqueles que você deseja salvar para uma análise posterior e aqueles que são considerados os seus favoritos.
 
- ## Como executá-lo? 
+ ## Como acessá-lo? 
 
- * Primeiramente clone o repositório para sua máquina. Certifique-se de ter instalado o Node.Feito isso, rode os comandos "npm run dev" e "npm run server" para rodar o projeto e o servidor onde as informações ficam armazenadas.
+ Basta clicar neste link <a href="https://allanc12.github.io/stockExchange/">aqui</a>
 
  ## Conceitos e techs utilizadas.
 
