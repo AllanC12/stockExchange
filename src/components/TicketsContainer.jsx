@@ -25,18 +25,13 @@ const TicketsContainer = () => {
         {ticketsHome ? (
           ticketsHome.payload.stocks
             .slice(0, countArray)
-            .map((stock, index) => (
-              <>
-                <Ticket key={index} stock={stock} />
-                
-                <div className="view-more">
-                  <button onClick={showMoreTickets}>Exibir mais</button>
-                </div>
-              </>
-            ))
+            .map((stock, index) => <Ticket key={index} stock={stock} />)
         ) : (
           <p className="load-ticket">Carregando...</p>
         )}
+      </div>
+      <div className="view-more">
+        <button onClick={showMoreTickets}>Exibir mais</button>
       </div>
     </div>
   );

@@ -2,9 +2,9 @@
 
  * Este projeto tem como finalidade te ajudar a gerenciar os investimentos que você ja possui em carteira, aqueles que você deseja salvar para uma análise posterior e aqueles que são considerados os seus favoritos.
 
- ## Como executá-lo? 
+ ## Como acessá-lo? 
 
- * Primeiramente clone o repositório para sua máquina. Certifique-se de ter instalado o Node.Feito isso, rode os comandos "npm run dev" e "npm run server" para rodar o projeto e o servidor onde as informações ficam armazenadas.
+ Basta clicar neste link <a href="https://allanc12.github.io/stockExchange/">aqui</a>
 
  ## Conceitos e techs utilizadas.
 
@@ -20,10 +20,9 @@
  * Rotas privadas
 
  <div allign="center">
-    <img src="https://github.com/AllanC12/stockExchange/assets/112294367/5d55b670-1490-4307-84cc-ca4120a07ac8" alt="login"/>
-    <img src="https://github.com/AllanC12/stockExchange/assets/112294367/e67c25fb-414e-4fbb-baee-3c6874d5d7b0" alt="cadastro"/>
-    <img src="https://github.com/AllanC12/stockExchange/assets/112294367/13a9805e-857e-43bc-9095-91c235e21dfa" alt="Inicio"/>
-    <img src="https://github.com/AllanC12/stockExchange/assets/112294367/f4e0093e-5df9-40b9-90cb-10cff528cc9d" alt="portfolio"/>
-    <img src="https://github.com/AllanC12/stockExchange/assets/112294367/16fafc1e-dece-457d-94bf-1154d1b77c3d" alt="Salvos"/>
-    <img src="https://github.com/AllanC12/stockExchange/assets/112294367/d106b747-0067-4f5c-bc2b-d42c0e6a5a7e" alt="Favoritos"/>
+    <img src="https://github.com/AllanC12/stockExchange/assets/112294367/c0d6b3ed-be35-405f-93fc-42231793fd22" alt="login"/>
+    <img src="https://github.com/AllanC12/stockExchange/assets/112294367/4f2d24ea-a3d5-45f5-a19b-51515d29fb11" alt="cadastro"/>
+    <img src="https://github.com/AllanC12/stockExchange/assets/112294367/2edc6831-db18-44d3-9af3-f7b258fc32e9" alt="Inicio"/>
+    <img src="https://github.com/AllanC12/stockExchange/assets/112294367/1a1858c9-81cd-4cea-ae20-b5ea012489c7" alt="Salvos"/>
+    <img src="https://github.com/AllanC12/stockExchange/assets/112294367/c188024c-485d-4922-835a-57179546185b" alt="Favoritos"/>
  </div>
