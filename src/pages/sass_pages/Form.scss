@@ -6,7 +6,12 @@
   background-color: rgba(0, 0, 0, 0.8);
   padding: 40px 1%;
   border-radius: 10px;
-  margin: 7% auto;
+  margin: 4% auto;
+
+  .form-login{
+    margin: 7% auto;
+
+  }
 
   .form-register, .form-login {
     input {
@@ -18,7 +23,7 @@
       padding-left: 5px;
       outline: 0;
       border: none;
-      color: white;
+      color: #000;
       transition: 0.5s;
       border-radius: 5px;
     }
