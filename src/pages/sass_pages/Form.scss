@@ -14,7 +14,7 @@
   }
 
   .form-register, .form-login {
-    input {
+    input [type="text"]{
       width: 100%;
       max-width: 220px;
       display: block;
