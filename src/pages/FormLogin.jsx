@@ -31,15 +31,15 @@ const FormLogin = () => {
 
     const respRegister = await getUserRegister(dataUser);
     const { name } = respRegister.length > 0 ? respRegister[0] : "";
-    const { id } = respRegister.length > 0 ? respRegister[0] : 0;
-    const authorizedLogin = await makeLogin(dataUser, setMessage, name);
-
+    const { id } = respRegister.length > 0 ? respRegister[0] : false;
 
     if (!id) {
       setMessage("Usuário sem cadastro");
       return;
     }
 
+    const authorizedLogin = await makeLogin(dataUser, setMessage, name);
+    
     handleDatUser(id);
 
     if(authorizedLogin){
