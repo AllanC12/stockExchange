@@ -12,7 +12,7 @@ import "./sass_pages/Form.scss";
 const FormRegister = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch();
-  const urlServer = "https://diligent-incredible-break.glitch.me/clients";
+  const urlServer = "https://stockexchange.glitch.me/clients";
   const [message, setMessage] = useState("");
 
   const [name, setName] = useState("");
