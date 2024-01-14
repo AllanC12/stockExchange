@@ -1,6 +1,6 @@
 export const getUserRegister = async (dataUser) => {
   const emailUser = dataUser.email;
-  const urlEmail = `https://diligent-incredible-break.glitch.me/clients?email=${emailUser}`;
+  const urlEmail = `https://stockexchange.glitch.me/clients?email=${emailUser}`;
   const resp = await fetch(urlEmail).then((resp) => resp.json());
   return resp;
 };

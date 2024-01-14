@@ -17,9 +17,8 @@ const Ticket = ({ stock }) => {
   const [confirmBag, setConfirmBag] = useState(false);
   const [confirmSaves, setConfirmSave] = useState(false);
 
-  const urlPortfolio =
-    "https://diligent-incredible-break.glitch.me/tickets_portfolio";
-  const urlSaves = "https://diligent-incredible-break.glitch.me/tickets_saves";
+  const urlPortfolio ="https://stockexchange.glitch.me/tickets_portfolio";
+  const urlSaves = "https://stockexchange.glitch.me/tickets_saves";
   const urlBagUser = `${urlPortfolio}?idUser=${idUser}`;
   const urlSaveUser = `${urlSaves}?idUser=${idUser}`;
 
