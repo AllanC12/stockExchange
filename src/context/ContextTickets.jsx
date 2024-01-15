@@ -33,6 +33,8 @@ export const ContextTicketsDataProvider = ({ children }) => {
   const urlBagUser = `${urlPortfolio}?idUser=${idUser}`;
   const urlSaveUser = `${urlSaves}?idUser=${idUser}`;
 
+  console.log(idUser)
+
   const dataRequest = {
     url: "",
     stock: null,

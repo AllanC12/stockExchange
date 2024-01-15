@@ -9,7 +9,7 @@ import { FaPlus, FaRegBookmark, FaBookmark, FaCheck } from "react-icons/fa";
 const Ticket = ({ stock }) => {
   const { methods, states, setLists } = ContextTicketUser();
   const { addFunction, removeFunction } = methods;
-  const { bagByUser, savedByUser, favoritesByUser } = states;
+  const { bagByUser, savedByUser } = states;
   const { setBag, setSaves } = setLists;
 
   const [idUser] = useState(JSON.parse(localStorage.getItem("idUser")));

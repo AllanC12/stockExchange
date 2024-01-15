@@ -5,7 +5,6 @@
     border-radius: 8px;
     background-color: rgba(0, 0, 0, 0.7);
     width: 100%;
-    min-height: 38vh;
     max-width: 240px;
     transition: .5s;
     cursor: pointer;
@@ -27,12 +26,15 @@
     }
 
     .content-ticket{
-      margin-top: 20px;
-      padding: 10px;
+      padding: 0 35px;
       color: #fff;
 
       h4{
-        margin-bottom: 5px;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #fff;
+        transition: .5s;
+        padding: 5px;
+        border-radius: 2px;
       }
     }
 
@@ -43,8 +45,7 @@
       color: #fff;
       gap: 3vw;
       font-size: 25px;
-      position: absolute;
-      bottom: 2px;
+
 
       svg{
         cursor: pointer;
@@ -69,4 +70,9 @@
 
 .ticket-icon:hover{
   background-color: rgb(26, 25, 25);
+}
+
+.content-ticket h4:hover{
+  color: #000;
+  background-color: #fff;
 }
