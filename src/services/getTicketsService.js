@@ -21,7 +21,7 @@ const sendDataFromServer = async (url, data) => {
     await fetch(url, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-type": "application/json",
       },
       body: JSON.stringify(data),
     });

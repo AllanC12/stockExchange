@@ -22,9 +22,9 @@ html,body{
   height: 100%;
 }
 
-body {
+.banner {
+  padding-top: 50px;
   min-height: 100vh;
-  padding-top: 60px;
   background-image: url("../src/assets/bgstock.png");
   background-size: cover;
   background-position: center;
@@ -52,4 +52,11 @@ body {
 
 .active {
   border-bottom: 1px solid #fff;
+}
+
+@media (max-width: 300px){
+  .banner{
+    width: 140vw;
+    min-height: 140vh;
+  }
 }

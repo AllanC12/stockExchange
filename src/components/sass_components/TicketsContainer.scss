@@ -6,15 +6,14 @@
 }
 
 .tickets_container {
+  @include define_flex(space-evenly, center);
   width: 100%;
   max-height: 79vh;
   padding: 10px;
   overflow-y: auto;
-  @include define_flex(space-evenly, center);
   flex-wrap: wrap;
   gap: 20px;
   text-align: center;
-
 
 }
 
@@ -29,8 +28,7 @@
 
 .view-more{
   @include define_flex(center, center);
-  position: absolute;
-  left: 0;
+  margin-top: 2vh;
   bottom: 18px;
   width: 100%;
 
@@ -53,3 +51,18 @@ button {
 button:hover{
   background-color: rgba(0,0,0,0.8);
 }
+
+@media (max-width: 300px){
+
+  .tickets_container{
+    max-height: 100vh;
+    overflow-y: auto;
+    
+  }
+
+  .view-more{
+    left: 25vw;
+    bottom: -10px;
+  }
+}
+

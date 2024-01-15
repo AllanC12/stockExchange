@@ -1,13 +1,26 @@
 @import "../../sass_mixins/mixin.scss";
 
 footer{
-    padding: 6px 2%;
+    padding: 10px 2%;
+    margin-top: 9vh;
     background-color: rgb(0,0,0);    
+    border-top: 1px solid rgb(102, 101, 101);
     text-align: center;
     color: #fff;
     font-size: 15px;
-    position: absolute;
-    bottom: 0;
+    // position: absolute;
+    // bottom: 0;
     width: 100%;
     z-index: 2;
+    display: none;
+
+    p{
+        margin-bottom: 5px;
+    }
+}
+
+@media (max-width: 300px){
+    footer{
+        display: block;
+    }
 }
